@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Orus.Presentacion
 {
-    public partial class MenuPrincipal : Form
+    public partial class Personal : UserControl
     {
-        public MenuPrincipal()
+        public Personal()
         {
             InitializeComponent();
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-            panel_Bienvenida.Dock = DockStyle.Fill;
         }
     }
 }
