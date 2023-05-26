@@ -47,7 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\ConexionMaestra.cs" />
+    <Compile Include="Datos\Dcargo.cs" />
     <Compile Include="Datos\Dpersonal.cs" />
+    <Compile Include="Logica\Lcargo.cs" />
     <Compile Include="Logica\Lpersonal.cs" />
     <Compile Include="Presentacion\MenuPrincipal.cs">
       <SubType>Form</SubType>
