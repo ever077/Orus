@@ -21,5 +21,13 @@ namespace Orus.Presentacion
         {
             panel_Bienvenida.Dock = DockStyle.Fill;
         }
+
+        private void btn_Personal_Click(object sender, EventArgs e)
+        {
+            panel_Padre.Controls.Clear();
+            Personal controlUsuario = new Personal();
+            controlUsuario.Dock = DockStyle.Fill;
+            panel_Padre.Controls.Add(controlUsuario);
+        }
     }
 }
