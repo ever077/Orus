@@ -29,6 +29,22 @@ namespace Orus.Logica
             listado.ColumnHeadersDefaultCellStyle = cabecera;
         }
 
+        public static void DisenoDgvEliminado(ref DataGridView Listado)
+        {
+            string estado;
+
+            foreach (DataGridViewRow row in Listado.Rows)
+            {
+                estado = row.Cells["Estado"].Value.ToString();
+                if (estado == "ELIMINADO")
+                {
+                    row.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Strikeout | FontStyle.Bold);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(255, 128, 128);
+                }
+            }
+            
+        }
+
         public static object ValidacionDecimales(TextBox txt, KeyPressEventArgs e)
         {
             // Para poder ignorar las comas y que funcione el metodo que sigue tuve que setear la CurrentCulture a "en-US".
