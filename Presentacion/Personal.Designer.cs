@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
@@ -83,6 +85,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Personal)).BeginInit();
@@ -177,6 +180,14 @@
             this.dataGridView_Personal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_Eliminar,
             this.Column_Editar});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Personal.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_Personal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Personal.Location = new System.Drawing.Point(0, 93);
             this.dataGridView_Personal.Name = "dataGridView_Personal";
@@ -599,6 +610,7 @@
             this.btn_GuardarCambiosPersonal.TabIndex = 1;
             this.btn_GuardarCambiosPersonal.Text = "Guardar*";
             this.btn_GuardarCambiosPersonal.UseVisualStyleBackColor = true;
+            this.btn_GuardarCambiosPersonal.Click += new System.EventHandler(this.btn_GuardarCambiosPersonal_Click);
             // 
             // btn_AgregarCargo
             // 
@@ -813,6 +825,11 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 125;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -899,5 +916,6 @@
         private System.Windows.Forms.DataGridViewImageColumn Column_Editar;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

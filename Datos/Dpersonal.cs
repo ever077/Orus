@@ -151,5 +151,34 @@ namespace Orus.Datos
                 ConexionMaestra.cerrar();
             }
         }
+
+        public bool RestaurarPersonal(Lpersonal parametros)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                cmd = new SqlCommand("restaurar_personal", ConexionMaestra.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_personal", parametros.Id_personal);
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Muestra el mensaje que figura en el procedimiento SQL
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
     }
 }

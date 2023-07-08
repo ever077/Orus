@@ -34,6 +34,7 @@ namespace Orus.Presentacion
         private void Personal_Load(object sender, EventArgs e)
         {
             MostrarPesronal();
+            LocalizarDgvCargos();
         }
 
         private void btn_Agregar_Click(object sender, EventArgs e)
@@ -45,7 +46,7 @@ namespace Orus.Presentacion
             btn_GuardarPersonal.Visible = true;
             btn_GuardarCambiosPersonal.Visible = false;
             LimpiarCampos();
-            LocalizarDgvCargos();
+            //LocalizarDgvCargos();
             MostrarCargos();
             //panel_AgregarCargo.SendToBack();
         }
@@ -123,6 +124,7 @@ namespace Orus.Presentacion
         private void DisenarDgvPersonal()
         {
             Configuraciones.DisenoDgv(ref dataGridView_Personal);
+            Configuraciones.DisenoDgvEliminado(ref dataGridView_Personal);
             dataGridView_Personal.Columns[_ColumnasFijasDgvPersonal + 0].Visible = false;
             dataGridView_Personal.Columns[_ColumnasFijasDgvPersonal + 5].Visible = false;
             panel_Paginado.Visible = true;
@@ -275,7 +277,7 @@ namespace Orus.Presentacion
         {
             if (e.ColumnIndex == dataGridView_Personal.Columns["Column_Eliminar"].Index)
             {
-                DialogResult result = MessageBox.Show("¿Solo se cambiara el estado para que no pueda acceder, Desea continuar?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("Solo se cambiara el estado para que no pueda acceder, ¿Desea continuar?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     EliminarPersonal();
@@ -319,7 +321,23 @@ namespace Orus.Presentacion
 
         private void RestaurarPersonal()
         {
-            
+            DialogResult result = MessageBox.Show("Este personal se encuentra ELIMINADO. ¿Desea volver a habilitarlo?", "Restauracion de registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                HabilitarPersonal();
+            }
+        }
+
+        private void HabilitarPersonal()
+        {
+            Lpersonal parametros = new Lpersonal();
+            Dpersonal funcion = new Dpersonal();
+
+            parametros.Id_personal = idPersonal;
+            if (funcion.RestaurarPersonal(parametros) == true)
+            {
+                MostrarPesronal();
+            }
         }
 
         private void EliminarPersonal()
@@ -333,6 +351,36 @@ namespace Orus.Presentacion
             if (funcion.EliminarPersonal(parametros) == true)
             {
                 MostrarPesronal();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DisenarDgvPersonal();
+            timer1.Stop();
+        }
+
+        private void btn_GuardarCambiosPersonal_Click(object sender, EventArgs e)
+        {
+            EditarPersonal();
+        }
+
+        private void EditarPersonal()
+        {
+            Lpersonal parametros = new Lpersonal();
+            Dpersonal funcion = new Dpersonal();
+
+            parametros.Id_personal = idPersonal;
+            parametros.Nombres = txt_Nombres.Text;
+            parametros.Identificacion = txt_Identificacion.Text;
+            parametros.Pais = comboBox_Pais.Text;
+            parametros.Id_cargo = idCargo;
+            parametros.SueldoPorHora = Convert.ToDouble(txt_SueldoPorHora.Text);
+
+            if (funcion.EditarPersonal(parametros) == true)
+            {
+                MostrarPesronal();
+                panel_AgregarRegistro.Visible = false;
             }
         }
     }
