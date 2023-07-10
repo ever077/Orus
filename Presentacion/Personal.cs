@@ -20,7 +20,7 @@ namespace Orus.Presentacion
         private static int _ColumnasFijasDgvPersonal = 2;
         private int desde = 1;
         private int hasta = 10;
-        private int contador;
+        private int contadorPersonal;
         private int idPersonal;
         private int itemsPorPagina = 10;
         private string estado;
@@ -33,6 +33,7 @@ namespace Orus.Presentacion
 
         private void Personal_Load(object sender, EventArgs e)
         {
+            ReiniciarPaginado();
             MostrarPesronal();
             LocalizarDgvCargos();
         }
@@ -45,6 +46,7 @@ namespace Orus.Presentacion
             panel_AgregarRegistro.Dock = DockStyle.Fill;
             btn_GuardarPersonal.Visible = true;
             btn_GuardarCambiosPersonal.Visible = false;
+            txt_Nombres.Focus();
             LimpiarCampos();
             //LocalizarDgvCargos();
             MostrarCargos();
@@ -88,6 +90,7 @@ namespace Orus.Presentacion
                 parametros.SueldoPorHora = Convert.ToDouble(txt_SueldoPorHora.Text);
                 if (funcion.InsertarPersonal(parametros) == true)
                 {
+                    ReiniciarPaginado();
                     MostrarPesronal();
                     panel_AgregarRegistro.Visible = false;
                 }
@@ -251,6 +254,7 @@ namespace Orus.Presentacion
         private void btn_Volver_AgregarRegistro_Click(object sender, EventArgs e)
         {
             panel_AgregarRegistro.Visible = false;
+            panel_Paginado.Visible = true;
         }
 
         private void btn_GuardarCambiosCargo_Click(object sender, EventArgs e)
@@ -382,6 +386,150 @@ namespace Orus.Presentacion
                 MostrarPesronal();
                 panel_AgregarRegistro.Visible = false;
             }
+        }
+
+        private void btn_PaginaSiguiente_Click(object sender, EventArgs e)
+        {
+            desde += 10;
+            hasta += 10;
+
+            MostrarPesronal();
+            ContarFilas();
+
+            if (contadorPersonal > hasta)
+            {
+                btn_PaginaSiguiente.Visible = true;
+                btn_PaginaAnterior.Visible = true;
+            }
+            else
+            {
+                btn_PaginaSiguiente.Visible = false;
+                btn_PaginaAnterior.Visible = true;
+            }
+
+            Paginar();
+        }
+
+        private void ContarFilas()
+        {
+            Dpersonal funcion = new Dpersonal();
+            funcion.ContarPersonal(ref contadorPersonal);
+        }
+
+        private void Paginar()
+        {
+            try
+            {
+                lbl_PaginaActual.Text = (hasta / itemsPorPagina).ToString();
+                lbl_TotalPaginas.Text = Math.Ceiling(Convert.ToSingle(contadorPersonal) / itemsPorPagina).ToString();
+                totalPaginas = Convert.ToInt32(lbl_TotalPaginas.Text);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void ReiniciarPaginado()
+        {
+            desde = 1;
+            hasta = 10;
+
+            ContarFilas();
+
+            if (contadorPersonal > hasta)
+            {
+                btn_PaginaSiguiente.Visible = true;
+                btn_PaginaAnterior.Visible = false;
+                btn_UltimaPagina.Visible = true;
+                btn_PrimeraPagina.Visible = true;
+            }
+            else
+            {
+                btn_PaginaSiguiente.Visible = false;
+                btn_PaginaAnterior.Visible = false;
+                btn_UltimaPagina.Visible = false;
+                btn_PrimeraPagina.Visible = false;
+            }
+
+            Paginar();
+        }
+
+        private void btn_PaginaAnterior_Click(object sender, EventArgs e)
+        {
+            desde -= 10;
+            hasta -= 10;
+
+            MostrarPesronal();
+            ContarFilas();
+
+            if (contadorPersonal > hasta)
+            {
+                btn_PaginaSiguiente.Visible = true;
+                btn_PaginaAnterior.Visible = true;
+            }
+            else
+            {
+                btn_PaginaSiguiente.Visible = false;
+                btn_PaginaAnterior.Visible = true;
+            }
+
+            if (desde == 1)
+            {
+                ReiniciarPaginado();
+            }
+
+            Paginar();
+        }
+
+        private void btn_UltimaPagina_Click(object sender, EventArgs e)
+        {
+            hasta = totalPaginas * itemsPorPagina;
+            desde = hasta - 9;
+
+            MostrarPesronal();
+            ContarFilas();
+
+            if (contadorPersonal > hasta)
+            {
+                btn_PaginaSiguiente.Visible = true;
+                btn_PaginaAnterior.Visible = true;
+            }
+            else
+            {
+                btn_PaginaSiguiente.Visible = false;
+                btn_PaginaAnterior.Visible = true;
+            }
+
+            Paginar();
+        }
+
+        private void btn_PrimeraPagina_Click(object sender, EventArgs e)
+        {
+            ReiniciarPaginado();
+            MostrarPesronal();
+        }
+
+        private void txt_Buscador_TextChanged(object sender, EventArgs e)
+        {
+            BuscarPersonal();
+        }
+
+        private void BuscarPersonal()
+        {
+            Dpersonal funcion = new Dpersonal();
+            DataTable dt = new DataTable();
+
+            funcion.BuscarPersonal(ref dt, desde, hasta, txt_Buscador.Text);
+            dataGridView_Personal.DataSource = dt;
+            DisenarDgvPersonal();
+        }
+
+        private void btn_MostrarTodos_Click(object sender, EventArgs e)
+        {
+            ReiniciarPaginado();
+            MostrarPesronal();
+            txt_Buscador.Clear();
         }
     }
 }

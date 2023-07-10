@@ -180,5 +180,23 @@ namespace Orus.Datos
                 ConexionMaestra.cerrar();
             }
         }
+
+        public void ContarPersonal(ref int contador)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                SqlCommand cmd = new SqlCommand("SELECT Count(Id_personal) FROM Personal", ConexionMaestra.conectar);
+                contador = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                contador = 0;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
     }
 }

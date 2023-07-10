@@ -31,24 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_MostrarTodos = new System.Windows.Forms.Button();
             this.btn_Agregar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_Buscador = new System.Windows.Forms.TextBox();
             this.dataGridView_Personal = new System.Windows.Forms.DataGridView();
             this.Column_Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column_Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel_Paginado = new System.Windows.Forms.Panel();
             this.btn_UltimaPagina = new System.Windows.Forms.Button();
             this.btn_PrimeraPagina = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_TotalPaginas = new System.Windows.Forms.Label();
+            this.lbl_PaginaActual = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btn_PaginaSiguiente = new System.Windows.Forms.Button();
             this.btn_PaginaAnterior = new System.Windows.Forms.Button();
+            this.btn_PaginaSiguiente = new System.Windows.Forms.Button();
             this.panel_AgregarRegistro = new System.Windows.Forms.Panel();
             this.panel_AgregarCargo = new System.Windows.Forms.Panel();
             this.btn_Volver_AgregarCargo = new System.Windows.Forms.Button();
@@ -86,44 +85,49 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Personal)).BeginInit();
             this.panel_Paginado.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
             this.panel_AgregarRegistro.SuspendLayout();
             this.panel_AgregarCargo.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cargos)).BeginInit();
             this.flowLayoutPanel_GuardarPersonal.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.btn_Agregar);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.btn_MostrarTodos);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txt_Buscador);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1129, 93);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // btn_MostrarTodos
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(510, 30);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(178, 48);
-            this.button4.TabIndex = 17;
-            this.button4.Text = "Mostrar todos";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_MostrarTodos.FlatAppearance.BorderSize = 0;
+            this.btn_MostrarTodos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_MostrarTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_MostrarTodos.ForeColor = System.Drawing.Color.White;
+            this.btn_MostrarTodos.Location = new System.Drawing.Point(510, 30);
+            this.btn_MostrarTodos.Name = "btn_MostrarTodos";
+            this.btn_MostrarTodos.Size = new System.Drawing.Size(178, 48);
+            this.btn_MostrarTodos.TabIndex = 17;
+            this.btn_MostrarTodos.Text = "Mostrar todos";
+            this.btn_MostrarTodos.UseVisualStyleBackColor = true;
+            this.btn_MostrarTodos.Click += new System.EventHandler(this.btn_MostrarTodos_Click);
             // 
             // btn_Agregar
             // 
@@ -133,9 +137,9 @@
             this.btn_Agregar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_Agregar.FlatAppearance.BorderSize = 0;
             this.btn_Agregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Agregar.Location = new System.Drawing.Point(1028, 0);
+            this.btn_Agregar.Location = new System.Drawing.Point(12, 13);
             this.btn_Agregar.Name = "btn_Agregar";
-            this.btn_Agregar.Size = new System.Drawing.Size(101, 93);
+            this.btn_Agregar.Size = new System.Drawing.Size(101, 70);
             this.btn_Agregar.TabIndex = 3;
             this.btn_Agregar.UseVisualStyleBackColor = false;
             this.btn_Agregar.Click += new System.EventHandler(this.btn_Agregar_Click);
@@ -158,16 +162,17 @@
             this.panel3.Size = new System.Drawing.Size(373, 3);
             this.panel3.TabIndex = 1;
             // 
-            // textBox1
+            // txt_Buscador
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(54, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(373, 34);
-            this.textBox1.TabIndex = 0;
+            this.txt_Buscador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            this.txt_Buscador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Buscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Buscador.ForeColor = System.Drawing.Color.White;
+            this.txt_Buscador.Location = new System.Drawing.Point(54, 33);
+            this.txt_Buscador.Name = "txt_Buscador";
+            this.txt_Buscador.Size = new System.Drawing.Size(373, 34);
+            this.txt_Buscador.TabIndex = 0;
+            this.txt_Buscador.TextChanged += new System.EventHandler(this.txt_Buscador_TextChanged);
             // 
             // dataGridView_Personal
             // 
@@ -227,13 +232,14 @@
             // panel_Paginado
             // 
             this.panel_Paginado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panel_Paginado.Controls.Add(this.btn_PaginaAnterior);
             this.panel_Paginado.Controls.Add(this.btn_UltimaPagina);
+            this.panel_Paginado.Controls.Add(this.btn_PaginaSiguiente);
             this.panel_Paginado.Controls.Add(this.btn_PrimeraPagina);
-            this.panel_Paginado.Controls.Add(this.label9);
-            this.panel_Paginado.Controls.Add(this.label8);
+            this.panel_Paginado.Controls.Add(this.lbl_TotalPaginas);
+            this.panel_Paginado.Controls.Add(this.lbl_PaginaActual);
             this.panel_Paginado.Controls.Add(this.label7);
             this.panel_Paginado.Controls.Add(this.label6);
-            this.panel_Paginado.Controls.Add(this.flowLayoutPanel2);
             this.panel_Paginado.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_Paginado.Location = new System.Drawing.Point(0, 611);
             this.panel_Paginado.Name = "panel_Paginado";
@@ -253,6 +259,7 @@
             this.btn_UltimaPagina.Text = "Ultima Pagina";
             this.btn_UltimaPagina.UseVisualStyleBackColor = false;
             this.btn_UltimaPagina.Visible = false;
+            this.btn_UltimaPagina.Click += new System.EventHandler(this.btn_UltimaPagina_Click);
             // 
             // btn_PrimeraPagina
             // 
@@ -267,28 +274,29 @@
             this.btn_PrimeraPagina.Text = "Primera Pagina";
             this.btn_PrimeraPagina.UseVisualStyleBackColor = false;
             this.btn_PrimeraPagina.Visible = false;
+            this.btn_PrimeraPagina.Click += new System.EventHandler(this.btn_PrimeraPagina_Click);
             // 
-            // label9
+            // lbl_TotalPaginas
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(607, 29);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 25);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "0";
+            this.lbl_TotalPaginas.AutoSize = true;
+            this.lbl_TotalPaginas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_TotalPaginas.ForeColor = System.Drawing.Color.White;
+            this.lbl_TotalPaginas.Location = new System.Drawing.Point(607, 29);
+            this.lbl_TotalPaginas.Name = "lbl_TotalPaginas";
+            this.lbl_TotalPaginas.Size = new System.Drawing.Size(24, 25);
+            this.lbl_TotalPaginas.TabIndex = 4;
+            this.lbl_TotalPaginas.Text = "0";
             // 
-            // label8
+            // lbl_PaginaActual
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(508, 29);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(24, 25);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "0";
+            this.lbl_PaginaActual.AutoSize = true;
+            this.lbl_PaginaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_PaginaActual.ForeColor = System.Drawing.Color.White;
+            this.lbl_PaginaActual.Location = new System.Drawing.Point(508, 29);
+            this.lbl_PaginaActual.Name = "lbl_PaginaActual";
+            this.lbl_PaginaActual.Size = new System.Drawing.Size(24, 25);
+            this.lbl_PaginaActual.TabIndex = 3;
+            this.lbl_PaginaActual.Text = "0";
             // 
             // label7
             // 
@@ -312,16 +320,20 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Pagina";
             // 
-            // flowLayoutPanel2
+            // btn_PaginaAnterior
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btn_PaginaSiguiente);
-            this.flowLayoutPanel2.Controls.Add(this.btn_PaginaAnterior);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(400, 82);
-            this.flowLayoutPanel2.TabIndex = 0;
-            this.flowLayoutPanel2.WrapContents = false;
+            this.btn_PaginaAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(224)))), ((int)(((byte)(87)))));
+            this.btn_PaginaAnterior.FlatAppearance.BorderSize = 0;
+            this.btn_PaginaAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PaginaAnterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PaginaAnterior.Location = new System.Drawing.Point(3, 3);
+            this.btn_PaginaAnterior.Name = "btn_PaginaAnterior";
+            this.btn_PaginaAnterior.Size = new System.Drawing.Size(187, 76);
+            this.btn_PaginaAnterior.TabIndex = 0;
+            this.btn_PaginaAnterior.Text = "Pagina anterior";
+            this.btn_PaginaAnterior.UseVisualStyleBackColor = false;
+            this.btn_PaginaAnterior.Visible = false;
+            this.btn_PaginaAnterior.Click += new System.EventHandler(this.btn_PaginaAnterior_Click);
             // 
             // btn_PaginaSiguiente
             // 
@@ -329,27 +341,14 @@
             this.btn_PaginaSiguiente.FlatAppearance.BorderSize = 0;
             this.btn_PaginaSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_PaginaSiguiente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PaginaSiguiente.Location = new System.Drawing.Point(3, 3);
+            this.btn_PaginaSiguiente.Location = new System.Drawing.Point(206, 3);
             this.btn_PaginaSiguiente.Name = "btn_PaginaSiguiente";
             this.btn_PaginaSiguiente.Size = new System.Drawing.Size(187, 76);
             this.btn_PaginaSiguiente.TabIndex = 1;
             this.btn_PaginaSiguiente.Text = "Pagina siguiente";
             this.btn_PaginaSiguiente.UseVisualStyleBackColor = false;
             this.btn_PaginaSiguiente.Visible = false;
-            // 
-            // btn_PaginaAnterior
-            // 
-            this.btn_PaginaAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(224)))), ((int)(((byte)(87)))));
-            this.btn_PaginaAnterior.FlatAppearance.BorderSize = 0;
-            this.btn_PaginaAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PaginaAnterior.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PaginaAnterior.Location = new System.Drawing.Point(196, 3);
-            this.btn_PaginaAnterior.Name = "btn_PaginaAnterior";
-            this.btn_PaginaAnterior.Size = new System.Drawing.Size(187, 76);
-            this.btn_PaginaAnterior.TabIndex = 0;
-            this.btn_PaginaAnterior.Text = "Pagina anterior";
-            this.btn_PaginaAnterior.UseVisualStyleBackColor = false;
-            this.btn_PaginaAnterior.Visible = false;
+            this.btn_PaginaSiguiente.Click += new System.EventHandler(this.btn_PaginaSiguiente_Click);
             // 
             // panel_AgregarRegistro
             // 
@@ -390,7 +389,7 @@
             this.panel_AgregarCargo.Controls.Add(this.txt_NuevoCargo);
             this.panel_AgregarCargo.Controls.Add(this.label10);
             this.panel_AgregarCargo.Controls.Add(this.label11);
-            this.panel_AgregarCargo.Location = new System.Drawing.Point(457, 18);
+            this.panel_AgregarCargo.Location = new System.Drawing.Point(460, 39);
             this.panel_AgregarCargo.Name = "panel_AgregarCargo";
             this.panel_AgregarCargo.Size = new System.Drawing.Size(682, 306);
             this.panel_AgregarCargo.TabIndex = 19;
@@ -525,7 +524,7 @@
             this.dataGridView_Cargos.ColumnHeadersVisible = false;
             this.dataGridView_Cargos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EditarCargo});
-            this.dataGridView_Cargos.Location = new System.Drawing.Point(565, 309);
+            this.dataGridView_Cargos.Location = new System.Drawing.Point(616, 307);
             this.dataGridView_Cargos.Name = "dataGridView_Cargos";
             this.dataGridView_Cargos.ReadOnly = true;
             this.dataGridView_Cargos.RowHeadersWidth = 51;
@@ -830,6 +829,42 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btn_Agregar);
+            this.panel2.Controls.Add(this.panel8);
+            this.panel2.Controls.Add(this.panel7);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(1006, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(123, 93);
+            this.panel2.TabIndex = 18;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(123, 13);
+            this.panel4.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 83);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(123, 10);
+            this.panel7.TabIndex = 5;
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel8.Location = new System.Drawing.Point(113, 13);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 70);
+            this.panel8.TabIndex = 6;
+            // 
             // Personal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -847,7 +882,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Personal)).EndInit();
             this.panel_Paginado.ResumeLayout(false);
             this.panel_Paginado.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
             this.panel_AgregarRegistro.ResumeLayout(false);
             this.panel_AgregarRegistro.PerformLayout();
             this.panel_AgregarCargo.ResumeLayout(false);
@@ -855,6 +889,7 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Cargos)).EndInit();
             this.flowLayoutPanel_GuardarPersonal.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -864,7 +899,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView_Personal;
         private System.Windows.Forms.Panel panel_Paginado;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_Buscador;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel_AgregarRegistro;
@@ -888,14 +923,13 @@
         private System.Windows.Forms.Button btn_GuardarPersonal;
         private System.Windows.Forms.Button btn_GuardarCambiosPersonal;
         private System.Windows.Forms.Button btn_Volver_AgregarRegistro;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Button btn_MostrarTodos;
         private System.Windows.Forms.Button btn_PaginaAnterior;
         private System.Windows.Forms.Button btn_PaginaSiguiente;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_PaginaActual;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbl_TotalPaginas;
         private System.Windows.Forms.Button btn_UltimaPagina;
         private System.Windows.Forms.Button btn_PrimeraPagina;
         private System.Windows.Forms.Panel panel_AgregarCargo;
@@ -917,5 +951,9 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel4;
     }
 }
