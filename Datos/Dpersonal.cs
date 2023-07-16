@@ -152,6 +152,26 @@ namespace Orus.Datos
             }
         }
 
+        public void BuscarPersonalIdentidad(ref DataTable dt, string buscador)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("buscar_personal_identidad", ConexionMaestra.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Buscador", buscador);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
+
         public bool RestaurarPersonal(Lpersonal parametros)
         {
             try
