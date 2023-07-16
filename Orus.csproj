@@ -47,11 +47,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\ConexionMaestra.cs" />
+    <Compile Include="Datos\Dasistencia.cs" />
     <Compile Include="Datos\Dcargo.cs" />
     <Compile Include="Datos\Dpersonal.cs" />
     <Compile Include="Logica\Configuraciones.cs" />
+    <Compile Include="Logica\Lasistencia.cs" />
     <Compile Include="Logica\Lcargo.cs" />
     <Compile Include="Logica\Lpersonal.cs" />
+    <Compile Include="Presentacion\Asistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\Asistencia.Designer.cs">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Presentacion\Asistencia.resx">
+      <DependentUpon>Asistencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +153,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton Azul 1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
