@@ -25,7 +25,15 @@ namespace Orus.Presentacion
         private void btn_Personal_Click(object sender, EventArgs e)
         {
             panel_Padre.Controls.Clear();
-            Personal controlUsuario = new Personal();
+            Personal controlPersonal = new Personal();
+            controlPersonal.Dock = DockStyle.Fill;
+            panel_Padre.Controls.Add(controlPersonal);
+        }
+
+        private void btn_Usuarios_Click(object sender, EventArgs e)
+        {
+            panel_Padre.Controls.Clear();
+            ControlUsuarios controlUsuario = new ControlUsuarios();
             controlUsuario.Dock = DockStyle.Fill;
             panel_Padre.Controls.Add(controlUsuario);
         }
