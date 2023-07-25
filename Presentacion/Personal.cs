@@ -16,8 +16,8 @@ namespace Orus.Presentacion
     {
         private int idCargo = 0;
         // Cantidad de columnas agreagadas por defecto en dataGridView_Cargos.
-        private static int _ColumnasFijasDgvCargos = 1;
-        private static int _ColumnasFijasDgvPersonal = 2;
+        private const int _ColumnasFijasDgvCargos = 1;
+        private const int _ColumnasFijasDgvPersonal = 2;
         private int desde = 1;
         private int hasta = 10;
         private int contadorPersonal;

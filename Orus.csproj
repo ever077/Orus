@@ -49,16 +49,28 @@
     <Compile Include="Datos\ConexionMaestra.cs" />
     <Compile Include="Datos\Dasistencia.cs" />
     <Compile Include="Datos\Dcargo.cs" />
+    <Compile Include="Datos\Dmodulo.cs" />
+    <Compile Include="Datos\Dpermiso.cs" />
     <Compile Include="Datos\Dpersonal.cs" />
+    <Compile Include="Datos\Dusuario.cs" />
     <Compile Include="Logica\Configuraciones.cs" />
     <Compile Include="Logica\Lasistencia.cs" />
     <Compile Include="Logica\Lcargo.cs" />
+    <Compile Include="Logica\Lmodulo.cs" />
+    <Compile Include="Logica\Lpermiso.cs" />
     <Compile Include="Logica\Lpersonal.cs" />
+    <Compile Include="Logica\Lusuario.cs" />
     <Compile Include="Presentacion\Asistencia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\Asistencia.Designer.cs">
       <DependentUpon>Asistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\ControlUsuarios.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\ControlUsuarios.Designer.cs">
+      <DependentUpon>ControlUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -76,6 +88,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentacion\Asistencia.resx">
       <DependentUpon>Asistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\ControlUsuarios.resx">
+      <DependentUpon>ControlUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
@@ -156,6 +171,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\boton Azul 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boton rojo 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngwing.com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Auriculares.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joystick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spider Man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Avangers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flores.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Perro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

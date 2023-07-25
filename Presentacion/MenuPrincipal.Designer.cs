@@ -312,6 +312,7 @@
             this.btn_Usuarios.Text = "Usuarios";
             this.btn_Usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Usuarios.UseVisualStyleBackColor = false;
+            this.btn_Usuarios.Click += new System.EventHandler(this.btn_Usuarios_Click);
             // 
             // panel9
             // 
