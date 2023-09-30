@@ -202,23 +202,11 @@ namespace Orus.Presentacion
             DisenoDgvUsuario();
         }
 
-        private void MostrarPanelIconos()
-        {
-            panel_Icono.Visible = true;
-            panel_Icono.Dock = DockStyle.Fill;
-            panel_Icono.BringToFront();
-        }
-
         private void OcultarPanelIconos()
         {
             panel_Icono.Visible = false;
             lbl_AnuncioIcono.Visible = false;
             pictureBox_Icono.Visible = true;
-        }
-
-        private void lbl_AnuncioIcono_Click(object sender, EventArgs e)
-        {
-            MostrarPanelIconos();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -284,9 +272,21 @@ namespace Orus.Presentacion
             }
         }
 
+        private void lbl_AnuncioIcono_Click(object sender, EventArgs e)
+        {
+            MostrarPanelIconos();
+        }
+
         private void pictureBox_Icono_Click(object sender, EventArgs e)
         {
             MostrarPanelIconos();
+        }
+
+        private void MostrarPanelIconos()
+        {
+            panel_Icono.Visible = true;
+            panel_Icono.Dock = DockStyle.Fill;
+            panel_Icono.BringToFront();
         }
 
         private void txt_Pass_KeyPress(object sender, KeyPressEventArgs e)
