@@ -77,5 +77,43 @@ namespace Orus.Datos
                 ConexionMaestra.cerrar();
             }
         }
+
+        public void VerificarUsuario(ref string indicador)
+        {
+            try
+            {
+                int idUser;
+                ConexionMaestra.abrir();
+                SqlCommand da = new SqlCommand("Select Id_usuario From Usuario", ConexionMaestra.conectar);
+                idUser = Convert.ToInt32(da.ExecuteScalar());
+                ConexionMaestra.cerrar();
+                indicador = "Correcto";
+            }
+            catch (Exception)
+            {
+                indicador = "Incorrecto";
+            }
+        }
+
+        public void ValidarUsuario(Lusuario parametros, ref int id)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                cmd = new SqlCommand("validar_usuario", ConexionMaestra.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Password", parametros.Password);
+                cmd.Parameters.AddWithValue("@Login", parametros.Login);
+                id = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                id = 0;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
     }
 }

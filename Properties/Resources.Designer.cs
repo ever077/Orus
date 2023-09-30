@@ -83,6 +83,16 @@ namespace Orus.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap advertencia {
+            get {
+                object obj = ResourceManager.GetObject("advertencia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap atras {
             get {
                 object obj = ResourceManager.GetObject("atras", resourceCulture);
@@ -136,6 +146,36 @@ namespace Orus.Properties {
         internal static System.Drawing.Bitmap boton_Azul_1 {
             get {
                 object obj = ResourceManager.GetObject("boton Azul 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Boton_Naranja_Cuadrado {
+            get {
+                object obj = ResourceManager.GetObject("Boton Naranja Cuadrado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Boton_Naranja_Cuadrado_Borrar {
+            get {
+                object obj = ResourceManager.GetObject("Boton Naranja Cuadrado Borrar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Boton_Naranja_Cuadrado_Flecha {
+            get {
+                object obj = ResourceManager.GetObject("Boton Naranja Cuadrado Flecha", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +246,26 @@ namespace Orus.Properties {
         internal static System.Drawing.Bitmap Joystick {
             get {
                 object obj = ResourceManager.GetObject("Joystick", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lan {
+            get {
+                object obj = ResourceManager.GetObject("lan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap loading_12 {
+            get {
+                object obj = ResourceManager.GetObject("loading-12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
