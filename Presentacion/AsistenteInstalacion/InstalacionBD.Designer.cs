@@ -28,24 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InstalacionBD));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel_Programador = new System.Windows.Forms.Panel();
+            this.txtServidor = new System.Windows.Forms.Label();
+            this.textBox_ArgumentosIni = new System.Windows.Forms.RichTextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox_CrearUsuarioDB = new System.Windows.Forms.RichTextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox_CrearProcedimientos = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox_EliminarBaseDeDatos = new System.Windows.Forms.RichTextBox();
             this.textBox_NombreScript = new System.Windows.Forms.TextBox();
             this.textBox_BaseDeDatos = new System.Windows.Forms.TextBox();
             this.textBox_Pass = new System.Windows.Forms.TextBox();
@@ -56,25 +52,38 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox_EliminarBaseDeDatos = new System.Windows.Forms.RichTextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox_CrearProcedimientos = new System.Windows.Forms.RichTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.textBox_ArgumentosIni = new System.Windows.Forms.RichTextBox();
+            this.TimerCRARINI = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.panel_Instalacion = new System.Windows.Forms.Panel();
+            this.panel_Instalando = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel_Temporizador = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label_miliseg = new System.Windows.Forms.Label();
+            this.label_seg = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label_InfoInstalacion = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_InstalarServidor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel_Programador.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.panel_Instalacion.SuspendLayout();
+            this.panel_Instalando.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel_Temporizador.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,160 +117,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Orus";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(318, 147);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(594, 669);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel5.Controls.Add(this.pictureBox3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(0, 437);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(594, 232);
-            this.panel5.TabIndex = 4;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.pictureBox3.Image = global::Orus.Properties.Resources.loading_12;
-            this.pictureBox3.Location = new System.Drawing.Point(225, 44);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(145, 145);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(0, 334);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(594, 103);
-            this.panel3.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(297, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(297, 103);
-            this.panel4.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(185, 61);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 25);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(77, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(34, 25);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "00";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(183, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "seg";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(77, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "min";
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(297, 103);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tiempo estimado: 6 minutos";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 153);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(594, 181);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Instalando Servidor...\r\n\r\nNo cierre ésta ventana, se cerrará automáticamente cuan" +
-    "do este todo listo";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox2.Image = global::Orus.Properties.Resources.advertencia;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 78);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(594, 75);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(594, 78);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Instalar Servidor";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // panel_Programador
             // 
+            this.panel_Programador.Controls.Add(this.txtServidor);
             this.panel_Programador.Controls.Add(this.textBox_ArgumentosIni);
             this.panel_Programador.Controls.Add(this.groupBox3);
             this.panel_Programador.Controls.Add(this.groupBox2);
@@ -280,6 +138,68 @@
             this.panel_Programador.Name = "panel_Programador";
             this.panel_Programador.Size = new System.Drawing.Size(968, 882);
             this.panel_Programador.TabIndex = 4;
+            this.panel_Programador.Visible = false;
+            // 
+            // txtServidor
+            // 
+            this.txtServidor.AutoSize = true;
+            this.txtServidor.ForeColor = System.Drawing.Color.White;
+            this.txtServidor.Location = new System.Drawing.Point(410, 213);
+            this.txtServidor.Name = "txtServidor";
+            this.txtServidor.Size = new System.Drawing.Size(30, 16);
+            this.txtServidor.TabIndex = 14;
+            this.txtServidor.Text = ".text";
+            // 
+            // textBox_ArgumentosIni
+            // 
+            this.textBox_ArgumentosIni.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_ArgumentosIni.Location = new System.Drawing.Point(54, 568);
+            this.textBox_ArgumentosIni.Name = "textBox_ArgumentosIni";
+            this.textBox_ArgumentosIni.Size = new System.Drawing.Size(523, 288);
+            this.textBox_ArgumentosIni.TabIndex = 13;
+            this.textBox_ArgumentosIni.Text = "";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox_CrearUsuarioDB);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(603, 284);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(340, 453);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Servira para crear un Usuario para el Servidor - NO TOCAR";
+            // 
+            // textBox_CrearUsuarioDB
+            // 
+            this.textBox_CrearUsuarioDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_CrearUsuarioDB.Location = new System.Drawing.Point(6, 38);
+            this.textBox_CrearUsuarioDB.Name = "textBox_CrearUsuarioDB";
+            this.textBox_CrearUsuarioDB.Size = new System.Drawing.Size(328, 395);
+            this.textBox_CrearUsuarioDB.TabIndex = 0;
+            this.textBox_CrearUsuarioDB.Text = resources.GetString("textBox_CrearUsuarioDB.Text");
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox_CrearProcedimientos);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(47, 284);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(537, 264);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pega tu Script para crear las tablas y los procedimientos";
+            // 
+            // textBox_CrearProcedimientos
+            // 
+            this.textBox_CrearProcedimientos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_CrearProcedimientos.Location = new System.Drawing.Point(7, 37);
+            this.textBox_CrearProcedimientos.Name = "textBox_CrearProcedimientos";
+            this.textBox_CrearProcedimientos.Size = new System.Drawing.Size(523, 221);
+            this.textBox_CrearProcedimientos.TabIndex = 0;
+            this.textBox_CrearProcedimientos.Text = resources.GetString("textBox_CrearProcedimientos.Text");
             // 
             // groupBox1
             // 
@@ -292,6 +212,16 @@
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Script para Eliminar la Base de Datos";
+            // 
+            // textBox_EliminarBaseDeDatos
+            // 
+            this.textBox_EliminarBaseDeDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_EliminarBaseDeDatos.Location = new System.Drawing.Point(6, 21);
+            this.textBox_EliminarBaseDeDatos.Name = "textBox_EliminarBaseDeDatos";
+            this.textBox_EliminarBaseDeDatos.Size = new System.Drawing.Size(463, 186);
+            this.textBox_EliminarBaseDeDatos.TabIndex = 0;
+            this.textBox_EliminarBaseDeDatos.Text = "alter database BASEADACURSO set single_user with rollback immediate\nDROP DATABASE" +
+    " BASEADACURSO";
             // 
             // textBox_NombreScript
             // 
@@ -393,61 +323,185 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Nombre de instancia:";
             // 
-            // textBox_EliminarBaseDeDatos
+            // TimerCRARINI
             // 
-            this.textBox_EliminarBaseDeDatos.Location = new System.Drawing.Point(6, 21);
-            this.textBox_EliminarBaseDeDatos.Name = "textBox_EliminarBaseDeDatos";
-            this.textBox_EliminarBaseDeDatos.Size = new System.Drawing.Size(463, 186);
-            this.textBox_EliminarBaseDeDatos.TabIndex = 0;
-            this.textBox_EliminarBaseDeDatos.Text = "";
+            this.TimerCRARINI.Interval = 10;
             // 
-            // groupBox2
+            // timer2
             // 
-            this.groupBox2.Controls.Add(this.textBox_CrearProcedimientos);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(47, 284);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(537, 264);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pega tu Script para crear las tablas y los procedimientos";
+            this.timer2.Interval = 10;
             // 
-            // textBox_CrearProcedimientos
+            // timer3
             // 
-            this.textBox_CrearProcedimientos.Location = new System.Drawing.Point(7, 37);
-            this.textBox_CrearProcedimientos.Name = "textBox_CrearProcedimientos";
-            this.textBox_CrearProcedimientos.Size = new System.Drawing.Size(523, 221);
-            this.textBox_CrearProcedimientos.TabIndex = 0;
-            this.textBox_CrearProcedimientos.Text = "";
+            this.timer3.Interval = 10;
             // 
-            // groupBox3
+            // timer4
             // 
-            this.groupBox3.Controls.Add(this.richTextBox2);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(603, 284);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(340, 453);
-            this.groupBox3.TabIndex = 12;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Servira para crear un Usuario para el Servidor - NO TOCAR";
+            this.timer4.Interval = 10;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // richTextBox2
+            // panel_Instalacion
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(6, 38);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(328, 395);
-            this.richTextBox2.TabIndex = 0;
-            this.richTextBox2.Text = "";
+            this.panel_Instalacion.BackColor = System.Drawing.Color.Black;
+            this.panel_Instalacion.Controls.Add(this.panel_Instalando);
+            this.panel_Instalacion.Controls.Add(this.btn_InstalarServidor);
+            this.panel_Instalacion.Location = new System.Drawing.Point(246, 149);
+            this.panel_Instalacion.Name = "panel_Instalacion";
+            this.panel_Instalacion.Size = new System.Drawing.Size(594, 666);
+            this.panel_Instalacion.TabIndex = 5;
             // 
-            // textBox_ArgumentosIni
+            // panel_Instalando
             // 
-            this.textBox_ArgumentosIni.Location = new System.Drawing.Point(54, 568);
-            this.textBox_ArgumentosIni.Name = "textBox_ArgumentosIni";
-            this.textBox_ArgumentosIni.Size = new System.Drawing.Size(523, 288);
-            this.textBox_ArgumentosIni.TabIndex = 13;
-            this.textBox_ArgumentosIni.Text = "";
+            this.panel_Instalando.Controls.Add(this.panel8);
+            this.panel_Instalando.Controls.Add(this.panel_Temporizador);
+            this.panel_Instalando.Controls.Add(this.label_InfoInstalacion);
+            this.panel_Instalando.Controls.Add(this.pictureBox4);
+            this.panel_Instalando.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Instalando.Location = new System.Drawing.Point(0, 78);
+            this.panel_Instalando.Name = "panel_Instalando";
+            this.panel_Instalando.Size = new System.Drawing.Size(594, 588);
+            this.panel_Instalando.TabIndex = 2;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel8.Controls.Add(this.pictureBox5);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(0, 399);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(594, 189);
+            this.panel8.TabIndex = 5;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.pictureBox5.Image = global::Orus.Properties.Resources.loading_12;
+            this.pictureBox5.Location = new System.Drawing.Point(225, 44);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(145, 145);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 4;
+            this.pictureBox5.TabStop = false;
+            // 
+            // panel_Temporizador
+            // 
+            this.panel_Temporizador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel_Temporizador.Controls.Add(this.panel7);
+            this.panel_Temporizador.Controls.Add(this.label18);
+            this.panel_Temporizador.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_Temporizador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel_Temporizador.Location = new System.Drawing.Point(0, 296);
+            this.panel_Temporizador.Name = "panel_Temporizador";
+            this.panel_Temporizador.Size = new System.Drawing.Size(594, 103);
+            this.panel_Temporizador.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label_miliseg);
+            this.panel7.Controls.Add(this.label_seg);
+            this.panel7.Controls.Add(this.label16);
+            this.panel7.Controls.Add(this.label17);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(297, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(297, 103);
+            this.panel7.TabIndex = 1;
+            // 
+            // label_miliseg
+            // 
+            this.label_miliseg.AutoSize = true;
+            this.label_miliseg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_miliseg.ForeColor = System.Drawing.Color.White;
+            this.label_miliseg.Location = new System.Drawing.Point(185, 61);
+            this.label_miliseg.Name = "label_miliseg";
+            this.label_miliseg.Size = new System.Drawing.Size(34, 25);
+            this.label_miliseg.TabIndex = 3;
+            this.label_miliseg.Text = "00";
+            // 
+            // label_seg
+            // 
+            this.label_seg.AutoSize = true;
+            this.label_seg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_seg.ForeColor = System.Drawing.Color.White;
+            this.label_seg.Location = new System.Drawing.Point(77, 61);
+            this.label_seg.Name = "label_seg";
+            this.label_seg.Size = new System.Drawing.Size(34, 25);
+            this.label_seg.TabIndex = 2;
+            this.label_seg.Text = "00";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(183, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(36, 20);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "seg";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(77, 16);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(36, 20);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "min";
+            // 
+            // label18
+            // 
+            this.label18.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(0, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(297, 103);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Tiempo estimado: 6 minutos";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label_InfoInstalacion
+            // 
+            this.label_InfoInstalacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.label_InfoInstalacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label_InfoInstalacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_InfoInstalacion.ForeColor = System.Drawing.Color.White;
+            this.label_InfoInstalacion.Location = new System.Drawing.Point(0, 115);
+            this.label_InfoInstalacion.Name = "label_InfoInstalacion";
+            this.label_InfoInstalacion.Size = new System.Drawing.Size(594, 181);
+            this.label_InfoInstalacion.TabIndex = 3;
+            this.label_InfoInstalacion.Text = "Instalando Servidor...\r\n\r\nNo cierre ésta ventana, se cerrará automáticamente cuan" +
+    "do este todo listo";
+            this.label_InfoInstalacion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox4.Image = global::Orus.Properties.Resources.advertencia;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(594, 115);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btn_InstalarServidor
+            // 
+            this.btn_InstalarServidor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btn_InstalarServidor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_InstalarServidor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_InstalarServidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_InstalarServidor.ForeColor = System.Drawing.Color.White;
+            this.btn_InstalarServidor.Location = new System.Drawing.Point(0, 0);
+            this.btn_InstalarServidor.Name = "btn_InstalarServidor";
+            this.btn_InstalarServidor.Size = new System.Drawing.Size(594, 78);
+            this.btn_InstalarServidor.TabIndex = 1;
+            this.btn_InstalarServidor.Text = "Instalar Servidor";
+            this.btn_InstalarServidor.UseVisualStyleBackColor = false;
+            this.btn_InstalarServidor.Visible = false;
             // 
             // InstalacionBD
             // 
@@ -455,26 +509,30 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.panel_Instalacion);
             this.Controls.Add(this.panel_Programador);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "InstalacionBD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InstalacionBD";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.InstalacionBD_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel_Programador.ResumeLayout(false);
             this.panel_Programador.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.panel_Instalacion.ResumeLayout(false);
+            this.panel_Instalando.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel_Temporizador.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -484,19 +542,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel_Programador;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label12;
@@ -510,11 +555,30 @@
         private System.Windows.Forms.TextBox textBox_NombreInstancia;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox textBox_CrearUsuarioDB;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox textBox_CrearProcedimientos;
         private System.Windows.Forms.RichTextBox textBox_EliminarBaseDeDatos;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.RichTextBox textBox_ArgumentosIni;
+        private System.Windows.Forms.Timer TimerCRARINI;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Label txtServidor;
+        private System.Windows.Forms.Panel panel_Instalacion;
+        private System.Windows.Forms.Panel panel_Instalando;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel_Temporizador;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label_miliseg;
+        private System.Windows.Forms.Label label_seg;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label_InfoInstalacion;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btn_InstalarServidor;
     }
 }
