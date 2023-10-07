@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_Eleccion = new System.Windows.Forms.Panel();
             this.btn_PuntoDeControl = new System.Windows.Forms.Button();
             this.btn_Principal = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -43,7 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.panel_Eleccion.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -56,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1188, 125);
+            this.panel1.Size = new System.Drawing.Size(1313, 125);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
@@ -80,17 +80,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Orus";
             // 
-            // panel2
+            // panel_Eleccion
             // 
-            this.panel2.Controls.Add(this.btn_PuntoDeControl);
-            this.panel2.Controls.Add(this.btn_Principal);
-            this.panel2.Controls.Add(this.panel5);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(44, 145);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1120, 592);
-            this.panel2.TabIndex = 2;
+            this.panel_Eleccion.Controls.Add(this.btn_PuntoDeControl);
+            this.panel_Eleccion.Controls.Add(this.btn_Principal);
+            this.panel_Eleccion.Controls.Add(this.panel5);
+            this.panel_Eleccion.Controls.Add(this.panel3);
+            this.panel_Eleccion.Controls.Add(this.pictureBox2);
+            this.panel_Eleccion.Location = new System.Drawing.Point(44, 145);
+            this.panel_Eleccion.Name = "panel_Eleccion";
+            this.panel_Eleccion.Size = new System.Drawing.Size(1120, 592);
+            this.panel_Eleccion.TabIndex = 2;
             // 
             // btn_PuntoDeControl
             // 
@@ -199,16 +199,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(31)))));
-            this.ClientSize = new System.Drawing.Size(1188, 770);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1313, 770);
+            this.Controls.Add(this.panel_Eleccion);
             this.Controls.Add(this.panel1);
             this.Name = "EleccionServidor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EleccionServidor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.EleccionServidor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.panel_Eleccion.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -221,7 +223,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_Eleccion;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;

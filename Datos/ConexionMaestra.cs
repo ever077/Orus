@@ -10,7 +10,8 @@ namespace Orus.Datos
 {
     internal static class ConexionMaestra
     {
-        public static string conexion = "Data source=LAPTOP-PMUGS5GJ\\SQLEXPRESS; Initial catalog=ORUS; Integrated Security=true";
+        //public static string conexion = "Data source=LAPTOP-PMUGS5GJ\\SQLEXPRESS; Initial catalog=ORUS; Integrated Security=true";
+        public static string conexion = Convert.ToString(Logica.Desencriptacion.checkServer());
         public static SqlConnection conectar = new SqlConnection(conexion);
 
         public static void abrir()

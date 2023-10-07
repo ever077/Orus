@@ -19,7 +19,12 @@ namespace Orus.Presentacion.AsistenteInstalacion
 
         private void EleccionServidor_Load(object sender, EventArgs e)
         {
+            centrarPaneles();
+        }
 
+        private void centrarPaneles()
+        {
+            panel_Eleccion.Location = new Point((Width - panel_Eleccion.Width) / 2, (Height - panel_Eleccion.Height) / 2);
         }
 
         private void btn_Principal_Click(object sender, EventArgs e)
