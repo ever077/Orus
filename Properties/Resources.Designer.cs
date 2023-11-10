@@ -223,6 +223,26 @@ namespace Orus.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap flecha_correcta {
+            get {
+                object obj = ResourceManager.GetObject("flecha_correcta", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flecha_correcta__1_ {
+            get {
+                object obj = ResourceManager.GetObject("flecha-correcta (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Flores {
             get {
                 object obj = ResourceManager.GetObject("Flores", resourceCulture);

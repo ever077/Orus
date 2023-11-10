@@ -130,6 +130,9 @@
     <EmbeddedResource Include="Presentacion\AsistenteInstalacion\InstalacionBD.resx">
       <DependentUpon>InstalacionBD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\AsistenteInstalacion\UsuarioPrincipal.resx">
+      <DependentUpon>UsuarioPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ControlUsuarios.resx">
       <DependentUpon>ControlUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +266,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\loading-12.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flecha-correcta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flecha-correcta %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

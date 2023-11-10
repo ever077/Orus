@@ -19,6 +19,7 @@ namespace Orus.Presentacion
 
         private string usuario;
         private int idUsuario;
+        private Image iconoUsuario;
         private int contador;
         private string indicador;
         
@@ -125,12 +126,22 @@ namespace Orus.Presentacion
 
                     lbl.Click += eventoLabelUsuario_Click;
                     img1.Click += eventoImagenUsuario_Click;
+
+                    pan1.Click += eventoPanelUsuario_Click;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void eventoPanelUsuario_Click(object sender, EventArgs e)
+        {
+            List<PictureBox> listaPictureBox = (List<PictureBox>)((Panel)sender).Controls.OfType<PictureBox>();
+            usuario = (listaPictureBox[0]).Tag.ToString();
+            iconoUsuario = (listaPictureBox[0]).Image;
+            mostrarPanelPass();
         }
 
         private void eventoLabelUsuario_Click(object sender, EventArgs e)
@@ -173,6 +184,9 @@ namespace Orus.Presentacion
             {
                 Dispose();
                 MenuPrincipal frm = new MenuPrincipal();
+                frm.set_idUsuario(idUsuario);
+                frm.set_loginV(usuario);
+                frm.set_iconoUsuario(iconoUsuario);
                 frm.ShowDialog(); 
             }
         }

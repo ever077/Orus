@@ -160,17 +160,26 @@
   <data name="Boom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Boom.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loading-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading-12.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="restaurar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\restaurar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="atras" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\atras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flecha_correcta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flecha-correcta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="4e" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\4e.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="reloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\reloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Spider Man" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spider Man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,9 +202,6 @@
   <data name="Add Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Add Image.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="boton rojo 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\boton rojo 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,7 +214,7 @@
   <data name="Boton 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Boton 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loading-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loading-12.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="flecha-correcta (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flecha-correcta (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

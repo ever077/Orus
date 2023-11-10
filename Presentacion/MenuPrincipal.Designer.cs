@@ -57,9 +57,8 @@
             this.btn_Personal = new System.Windows.Forms.Button();
             this.btn_Consultas = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lbl_Login = new System.Windows.Forms.Label();
+            this.pictureBox_IconoUsuario = new System.Windows.Forms.PictureBox();
             this.panel_Padre = new System.Windows.Forms.Panel();
             this.panel_Bienvenida = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,8 +71,7 @@
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IconoUsuario)).BeginInit();
             this.panel_Padre.SuspendLayout();
             this.panel_Bienvenida.SuspendLayout();
             this.SuspendLayout();
@@ -408,44 +406,34 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.lbl_Login);
+            this.panel3.Controls.Add(this.pictureBox_IconoUsuario);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(245, 79);
             this.panel3.TabIndex = 0;
             // 
-            // label2
+            // lbl_Login
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(102, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 79);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Orus";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_Login.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Login.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lbl_Login.Location = new System.Drawing.Point(90, 0);
+            this.lbl_Login.Name = "lbl_Login";
+            this.lbl_Login.Size = new System.Drawing.Size(155, 79);
+            this.lbl_Login.TabIndex = 8;
+            this.lbl_Login.Text = "Orus";
+            this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
+            // pictureBox_IconoUsuario
             // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox2.Location = new System.Drawing.Point(51, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(51, 79);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(51, 79);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox_IconoUsuario.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox_IconoUsuario.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox_IconoUsuario.Name = "pictureBox_IconoUsuario";
+            this.pictureBox_IconoUsuario.Size = new System.Drawing.Size(90, 79);
+            this.pictureBox_IconoUsuario.TabIndex = 0;
+            this.pictureBox_IconoUsuario.TabStop = false;
             // 
             // panel_Padre
             // 
@@ -498,8 +486,7 @@
             this.panel8.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IconoUsuario)).EndInit();
             this.panel_Padre.ResumeLayout(false);
             this.panel_Bienvenida.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -538,9 +525,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox_Logo;
         private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lbl_Login;
+        private System.Windows.Forms.PictureBox pictureBox_IconoUsuario;
         private System.Windows.Forms.Panel panel_Bienvenida;
         private System.Windows.Forms.Label label3;
     }

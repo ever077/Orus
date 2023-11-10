@@ -315,5 +315,10 @@ namespace Orus.Presentacion
             panel_Icono.Visible = false;
             pictureBox_Icono.Visible = true;
         }
+
+        private void dataGridView_Usuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

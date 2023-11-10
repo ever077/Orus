@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Orus.Logica;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -30,5 +31,27 @@ namespace Orus.Datos
 				ConexionMaestra.cerrar();
 			}
         }
+
+		public bool InsertarModulo(Lmodulo parametros)
+		{
+			try
+			{
+				ConexionMaestra.abrir();
+				SqlCommand cmd = new SqlCommand("insertar_modulo", ConexionMaestra.conectar);
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@Modulo", parametros.Modulo);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return false;
+			}
+			finally
+			{
+				ConexionMaestra.cerrar();
+			}
+		}
     }
 }

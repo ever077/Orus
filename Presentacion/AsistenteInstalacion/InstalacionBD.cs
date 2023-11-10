@@ -142,7 +142,7 @@ No cierre ésta ventana, se cerrará automáticamente cuando todo este listo.";
 
         private void ejecutarScript()
         {
-            // Creo un archivo encriptado que tenga el sctipt de las tablas y procedimientos de la BD
+            // Creo un archivo encriptado que tenga el script de las tablas y procedimientos de la BD
             ruta = Path.Combine(Directory.GetCurrentDirectory(), textBox_NombreScript.Text + ".txt");
           /* 
            * Crear archivo
