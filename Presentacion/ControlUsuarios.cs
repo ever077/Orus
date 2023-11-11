@@ -36,7 +36,9 @@ namespace Orus.Presentacion
 
         private void CrearColumnaCheckBox()
         {
-            // PRUEBA
+            // Creo una columna dinamicamente la cual se encarga de poder seleccionar un permiso.
+            // Es del tipo CheckBox.
+
             DataGridViewCheckBoxColumn chkColumn = new DataGridViewCheckBoxColumn();
             chkColumn.Name = "Marcar";
             chkColumn.HeaderText = "Marcar";
@@ -73,7 +75,7 @@ namespace Orus.Presentacion
         private void btn_Agregar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
-            HabilitarPaneles();
+            HabilitarPanelesAlAgregar();
             MostrarModulos();
         }
 
@@ -85,7 +87,7 @@ namespace Orus.Presentacion
             pictureBox_Icono.Image = null;
         }
 
-        private void HabilitarPaneles()
+        private void HabilitarPanelesAlAgregar()
         {
             panel_Registro.Visible = true;
             lbl_AnuncioIcono.Visible = true;
@@ -94,6 +96,18 @@ namespace Orus.Presentacion
             panel_Registro.BringToFront();
             btn_Guardar.Visible = true;
             btn_Actualizar.Visible = false;
+            btn_VolverRegistro.Visible = true;
+        }
+
+        private void HabilitarPanelesAlEditar()
+        {
+            panel_Registro.Visible = true;
+            lbl_AnuncioIcono.Visible = false;
+            panel_Icono.Visible = false;
+            panel_Registro.Dock = DockStyle.Fill;
+            panel_Registro.BringToFront();
+            btn_Guardar.Visible = false;
+            btn_Actualizar.Visible = true;
             btn_VolverRegistro.Visible = true;
         }
 
@@ -318,7 +332,187 @@ namespace Orus.Presentacion
 
         private void dataGridView_Usuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dataGridView_Usuarios.Columns["Column_Editar"].Index)
+            {
+                string estado = obtenerEstado();
 
+                if (estado == "ELIMINADO")
+                {
+                    DialogResult dlg_Resultado = MessageBox.Show("Este usuario se ELIMINO. ¿Desea activarlo?", "Restauracion de usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                    if (dlg_Resultado == DialogResult.OK)
+                    {
+                        restaurarUsuario();
+                    }
+                }
+                else
+                {
+                    cargarDatos();
+                }
+            }
+            if (e.ColumnIndex == dataGridView_Usuarios.Columns["Column_Eliminar"].Index)
+            {
+                // Eliminar usuario
+            }
+        }
+
+        private string obtenerEstado()
+        {
+            return dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 5].Value.ToString();
+        }
+
+        private string obtenerLogin()
+        {
+            return dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 2].Value.ToString();
+        }
+
+        private void restaurarUsuario()
+        {
+            Lusuario parametros = new Lusuario();
+            Dusuario funcion = new Dusuario();
+
+            // Obtengo el Login del usuario para luego obtener su ID.
+            string loginUsuario = obtenerLogin();
+            funcion.ObtenerIdUsuario(ref idUsuario, loginUsuario);
+
+            parametros.Id_usuario = idUsuario;
+
+            if (funcion.RestaurarUsuario(parametros) == true)
+            {
+                MostrarUsuario();
+            }
+        }
+
+        private void cargarDatos()
+        {
+            Dusuario funcion = new Dusuario();
+
+            LimpiarCampos();
+
+            // Obtengo el Login del usuario para luego obtener su ID.
+            string loginUsuario = obtenerLogin();
+            funcion.ObtenerIdUsuario(ref idUsuario, loginUsuario);
+
+            txt_Nombre.Text = dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 1].Value.ToString();
+            txt_Usuario.Text = dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 2].Value.ToString();
+            txt_Pass.Text = dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 3].Value.ToString();
+
+            pictureBox_Icono.BackgroundImage = null;
+            byte[] b = (byte[])(dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 4].Value);
+            MemoryStream ms = new MemoryStream(b);
+            pictureBox_Icono.Image = Image.FromStream(ms);
+
+            HabilitarPanelesAlEditar();
+
+            MostrarModulos();
+            mostrarPermisos();
+        }
+
+        private void mostrarPermisos()
+        {
+            Lpermiso parametros = new Lpermiso();
+            Dpermiso funcion = new Dpermiso();
+            DataTable dtPermisos = new DataTable();
+
+            parametros.Id_Usuario = idUsuario;
+            funcion.MostrarPermiso(ref dtPermisos, parametros);
+
+            foreach (DataRow rowPermiso in dtPermisos.Rows)
+            {
+                string moduloUsuario = Convert.ToString(rowPermiso["Modulo"]);
+
+                foreach (DataGridViewRow rowModulo in dataGridView_Modulos.Rows)
+                {
+                    string modulo = Convert.ToString(rowModulo.Cells["Modulo"].Value);
+                    
+                    if (modulo == moduloUsuario)
+                    {
+                        rowModulo.Cells["Marcar"].Value = true;
+                    }
+                }
+            }
+        }
+
+        private void btn_Actualizar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_Nombre.Text))
+            {
+                if (!string.IsNullOrEmpty(txt_Usuario.Text))
+                {
+                    if (!string.IsNullOrEmpty(txt_Pass.Text))
+                    {
+                        if (lbl_AnuncioIcono.Visible == false)
+                        {
+                            if (actualizarUsuario() == true)
+                            {
+                                actualizarPermisos();
+                                panel_Registro.Visible = false;
+                                MostrarUsuario();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Escoja una imagen", "Validacion de campos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingrese una contraseña", "Validacion de campos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un usuario", "Validacion de campos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un nombre", "Validacion de campos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private bool actualizarUsuario()
+        {
+            Lusuario parametros = new Lusuario();
+            Dusuario funcion = new Dusuario();
+
+            parametros.Id_usuario = idUsuario;
+            parametros.Nombres = txt_Nombre.Text;
+            parametros.Login = txt_Usuario.Text;
+            parametros.Password = txt_Pass.Text;
+
+            MemoryStream ms = new MemoryStream();
+            pictureBox_Icono.Image.Save(ms, pictureBox_Icono.Image.RawFormat);
+            parametros.Icono = ms.GetBuffer();
+
+            return (funcion.EditarUsuario(parametros));
+        }
+
+        private void actualizarPermisos()
+        {
+            Lpermiso parametros = new Lpermiso();
+            Dpermiso funcion = new Dpermiso();
+
+            // Primero elimino todos los permisos del usuario
+            parametros.Id_Usuario = idUsuario;
+            funcion.EliminarPermiso(parametros);
+
+            // Luego inserto los nuevos permisos que elijio
+            foreach (DataGridViewRow row in dataGridView_Modulos.Rows)
+            {
+                int idModulo = Convert.ToInt32(row.Cells["Id_modulo"].Value);
+                bool seleccionado = Convert.ToBoolean(row.Cells["Marcar"].Value);
+
+                if (seleccionado == true)
+                {
+                    parametros.Id_modulo = idModulo;
+                    // *** Fijarme si anda sin esto, debido a que cuando elimino los permisos
+                    // *** filas mas arriba, ya guardo el id en parametros.
+                    //parametros.Id_Usuario = idUsuario;
+
+                    funcion.EditarPermiso(parametros);
+                }
+            }
         }
     }
 }
