@@ -115,5 +115,68 @@ namespace Orus.Datos
                 ConexionMaestra.cerrar();
             }
         }
+
+        public bool RestaurarUsuario(Lusuario parametros)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                cmd = new SqlCommand("restaurar_usuario", ConexionMaestra.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_usuario", parametros.Id_usuario);
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Muestra el mensaje que figura en el procedimiento SQL
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
+
+        public bool EditarUsuario(Lusuario parametros)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                cmd = new SqlCommand("editar_usuario", ConexionMaestra.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_usuario", parametros.Id_usuario);
+                cmd.Parameters.AddWithValue("@Nombres", parametros.Nombres);
+                cmd.Parameters.AddWithValue("@Login", parametros.Login);
+                cmd.Parameters.AddWithValue("@Password", parametros.Password);
+                cmd.Parameters.AddWithValue("@Icono", parametros.Icono);
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Muestra el mensaje que figura en el procedimiento SQL
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+            
+        }
     }
 }
