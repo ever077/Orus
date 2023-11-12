@@ -29,7 +29,6 @@ namespace Orus.Presentacion
         private void ControlUsuarios_Load(object sender, EventArgs e)
         {
             CrearColumnaCheckBox();
-            //Logica.Configuraciones.DisenoDgv(ref dataGridView_Modulos);
 
             MostrarUsuario();
         }
@@ -334,6 +333,7 @@ namespace Orus.Presentacion
         {
             if (e.ColumnIndex == dataGridView_Usuarios.Columns["Column_Editar"].Index)
             {
+                // Actualizar Usuario
                 string estado = obtenerEstado();
 
                 if (estado == "ELIMINADO")
@@ -350,9 +350,34 @@ namespace Orus.Presentacion
                     cargarDatos();
                 }
             }
-            if (e.ColumnIndex == dataGridView_Usuarios.Columns["Column_Eliminar"].Index)
+            else if (e.ColumnIndex == dataGridView_Usuarios.Columns["Column_Eliminar"].Index)
             {
-                // Eliminar usuario
+                // Eliminar Usuario
+
+                string estado = obtenerEstado();
+                if (estado != "ELIMINADO")
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Desea ELIMINAR el Usuario seleccionado?", "Eliminación de usuario", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.OK)
+                    {
+                        // Si el usuario logueado se elimina a si mismo => eliminarlo y luego
+                        // ir a la pantalla de seleccion de usuarios.
+                        if (eliminarUsuario() == true)
+                        {
+                            // TODO
+                            //if (idUsuarioLogueado == idUsuarioQueSeQuiereEliminar)
+                            //{
+                            //    ir a Login y mostrar de alli el panel para seleccion de usuario.
+                            //}
+                            //else {
+                                MostrarUsuario();
+                            //}
+                        }
+                    }
+                    
+                }
+
+                
             }
         }
 
@@ -448,6 +473,10 @@ namespace Orus.Presentacion
                                 actualizarPermisos();
                                 panel_Registro.Visible = false;
                                 MostrarUsuario();
+                                // TODO: Si el usuario que se modifico es el que se encuentra
+                                // logueado, entonces hay que actualizar el MenuPrincipal
+                                // para que active/desactive los botones segun los permisos
+                                // modificados.
                             }
                         }
                         else
@@ -506,13 +535,23 @@ namespace Orus.Presentacion
                 if (seleccionado == true)
                 {
                     parametros.Id_modulo = idModulo;
-                    // *** Fijarme si anda sin esto, debido a que cuando elimino los permisos
-                    // *** filas mas arriba, ya guardo el id en parametros.
-                    //parametros.Id_Usuario = idUsuario;
-
                     funcion.EditarPermiso(parametros);
                 }
             }
+        }
+
+        private bool eliminarUsuario()
+        {
+            Lusuario parametros = new Lusuario();
+            Dusuario funcion = new Dusuario();
+
+            // Obtengo el Login del usuario para luego obtener su ID.
+            string loginUsuario = obtenerLogin();
+            funcion.ObtenerIdUsuario(ref idUsuario, loginUsuario);
+
+            parametros.Id_usuario = idUsuario;
+
+            return funcion.EliminarUsuario(parametros);
         }
     }
 }

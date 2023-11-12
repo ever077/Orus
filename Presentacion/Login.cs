@@ -90,44 +90,48 @@ namespace Orus.Presentacion
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    Panel pan1 = new Panel();
-                    PictureBox img1 = new PictureBox();
-                    Label lbl = new Label();
+                    if (row["Estado"].ToString() == "ACTIVO")
+                    {
+                        Panel pan1 = new Panel();
+                        PictureBox img1 = new PictureBox();
+                        Label lbl = new Label();
 
-                    pan1.Size = new Size(155, 167);
-                    pan1.BorderStyle = BorderStyle.None;
-                    pan1.BackColor = Color.FromArgb(20, 20, 20);
+                        pan1.Size = new Size(155, 167);
+                        pan1.BorderStyle = BorderStyle.None;
+                        pan1.BackColor = Color.FromArgb(20, 20, 20);
 
-                    img1.Size = new Size(175, 132);
-                    img1.Dock = DockStyle.Top;
-                    img1.BackgroundImage = null;
-                    byte[] b = (Byte[])row["Icono"];
-                    MemoryStream ms = new MemoryStream(b);
-                    img1.Image = Image.FromStream(ms);
-                    img1.SizeMode = PictureBoxSizeMode.Zoom;
-                    img1.Tag = row["Login"].ToString();
-                    img1.Cursor = Cursors.Hand;
+                        img1.Size = new Size(175, 132);
+                        img1.Dock = DockStyle.Top;
+                        img1.BackgroundImage = null;
+                        byte[] b = (Byte[])row["Icono"];
+                        MemoryStream ms = new MemoryStream(b);
+                        img1.Image = Image.FromStream(ms);
+                        img1.SizeMode = PictureBoxSizeMode.Zoom;
+                        img1.Tag = row["Login"].ToString();
+                        img1.Cursor = Cursors.Hand;
 
-                    lbl.Text = row["Login"].ToString();
-                    lbl.Name = row["Id_usuario"].ToString();
-                    lbl.Size = new Size(175, 25);
-                    lbl.Font = new Font("Microsoft Sans Serif", 13);
-                    lbl.BackColor = Color.Transparent;
-                    lbl.ForeColor = Color.White;
-                    lbl.Dock = DockStyle.Bottom;
-                    lbl.TextAlign = ContentAlignment.MiddleCenter;
-                    lbl.Cursor = Cursors.Hand;
+                        lbl.Text = row["Login"].ToString();
+                        lbl.Name = row["Id_usuario"].ToString();
+                        lbl.Size = new Size(175, 25);
+                        lbl.Font = new Font("Microsoft Sans Serif", 13);
+                        lbl.BackColor = Color.Transparent;
+                        lbl.ForeColor = Color.White;
+                        lbl.Dock = DockStyle.Bottom;
+                        lbl.TextAlign = ContentAlignment.MiddleCenter;
+                        lbl.Cursor = Cursors.Hand;
 
-                    pan1.Controls.Add(img1);
-                    pan1.Controls.Add(lbl);
-                    lbl.BringToFront();
+                        pan1.Controls.Add(img1);
+                        pan1.Controls.Add(lbl);
+                        lbl.BringToFront();
 
-                    flowLayoutPanel_Usuarios.Controls.Add(pan1);
+                        flowLayoutPanel_Usuarios.Controls.Add(pan1);
 
-                    lbl.Click += eventoLabelUsuario_Click;
-                    img1.Click += eventoImagenUsuario_Click;
+                        lbl.Click += eventoLabelUsuario_Click;
+                        img1.Click += eventoImagenUsuario_Click;
 
-                    pan1.Click += eventoPanelUsuario_Click;
+                        pan1.Click += eventoPanelUsuario_Click;
+                    }
+                    
                 }
             }
             catch (Exception ex)
