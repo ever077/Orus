@@ -178,5 +178,28 @@ namespace Orus.Datos
             }
             
         }
+
+        public bool EliminarUsuario(Lusuario parametros)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                cmd = new SqlCommand("eliminar_usuario", ConexionMaestra.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Id_usuario", parametros.Id_usuario);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Muestra el mensaje que figura en el procedimiento SQL
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
     }
 }
