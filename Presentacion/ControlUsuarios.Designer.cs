@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_Agregar = new System.Windows.Forms.Button();
@@ -202,14 +202,14 @@
             this.dataGridView_Usuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column_Eliminar,
             this.Column_Editar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Usuarios.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Usuarios.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_Usuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_Usuarios.Location = new System.Drawing.Point(0, 93);
             this.dataGridView_Usuarios.Name = "dataGridView_Usuarios";
@@ -521,7 +521,9 @@
             // 
             this.dataGridView_Modulos.AllowUserToAddRows = false;
             this.dataGridView_Modulos.AllowUserToDeleteRows = false;
+            this.dataGridView_Modulos.AllowUserToResizeColumns = false;
             this.dataGridView_Modulos.AllowUserToResizeRows = false;
+            this.dataGridView_Modulos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView_Modulos.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_Modulos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_Modulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -537,7 +539,7 @@
             this.dataGridView_Modulos.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.dataGridView_Modulos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView_Modulos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView_Modulos.RowTemplate.Height = 40;
+            this.dataGridView_Modulos.RowTemplate.Height = 30;
             this.dataGridView_Modulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_Modulos.Size = new System.Drawing.Size(426, 302);
             this.dataGridView_Modulos.TabIndex = 3;

@@ -104,12 +104,27 @@ namespace Orus.Presentacion
             panel_Padre.Controls.Add(controlPersonal);
         }
 
+        private void btn_Registro_Click(object sender, EventArgs e)
+        {
+            //Dispose();
+            Asistencia frmAsistencia = new Asistencia();
+            frmAsistencia.ShowDialog();
+        }
+
         private void btn_Usuarios_Click(object sender, EventArgs e)
         {
             panel_Padre.Controls.Clear();
             ControlUsuarios controlUsuario = new ControlUsuarios();
             controlUsuario.Dock = DockStyle.Fill;
             panel_Padre.Controls.Add(controlUsuario);
+        }
+
+        private void btn_Consultas_Click(object sender, EventArgs e)
+        {
+            panel_Padre.Controls.Clear();
+            PrePlanilla controlPrePlanilla = new PrePlanilla();
+            controlPrePlanilla.Dock = DockStyle.Fill;
+            panel_Padre.Controls.Add(controlPrePlanilla);
         }
     }
 }

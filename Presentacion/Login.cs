@@ -35,10 +35,12 @@ namespace Orus.Presentacion
 
         private void ValidarConexion()
         {
+            // Verifico si hay conexion con la base de datos
             VerificarConexion();
 
             if (indicador == "Correcto")
             {
+                // Hay conexion => Existe la base de datos
                 MostrarUsuario();
 
                 if (contador == 0)
@@ -54,6 +56,7 @@ namespace Orus.Presentacion
             }
             else
             {
+                // No hay conexion => No existe la base de datos => La creo
                 Dispose();
                 EleccionServidor frm = new EleccionServidor();
 

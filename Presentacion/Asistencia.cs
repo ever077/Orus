@@ -14,9 +14,9 @@ namespace Orus.Presentacion
 {
     public partial class Asistencia : Form
     {
-        string identificacion;
-        int idPersonal;
-        int contador;
+        private string identificacion;
+        private int idPersonal;
+        private int contador;
         DateTime fechaRegistro;
 
         public Asistencia()
@@ -94,7 +94,7 @@ namespace Orus.Presentacion
 
             funcion.BuscarPersonalIdentidad(ref dt, txt_Identificacion.Text);
 
-            if (dt.Rows.Count > 0 )
+            if (dt.Rows.Count > 0)
             {
                 identificacion = dt.Rows[0]["Identificacion"].ToString();
                 idPersonal = Convert.ToInt32(dt.Rows[0]["Id_personal"]);

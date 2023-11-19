@@ -356,6 +356,7 @@
             this.btn_Registro.Text = "Registro";
             this.btn_Registro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Registro.UseVisualStyleBackColor = false;
+            this.btn_Registro.Click += new System.EventHandler(this.btn_Registro_Click);
             // 
             // panel7
             // 
@@ -403,6 +404,7 @@
             this.btn_Consultas.TabIndex = 1;
             this.btn_Consultas.Text = "Pre Planilla";
             this.btn_Consultas.UseVisualStyleBackColor = false;
+            this.btn_Consultas.Click += new System.EventHandler(this.btn_Consultas_Click);
             // 
             // panel3
             // 
