@@ -36,6 +36,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_RegistroAsistencia = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.lbl_Aviso = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.txt_Identificacion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel_Observacion = new System.Windows.Forms.Panel();
             this.btn_Confirmar = new System.Windows.Forms.Button();
             this.txt_Observacion = new System.Windows.Forms.RichTextBox();
@@ -141,6 +141,18 @@
             this.panel_RegistroAsistencia.Size = new System.Drawing.Size(855, 770);
             this.panel_RegistroAsistencia.TabIndex = 1;
             // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(0, 193);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(855, 49);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "REGISTRO DE ASISTENCIA";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -223,9 +235,9 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.panel6.Location = new System.Drawing.Point(257, 362);
+            this.panel6.Location = new System.Drawing.Point(282, 362);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(494, 1);
+            this.panel6.Size = new System.Drawing.Size(469, 1);
             this.panel6.TabIndex = 3;
             // 
             // txt_Identificacion
@@ -234,9 +246,9 @@
             this.txt_Identificacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Identificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Identificacion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_Identificacion.Location = new System.Drawing.Point(257, 326);
+            this.txt_Identificacion.Location = new System.Drawing.Point(282, 326);
             this.txt_Identificacion.Name = "txt_Identificacion";
-            this.txt_Identificacion.Size = new System.Drawing.Size(494, 31);
+            this.txt_Identificacion.Size = new System.Drawing.Size(469, 31);
             this.txt_Identificacion.TabIndex = 2;
             this.txt_Identificacion.TextChanged += new System.EventHandler(this.txt_Identificacion_TextChanged);
             // 
@@ -244,24 +256,12 @@
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(42, 329);
+            this.label3.Location = new System.Drawing.Point(27, 322);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 39);
+            this.label3.Size = new System.Drawing.Size(218, 39);
             this.label3.TabIndex = 1;
             this.label3.Text = "Identificacion:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(0, 193);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(855, 49);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "REGISTRO DE ASISTENCIA";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel_Observacion
             // 

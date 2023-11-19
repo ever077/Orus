@@ -84,6 +84,9 @@ namespace Orus.Presentacion
             txt_Usuario.Clear();
             txt_Pass.Clear();
             pictureBox_Icono.Image = null;
+            
+            txt_Usuario.Enabled = true;
+            dataGridView_Modulos.Enabled = true;
         }
 
         private void HabilitarPanelesAlAgregar()
@@ -102,6 +105,7 @@ namespace Orus.Presentacion
         {
             panel_Registro.Visible = true;
             lbl_AnuncioIcono.Visible = false;
+            pictureBox_Icono.Enabled = true;
             panel_Icono.Visible = false;
             panel_Registro.Dock = DockStyle.Fill;
             panel_Registro.BringToFront();
@@ -413,6 +417,7 @@ namespace Orus.Presentacion
             Dusuario funcion = new Dusuario();
 
             LimpiarCampos();
+            HabilitarPanelesAlEditar();
 
             // Obtengo el Login del usuario para luego obtener su ID.
             string loginUsuario = obtenerLogin();
@@ -422,12 +427,22 @@ namespace Orus.Presentacion
             txt_Usuario.Text = dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 2].Value.ToString();
             txt_Pass.Text = dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 3].Value.ToString();
 
+            if (txt_Usuario.Text == "admin")
+            {
+                txt_Usuario.Enabled = false;
+                dataGridView_Modulos.Enabled = false;
+                pictureBox_Icono.Enabled = false;
+            }
+            else
+            {
+                txt_Usuario.Enabled = true;
+                dataGridView_Modulos.Enabled = true;
+            }
+
             pictureBox_Icono.BackgroundImage = null;
             byte[] b = (byte[])(dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 4].Value);
             MemoryStream ms = new MemoryStream(b);
             pictureBox_Icono.Image = Image.FromStream(ms);
-
-            HabilitarPanelesAlEditar();
 
             MostrarModulos();
             mostrarPermisos();
