@@ -62,6 +62,7 @@
             this.panel_Padre = new System.Windows.Forms.Panel();
             this.panel_Bienvenida = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.openFileDialog_SeleccionCopiaBd = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).BeginInit();
@@ -220,6 +221,7 @@
             this.btn_Respaldos.Text = "Respaldos";
             this.btn_Respaldos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_Respaldos.UseVisualStyleBackColor = false;
+            this.btn_Respaldos.Click += new System.EventHandler(this.btn_Respaldos_Click);
             // 
             // panel15
             // 
@@ -265,6 +267,7 @@
             this.btn_RestaurarBd.Text = "Restaurar BD";
             this.btn_RestaurarBd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_RestaurarBd.UseVisualStyleBackColor = false;
+            this.btn_RestaurarBd.Click += new System.EventHandler(this.btn_RestaurarBd_Click);
             // 
             // panel12
             // 
@@ -467,6 +470,10 @@
             this.label3.Text = "Bienvenido a ORUS";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // openFileDialog_SeleccionCopiaBd
+            // 
+            this.openFileDialog_SeleccionCopiaBd.FileName = "openFileDialog1";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -531,5 +538,6 @@
         private System.Windows.Forms.PictureBox pictureBox_IconoUsuario;
         private System.Windows.Forms.Panel panel_Bienvenida;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_SeleccionCopiaBd;
     }
 }

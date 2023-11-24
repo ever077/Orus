@@ -132,7 +132,7 @@ GO</value>
   </data>
   <data name="textBox_CrearProcedimientos.Text" xml:space="preserve">
     <value>USE [master]
-/****** Object:  Database [ORUS]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  Database from Orus - 4E ---- Script Date: 23/11/2023 15:01:21 ******/
 GO
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
 begin
@@ -205,7 +205,14 @@ ALTER DATABASE [ORUS] SET QUERY_STORE (OPERATION_MODE = READ_WRITE, CLEANUP_POLI
 GO
 USE [ORUS]
 GO
-/****** Object:  Table [dbo].[Asistencia]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  User [orus]    Script Date: 23/11/2023 15:01:21 ******/
+CREATE USER [orus] FOR LOGIN [orus] WITH DEFAULT_SCHEMA=[dbo]
+GO
+ALTER ROLE [db_accessadmin] ADD MEMBER [orus]
+GO
+ALTER ROLE [db_datawriter] ADD MEMBER [orus]
+GO
+/****** Object:  Table [dbo].[Asistencia]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -224,7 +231,7 @@ CREATE TABLE [dbo].[Asistencia](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Cargo]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  Table [dbo].[Cargo]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -239,7 +246,21 @@ CREATE TABLE [dbo].[Cargo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Modulo]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  Table [dbo].[CopiaBd]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CopiaBd](
+	[Id_copia] [int] IDENTITY(1,1) NOT NULL,
+	[Ruta] [varchar](max) NOT NULL,
+ CONSTRAINT [PK_CopiaBd] PRIMARY KEY CLUSTERED 
+(
+	[Id_copia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Modulo]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -253,7 +274,7 @@ CREATE TABLE [dbo].[Modulo](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Permiso]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  Table [dbo].[Permiso]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -268,7 +289,7 @@ CREATE TABLE [dbo].[Permiso](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Personal]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  Table [dbo].[Personal]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -288,7 +309,7 @@ CREATE TABLE [dbo].[Personal](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Usuario]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  Table [dbo].[Usuario]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -326,7 +347,7 @@ REFERENCES [dbo].[Cargo] ([Id_cargo])
 GO
 ALTER TABLE [dbo].[Personal] CHECK CONSTRAINT [FK_Personal_Cargo]
 GO
-/****** Object:  StoredProcedure [dbo].[buscar_asistencia_id]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[buscar_asistencia_id]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -336,8 +357,9 @@ create proc [dbo].[buscar_asistencia_id]
 as
 select * from Asistencia
 where Id_personal=@Id_personal and Asistencia.Estado='ENTRADA'
+
 GO
-/****** Object:  StoredProcedure [dbo].[buscar_cargo]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[buscar_cargo]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -347,8 +369,9 @@ create proc [dbo].[buscar_cargo]
 as
 SELECT Id_cargo,Cargo,SueldoPorHora as [Sueldo por hora] FROM Cargo
 WHERE Cargo LIKE '%' + @Buscador + '%'
+
 GO
-/****** Object:  StoredProcedure [dbo].[buscar_personal]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[buscar_personal]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -368,8 +391,9 @@ from Personal
 inner join Cargo on Cargo.Id_cargo=Personal.Id_cargo) as Paginado
 Where (Paginado.Numero_de_fila &gt;= @Desde) and (Paginado.Numero_de_fila &lt;= @Hasta)
 and (Nombres + Identificacion Like '%' + @Buscador + '%')
+
 GO
-/****** Object:  StoredProcedure [dbo].[buscar_personal_identidad]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[buscar_personal_identidad]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -379,8 +403,9 @@ create proc [dbo].[buscar_personal_identidad]
 as
 select * from Personal
 where Identificacion=@Buscador
+
 GO
-/****** Object:  StoredProcedure [dbo].[confirmar_salida_asistencia]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[confirmar_salida_asistencia]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -396,8 +421,9 @@ Fecha_salida = @Fecha_salida,
 Horas = @Horas,
 Estado = 'SALIDA'
 where Id_personal = @Id_personal and Estado = 'ENTRADA'
+
 GO
-/****** Object:  StoredProcedure [dbo].[editar_cargo]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[editar_cargo]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -412,8 +438,22 @@ Raiserror ('Ya existe un cargo con este nombre, ingrese otro', 16, 1)
 else
 UPDATE Cargo set Cargo = @Cargo, SueldoPorHora = @SueldoPorHora
 WHERE Id_cargo = @Id_cargo
+
 GO
-/****** Object:  StoredProcedure [dbo].[editar_personal]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[editar_permiso]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[editar_permiso]
+@Id_modulo int,
+@Id_usuario int
+as
+if NOT EXISTS (SELECT Id_permiso FROM Permiso WHERE Id_modulo=@Id_modulo and Id_usuario=@Id_usuario)
+insert into Permiso
+values (@Id_modulo, @Id_usuario)
+GO
+/****** Object:  StoredProcedure [dbo].[editar_personal]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -432,8 +472,40 @@ else
 Update Personal set Nombres=@Nombres, Identificacion=@Identificacion, Pais=@Pais, Id_cargo=@Id_cargo, SueldoPorHora=@SueldoPorHora
 where
 Id_personal=@Id_personal
+
 GO
-/****** Object:  StoredProcedure [dbo].[eliminar_permiso]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[editar_ruta_copia_bd]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[editar_ruta_copia_bd]
+@Ruta as varchar(MAX)
+as
+if @Ruta = ''
+RAISERROR ('No se puede ingresar una ruta vacia',16,1)
+else
+update CopiaBd set Ruta=@Ruta
+GO
+/****** Object:  StoredProcedure [dbo].[editar_usuario]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[editar_usuario]
+@Id_usuario as int,
+@Nombres as varchar(50),
+@Login as varchar(50),
+@Password as varchar(50),
+@Icono as image
+as
+if exists (select Usuario.Login from Usuario where @Login=Usuario.Login and @Id_usuario&lt;&gt;Id_usuario)
+Raiserror('Ya existe un Usuario con ese Login',16,1)
+else
+update Usuario set Nombres=@Nombres, Login=@Login, Password=@Password, Icono=@Icono
+where Id_usuario=@Id_usuario
+GO
+/****** Object:  StoredProcedure [dbo].[eliminar_permiso]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -443,8 +515,9 @@ create proc [dbo].[eliminar_permiso]
 as
 delete from Permiso
 where Id_usuario=@Id_usuario
+
 GO
-/****** Object:  StoredProcedure [dbo].[eliminar_personal]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[eliminar_personal]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -454,8 +527,20 @@ create proc [dbo].[eliminar_personal]
 as
 Update Personal set Estado='ELIMINADO'
 where Id_personal = @Id_personal
+
 GO
-/****** Object:  StoredProcedure [dbo].[insertar_asistencia]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[eliminar_usuario]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[eliminar_usuario]
+@Id_usuario as int
+as
+update Usuario set Estado='ELIMINADO'
+where @Id_usuario=Id_usuario
+GO
+/****** Object:  StoredProcedure [dbo].[insertar_asistencia]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -470,8 +555,9 @@ create proc [dbo].[insertar_asistencia]
 as
 insert into Asistencia
 values(@Id_personal, @Fecha_entrada, @Fecha_salida, @Estado, @Horas, @Observacion)
+
 GO
-/****** Object:  StoredProcedure [dbo].[insertar_cargo]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[insertar_cargo]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -484,8 +570,19 @@ if EXISTS (SELECT Cargo FROM Cargo WHERE Cargo = @Cargo)
 Raiserror ('Ya existe un cargo con este nombre, ingrese otro', 16, 1)
 else
 INSERT INTO Cargo VALUES (@Cargo, @SueldoPorHora)
+
 GO
-/****** Object:  StoredProcedure [dbo].[insertar_permiso]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[insertar_modulo]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[insertar_modulo]
+@Modulo as varchar(max)
+as
+insert into Modulo values (@Modulo)
+GO
+/****** Object:  StoredProcedure [dbo].[insertar_permiso]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -499,8 +596,9 @@ RAISERROR ('Ya existe un registro con ese Permiso, por favor ingrese otro',16,1)
 else
 insert into Permiso
 values (@Id_modulo, @Id_usuario)
+
 GO
-/****** Object:  StoredProcedure [dbo].[insertar_personal]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[insertar_personal]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -524,8 +622,22 @@ Insert into Personal
 values(@Nombres, @Identificacion, @Pais, @Id_cargo, @SueldoPorHora, @Estado, @Codigo)
 Select @Id_personal=scope_identity()
 Update Personal set Codigo=@Id_personal where Id_personal=@Id_personal
+
 GO
-/****** Object:  StoredProcedure [dbo].[insertar_usuario]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[insertar_ruta_copia_bd]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[insertar_ruta_copia_bd]
+@Ruta as varchar(MAX)
+as
+if @Ruta = ''
+RAISERROR ('No se puede ingresar una ruta vacia',16,1)
+else
+insert into CopiaBd values(@Ruta)
+GO
+/****** Object:  StoredProcedure [dbo].[insertar_usuario]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -543,18 +655,47 @@ RAISERROR ('Ya existe un registro con ese Usuario, por favor ingrese otro',16,1)
 else
 insert into Usuario
 values (@Nombres, @Login, @Password, @Icono, @Estado)
+
 GO
-/****** Object:  StoredProcedure [dbo].[mostrar_permiso]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[mostrar_asistencias_diarias]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create proc [dbo].[mostrar_permiso]
+CREATE proc [dbo].[mostrar_asistencias_diarias]
+@desde as date,
+@hasta as date,
+@semana as int
+as
+SET Language 'Spanish';
+select Personal.Nombres, Personal.Identificacion, CONVERT(date, Fecha_salida) as Fecha, SUM(Horas) as Horas, 
+@desde as Desde, @hasta as Hasta, DATENAME(WEEKDAY, Fecha_salida) as Dia, @semana as Semana, SueldoPorHora
+from Asistencia inner join Personal on Asistencia.Id_personal = Personal.Id_personal
+where Fecha_salida &gt;= @desde and Fecha_salida &lt;= @hasta
+group by Personal.Nombres, Personal.Identificacion, CONVERT(date, Fecha_salida), DATENAME(WEEKDAY, Fecha_salida), SueldoPorHora
+order by CONVERT(date, Fecha_salida) asc
+GO
+/****** Object:  StoredProcedure [dbo].[mostrar_nombre_bd]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[mostrar_nombre_bd]
+as
+select DB_NAME() as NombreBd
+GO
+/****** Object:  StoredProcedure [dbo].[mostrar_permiso]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[mostrar_permiso]
 @Id_usuario int
 as
-SELECT Id_modulo FROM Permiso WHERE Id_usuario=@Id_usuario
+SELECT Permiso.Id_modulo, Modulo.Modulo FROM Permiso inner join Modulo ON Permiso.Id_modulo=Modulo.Id_modulo
+WHERE Id_usuario=@Id_usuario
 GO
-/****** Object:  StoredProcedure [dbo].[mostrar_personal]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[mostrar_personal]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -572,8 +713,9 @@ Row_Number() Over(Order by Id_personal) 'Numero_de_fila'
 from Personal
 inner join Cargo on Cargo.Id_cargo=Personal.Id_cargo) as Paginado
 Where (Paginado.Numero_de_fila &gt;= @Desde) and (Paginado.Numero_de_fila &lt;= @Hasta)
+
 GO
-/****** Object:  StoredProcedure [dbo].[obtener_id_usuario]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[obtener_id_usuario]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -583,8 +725,36 @@ create proc [dbo].[obtener_id_usuario]
 as
 select Id_usuario from Usuario
 where Login=@Login
+
 GO
-/****** Object:  StoredProcedure [dbo].[restaurar_personal]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[restaurar_bd]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[restaurar_bd]
+@Nombre_bd as varchar(MAX),
+@Ruta as varchar(MAX)
+as
+declare @Db_name as varchar(MAX) = 'N''' + CONVERT(VARCHAR(MAX), @Nombre_bd) + ''''
+declare @delete_backuphistory as nvarchar(MAX)
+declare @stop_connection as nvarchar(MAX)
+declare @delete_db as nvarchar(MAX)
+declare @restore_db as nvarchar(MAX)
+
+SET @delete_backuphistory = N'msdb.dbo.sp_delete_database_backuphistory @database_name = ' + @Db_name
+EXEC @delete_backuphistory
+
+SET @stop_connection = N'ALTER DATABASE ' + @Nombre_bd + N' SET SINGLE_USER WITH ROLLBACK IMMEDIATE'
+EXEC @stop_connection
+
+SET @delete_db = N'DROP DATABASE ' + @Nombre_bd
+EXEC @delete_db
+
+SET @restore_db = N'RESTORE DATABASE ' + @Nombre_bd + N' FROM DISK = ' + @Ruta + N' WITH FILE = 1, NOUNLOAD, STATS = 10, RECOVERY'
+EXEC @restore_db
+GO
+/****** Object:  StoredProcedure [dbo].[restaurar_personal]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -595,8 +765,38 @@ as
 update Personal
 set Estado = 'ACTIVO'
 where Id_personal = @Id_personal
+
 GO
-/****** Object:  StoredProcedure [dbo].[validar_usuario]    Script Date: 29/09/2023 22:25:32 ******/
+/****** Object:  StoredProcedure [dbo].[restaurar_usuario]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create proc [dbo].[restaurar_usuario]
+@Id_usuario as int
+as
+update Usuario
+set Estado = 'ACTIVO'
+where Id_usuario = @Id_usuario
+GO
+/****** Object:  StoredProcedure [dbo].[sp_insertar_copia_bd]    Script Date: 23/11/2023 15:01:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE proc [dbo].[sp_insertar_copia_bd]
+@Nombre_bd as varchar(MAX),
+@Sub_carpeta as varchar(MAX),
+@Nombre_respaldo as varchar(MAX)
+as
+SET NOCOUNT ON
+DECLARE @Ruta as varchar(MAX),
+@BdName as varchar(MAX)
+SET @Ruta = '''' + CONVERT(VARCHAR(MAX), @Sub_carpeta) + '\' + CONVERT(VARCHAR(MAX), @Nombre_respaldo) + ''''
+SET @BdName = CONVERT(VARCHAR(MAX), @Nombre_bd)
+EXEC ('BACKUP DATABASE ' + @BdName + ' TO DISK = ' + @Ruta)
+GO
+/****** Object:  StoredProcedure [dbo].[validar_usuario]    Script Date: 23/11/2023 15:01:21 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -607,6 +807,7 @@ CREATE proc [dbo].[validar_usuario]
 as
 select * from Usuario
 where Password = @Password and Login = @Login and Estado = 'ACTIVO'
+
 GO
 USE [master]
 GO
