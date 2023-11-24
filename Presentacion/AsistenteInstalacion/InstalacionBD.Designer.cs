@@ -248,7 +248,7 @@
             this.textBox_Pass.Name = "textBox_Pass";
             this.textBox_Pass.Size = new System.Drawing.Size(162, 26);
             this.textBox_Pass.TabIndex = 7;
-            this.textBox_Pass.Text = "orus369";
+            this.textBox_Pass.Text = "orus";
             // 
             // textBox_Usuario
             // 

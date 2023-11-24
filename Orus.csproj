@@ -118,6 +118,12 @@
     <Compile Include="Presentacion\ControlUsuarios.Designer.cs">
       <DependentUpon>ControlUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\CopiaBd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Presentacion\CopiaBd.Designer.cs">
+      <DependentUpon>CopiaBd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\ControlUsuarios.resx">
       <DependentUpon>ControlUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\CopiaBd.resx">
+      <DependentUpon>CopiaBd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

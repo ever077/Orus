@@ -77,6 +77,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
                 insertarModulos();
                 obtenerIdUsuario();
                 insertarPermisos();
+                insertarCopiaBdDefault();
             }
         }
 
@@ -126,6 +127,15 @@ namespace Orus.Presentacion.AsistenteInstalacion
             Dusuario funcion = new Dusuario();
 
             funcion.ObtenerIdUsuario(ref idUsuario, textBox_Usuario.Text);
+        }
+
+        private void insertarCopiaBdDefault()
+        {
+            LcopiaBd parametros = new LcopiaBd();
+            DcopiaBd funcion = new DcopiaBd();
+
+            parametros.ruta = CopiaBd._rutaInicialCopiaDb;
+            funcion.InsertarRutaCopiaBd(parametros);
         }
     }
 }
