@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsuarioPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel_UsuarioPrincipal = new System.Windows.Forms.Panel();
             this.btn_Siguiente = new System.Windows.Forms.Button();
@@ -275,9 +276,9 @@
             this.ClientSize = new System.Drawing.Size(1199, 621);
             this.Controls.Add(this.panel_UsuarioPrincipal);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UsuarioPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UsuarioPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.UsuarioPrincipal_Load);
             this.panel_UsuarioPrincipal.ResumeLayout(false);
