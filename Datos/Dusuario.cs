@@ -40,17 +40,29 @@ namespace Orus.Datos
             }
         }
 
-        public void MostrarUsuario(ref DataTable dt)
+        public int MostrarUsuario(ref DataTable dt)
         {
+            /*
+             * Retorna 1 si se ejecuto correctamente.
+             * Retorna -1 si hubo error de conexion o de TimeOut.
+             * Retorna 0 si hubo algun otro error.
+            */
             try
             {
                 ConexionMaestra.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("SELECT * from Usuario", ConexionMaestra.conectar);
                 da.Fill(dt);
+                return 1;
+            }
+            catch (TimeoutException ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
+                return 0;
             }
             finally
             {

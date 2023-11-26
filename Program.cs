@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Orus.Presentacion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,9 @@ namespace Orus
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Presentacion.Login());
-            Presentacion.Login frm = new Presentacion.Login();
+
+            //Presentacion.Login frm = new Presentacion.Login();
+            Asistencia frm = new Asistencia();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();
             Application.Run();

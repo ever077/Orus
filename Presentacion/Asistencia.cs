@@ -18,6 +18,19 @@ namespace Orus.Presentacion
         private int idPersonal;
         private int contador;
         DateTime fechaRegistro;
+        private bool hayUsuarioLogueado = false;
+        private Lusuario usuarioLogueado;
+
+        public void set_hayUsuarioLogueado(bool hayusrLogueado)
+        {
+            hayUsuarioLogueado = hayusrLogueado;
+        }
+
+        public void set_hayUsuarioLogueado(bool hayusrLogueado, Lusuario usrLogueado)
+        {
+            hayUsuarioLogueado = hayusrLogueado;
+            usuarioLogueado = usrLogueado;
+        }
 
         public Asistencia()
         {
@@ -26,6 +39,11 @@ namespace Orus.Presentacion
 
         private void Asistencia_Load(object sender, EventArgs e)
         {
+            if (hayUsuarioLogueado)
+            {
+                btn_IniciarSeccion.Visible = false;
+                btn_Volver.Visible = true;
+            }
             LocalizarEnCentroDePantalla(panel_RegistroAsistencia);
             panel_Observacion.Visible = false;
             txt_Identificacion.Focus();
@@ -163,6 +181,21 @@ namespace Orus.Presentacion
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
             InsertarAsistencia();
+        }
+
+        private void btn_IniciarSeccion_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Login frm = new Login();
+            frm.ShowDialog();
+        }
+
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            MenuPrincipal frm = new MenuPrincipal();
+            frm.usuarioLogueado = usuarioLogueado;
+            frm.ShowDialog();
         }
     }
 }

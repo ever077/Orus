@@ -56,13 +56,18 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btn_Personal = new System.Windows.Forms.Button();
             this.btn_Consultas = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel_OpcionesUsuario = new System.Windows.Forms.Panel();
             this.lbl_Login = new System.Windows.Forms.Label();
             this.pictureBox_IconoUsuario = new System.Windows.Forms.PictureBox();
+            this.pictureBox_MenuDesplegable = new System.Windows.Forms.PictureBox();
             this.panel_Padre = new System.Windows.Forms.Panel();
             this.panel_Bienvenida = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog_SeleccionCopiaBd = new System.Windows.Forms.OpenFileDialog();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_MenuDesplegable = new System.Windows.Forms.Panel();
+            this.label_CerrarSesion = new System.Windows.Forms.Label();
+            this.label_CerrarAplicacion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).BeginInit();
@@ -71,23 +76,26 @@
             this.panel11.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel_OpcionesUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IconoUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MenuDesplegable)).BeginInit();
             this.panel_Padre.SuspendLayout();
             this.panel_Bienvenida.SuspendLayout();
+            this.panel_MenuDesplegable.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.btn_Personal);
             this.panel1.Controls.Add(this.btn_Consultas);
-            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel_MenuDesplegable);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel_OpcionesUsuario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 759);
+            this.panel1.Size = new System.Drawing.Size(286, 854);
             this.panel1.TabIndex = 0;
             // 
             // panel4
@@ -101,9 +109,9 @@
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 250);
+            this.panel4.Location = new System.Drawing.Point(0, 345);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(245, 509);
+            this.panel4.Size = new System.Drawing.Size(286, 509);
             this.panel4.TabIndex = 3;
             // 
             // label1
@@ -113,7 +121,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(0, 467);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 42);
+            this.label1.Size = new System.Drawing.Size(286, 42);
             this.label1.TabIndex = 7;
             this.label1.Text = "Orus";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,7 +132,7 @@
             this.pictureBox_Logo.Image = global::Orus.Properties.Resources._4e;
             this.pictureBox_Logo.Location = new System.Drawing.Point(0, 344);
             this.pictureBox_Logo.Name = "pictureBox_Logo";
-            this.pictureBox_Logo.Size = new System.Drawing.Size(245, 123);
+            this.pictureBox_Logo.Size = new System.Drawing.Size(286, 123);
             this.pictureBox_Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_Logo.TabIndex = 6;
             this.pictureBox_Logo.TabStop = false;
@@ -134,7 +142,7 @@
             this.panel21.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel21.Location = new System.Drawing.Point(0, 325);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(245, 19);
+            this.panel21.Size = new System.Drawing.Size(286, 19);
             this.panel21.TabIndex = 5;
             // 
             // panel17
@@ -146,7 +154,7 @@
             this.panel17.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel17.Location = new System.Drawing.Point(0, 260);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(245, 65);
+            this.panel17.Size = new System.Drawing.Size(286, 65);
             this.panel17.TabIndex = 4;
             // 
             // btn_Estaciones
@@ -163,7 +171,7 @@
             this.btn_Estaciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Estaciones.Location = new System.Drawing.Point(15, 15);
             this.btn_Estaciones.Name = "btn_Estaciones";
-            this.btn_Estaciones.Size = new System.Drawing.Size(215, 50);
+            this.btn_Estaciones.Size = new System.Drawing.Size(256, 50);
             this.btn_Estaciones.TabIndex = 3;
             this.btn_Estaciones.Text = "Estaciones";
             this.btn_Estaciones.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,7 +180,7 @@
             // panel20
             // 
             this.panel20.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel20.Location = new System.Drawing.Point(230, 15);
+            this.panel20.Location = new System.Drawing.Point(271, 15);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(15, 50);
             this.panel20.TabIndex = 4;
@@ -190,7 +198,7 @@
             this.panel19.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel19.Location = new System.Drawing.Point(0, 0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(245, 15);
+            this.panel19.Size = new System.Drawing.Size(286, 15);
             this.panel19.TabIndex = 0;
             // 
             // panel14
@@ -201,7 +209,7 @@
             this.panel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel14.Location = new System.Drawing.Point(0, 195);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(245, 65);
+            this.panel14.Size = new System.Drawing.Size(286, 65);
             this.panel14.TabIndex = 3;
             // 
             // btn_Respaldos
@@ -216,7 +224,7 @@
             this.btn_Respaldos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Respaldos.Location = new System.Drawing.Point(15, 15);
             this.btn_Respaldos.Name = "btn_Respaldos";
-            this.btn_Respaldos.Size = new System.Drawing.Size(230, 50);
+            this.btn_Respaldos.Size = new System.Drawing.Size(271, 50);
             this.btn_Respaldos.TabIndex = 3;
             this.btn_Respaldos.Text = "Respaldos";
             this.btn_Respaldos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -236,7 +244,7 @@
             this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel16.Location = new System.Drawing.Point(0, 0);
             this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(245, 15);
+            this.panel16.Size = new System.Drawing.Size(286, 15);
             this.panel16.TabIndex = 0;
             // 
             // panel11
@@ -247,7 +255,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(0, 130);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(245, 65);
+            this.panel11.Size = new System.Drawing.Size(286, 65);
             this.panel11.TabIndex = 2;
             // 
             // btn_RestaurarBd
@@ -262,7 +270,7 @@
             this.btn_RestaurarBd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_RestaurarBd.Location = new System.Drawing.Point(15, 15);
             this.btn_RestaurarBd.Name = "btn_RestaurarBd";
-            this.btn_RestaurarBd.Size = new System.Drawing.Size(230, 50);
+            this.btn_RestaurarBd.Size = new System.Drawing.Size(271, 50);
             this.btn_RestaurarBd.TabIndex = 3;
             this.btn_RestaurarBd.Text = "Restaurar BD";
             this.btn_RestaurarBd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -282,7 +290,7 @@
             this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel13.Location = new System.Drawing.Point(0, 0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(245, 15);
+            this.panel13.Size = new System.Drawing.Size(286, 15);
             this.panel13.TabIndex = 0;
             // 
             // panel8
@@ -293,7 +301,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 65);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(245, 65);
+            this.panel8.Size = new System.Drawing.Size(286, 65);
             this.panel8.TabIndex = 1;
             // 
             // btn_Usuarios
@@ -308,7 +316,7 @@
             this.btn_Usuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Usuarios.Location = new System.Drawing.Point(15, 15);
             this.btn_Usuarios.Name = "btn_Usuarios";
-            this.btn_Usuarios.Size = new System.Drawing.Size(230, 50);
+            this.btn_Usuarios.Size = new System.Drawing.Size(271, 50);
             this.btn_Usuarios.TabIndex = 3;
             this.btn_Usuarios.Text = "Usuarios";
             this.btn_Usuarios.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -328,7 +336,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(245, 15);
+            this.panel10.Size = new System.Drawing.Size(286, 15);
             this.panel10.TabIndex = 0;
             // 
             // panel5
@@ -339,7 +347,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(245, 65);
+            this.panel5.Size = new System.Drawing.Size(286, 65);
             this.panel5.TabIndex = 0;
             // 
             // btn_Registro
@@ -354,7 +362,7 @@
             this.btn_Registro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Registro.Location = new System.Drawing.Point(15, 15);
             this.btn_Registro.Name = "btn_Registro";
-            this.btn_Registro.Size = new System.Drawing.Size(230, 50);
+            this.btn_Registro.Size = new System.Drawing.Size(271, 50);
             this.btn_Registro.TabIndex = 3;
             this.btn_Registro.Text = "Registro";
             this.btn_Registro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -374,7 +382,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(245, 15);
+            this.panel6.Size = new System.Drawing.Size(286, 15);
             this.panel6.TabIndex = 0;
             // 
             // btn_Personal
@@ -385,9 +393,9 @@
             this.btn_Personal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Personal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Personal.ForeColor = System.Drawing.Color.White;
-            this.btn_Personal.Location = new System.Drawing.Point(0, 152);
+            this.btn_Personal.Location = new System.Drawing.Point(0, 250);
             this.btn_Personal.Name = "btn_Personal";
-            this.btn_Personal.Size = new System.Drawing.Size(245, 73);
+            this.btn_Personal.Size = new System.Drawing.Size(286, 73);
             this.btn_Personal.TabIndex = 2;
             this.btn_Personal.Text = "Personal";
             this.btn_Personal.UseVisualStyleBackColor = false;
@@ -401,32 +409,34 @@
             this.btn_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Consultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Consultas.ForeColor = System.Drawing.Color.White;
-            this.btn_Consultas.Location = new System.Drawing.Point(0, 79);
+            this.btn_Consultas.Location = new System.Drawing.Point(0, 177);
             this.btn_Consultas.Name = "btn_Consultas";
-            this.btn_Consultas.Size = new System.Drawing.Size(245, 73);
+            this.btn_Consultas.Size = new System.Drawing.Size(286, 73);
             this.btn_Consultas.TabIndex = 1;
             this.btn_Consultas.Text = "Pre Planilla";
             this.btn_Consultas.UseVisualStyleBackColor = false;
             this.btn_Consultas.Click += new System.EventHandler(this.btn_Consultas_Click);
             // 
-            // panel3
+            // panel_OpcionesUsuario
             // 
-            this.panel3.Controls.Add(this.lbl_Login);
-            this.panel3.Controls.Add(this.pictureBox_IconoUsuario);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(245, 79);
-            this.panel3.TabIndex = 0;
+            this.panel_OpcionesUsuario.Controls.Add(this.lbl_Login);
+            this.panel_OpcionesUsuario.Controls.Add(this.pictureBox_IconoUsuario);
+            this.panel_OpcionesUsuario.Controls.Add(this.panel2);
+            this.panel_OpcionesUsuario.Controls.Add(this.pictureBox_MenuDesplegable);
+            this.panel_OpcionesUsuario.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_OpcionesUsuario.Location = new System.Drawing.Point(0, 0);
+            this.panel_OpcionesUsuario.Name = "panel_OpcionesUsuario";
+            this.panel_OpcionesUsuario.Size = new System.Drawing.Size(286, 79);
+            this.panel_OpcionesUsuario.TabIndex = 0;
             // 
             // lbl_Login
             // 
             this.lbl_Login.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Login.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_Login.Location = new System.Drawing.Point(90, 0);
+            this.lbl_Login.Location = new System.Drawing.Point(135, 0);
             this.lbl_Login.Name = "lbl_Login";
-            this.lbl_Login.Size = new System.Drawing.Size(155, 79);
+            this.lbl_Login.Size = new System.Drawing.Size(151, 79);
             this.lbl_Login.TabIndex = 8;
             this.lbl_Login.Text = "Orus";
             this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -434,20 +444,33 @@
             // pictureBox_IconoUsuario
             // 
             this.pictureBox_IconoUsuario.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox_IconoUsuario.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox_IconoUsuario.Location = new System.Drawing.Point(62, 0);
             this.pictureBox_IconoUsuario.Name = "pictureBox_IconoUsuario";
-            this.pictureBox_IconoUsuario.Size = new System.Drawing.Size(90, 79);
+            this.pictureBox_IconoUsuario.Size = new System.Drawing.Size(73, 79);
+            this.pictureBox_IconoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_IconoUsuario.TabIndex = 0;
             this.pictureBox_IconoUsuario.TabStop = false;
+            // 
+            // pictureBox_MenuDesplegable
+            // 
+            this.pictureBox_MenuDesplegable.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox_MenuDesplegable.Image = global::Orus.Properties.Resources.Menu_fondo_blanco_18_px;
+            this.pictureBox_MenuDesplegable.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox_MenuDesplegable.Name = "pictureBox_MenuDesplegable";
+            this.pictureBox_MenuDesplegable.Size = new System.Drawing.Size(52, 79);
+            this.pictureBox_MenuDesplegable.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox_MenuDesplegable.TabIndex = 9;
+            this.pictureBox_MenuDesplegable.TabStop = false;
+            this.pictureBox_MenuDesplegable.Click += new System.EventHandler(this.pictureBox_MenuDesplegable_Click);
             // 
             // panel_Padre
             // 
             this.panel_Padre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
             this.panel_Padre.Controls.Add(this.panel_Bienvenida);
             this.panel_Padre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Padre.Location = new System.Drawing.Point(245, 0);
+            this.panel_Padre.Location = new System.Drawing.Point(286, 0);
             this.panel_Padre.Name = "panel_Padre";
-            this.panel_Padre.Size = new System.Drawing.Size(872, 759);
+            this.panel_Padre.Size = new System.Drawing.Size(831, 854);
             this.panel_Padre.TabIndex = 1;
             // 
             // panel_Bienvenida
@@ -474,11 +497,63 @@
             // 
             this.openFileDialog_SeleccionCopiaBd.FileName = "openFileDialog1";
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(52, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 79);
+            this.panel2.TabIndex = 10;
+            // 
+            // panel_MenuDesplegable
+            // 
+            this.panel_MenuDesplegable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.panel_MenuDesplegable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_MenuDesplegable.Controls.Add(this.label_CerrarAplicacion);
+            this.panel_MenuDesplegable.Controls.Add(this.label_CerrarSesion);
+            this.panel_MenuDesplegable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_MenuDesplegable.Location = new System.Drawing.Point(0, 79);
+            this.panel_MenuDesplegable.Name = "panel_MenuDesplegable";
+            this.panel_MenuDesplegable.Size = new System.Drawing.Size(286, 98);
+            this.panel_MenuDesplegable.TabIndex = 4;
+            this.panel_MenuDesplegable.Visible = false;
+            // 
+            // label_CerrarSesion
+            // 
+            this.label_CerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_CerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label_CerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CerrarSesion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label_CerrarSesion.Location = new System.Drawing.Point(0, 0);
+            this.label_CerrarSesion.Name = "label_CerrarSesion";
+            this.label_CerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label_CerrarSesion.Size = new System.Drawing.Size(284, 46);
+            this.label_CerrarSesion.TabIndex = 0;
+            this.label_CerrarSesion.Text = "Cerrar Sesión";
+            this.label_CerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_CerrarSesion.Click += new System.EventHandler(this.label_CerrarSesion_Click);
+            // 
+            // label_CerrarAplicacion
+            // 
+            this.label_CerrarAplicacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_CerrarAplicacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label_CerrarAplicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CerrarAplicacion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label_CerrarAplicacion.Location = new System.Drawing.Point(0, 46);
+            this.label_CerrarAplicacion.Name = "label_CerrarAplicacion";
+            this.label_CerrarAplicacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label_CerrarAplicacion.Size = new System.Drawing.Size(284, 46);
+            this.label_CerrarAplicacion.TabIndex = 1;
+            this.label_CerrarAplicacion.Text = "Cerrar Aplicación";
+            this.label_CerrarAplicacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_CerrarAplicacion.Click += new System.EventHandler(this.label_CerrarAplicacion_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 759);
+            this.ClientSize = new System.Drawing.Size(1117, 854);
             this.Controls.Add(this.panel_Padre);
             this.Controls.Add(this.panel1);
             this.Name = "MenuPrincipal";
@@ -494,10 +569,12 @@
             this.panel11.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.panel_OpcionesUsuario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_IconoUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MenuDesplegable)).EndInit();
             this.panel_Padre.ResumeLayout(false);
             this.panel_Bienvenida.ResumeLayout(false);
+            this.panel_MenuDesplegable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -506,7 +583,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel_Padre;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel_OpcionesUsuario;
         private System.Windows.Forms.Button btn_Consultas;
         private System.Windows.Forms.Button btn_Personal;
         private System.Windows.Forms.Panel panel4;
@@ -539,5 +616,10 @@
         private System.Windows.Forms.Panel panel_Bienvenida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog openFileDialog_SeleccionCopiaBd;
+        private System.Windows.Forms.PictureBox pictureBox_MenuDesplegable;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel_MenuDesplegable;
+        private System.Windows.Forms.Label label_CerrarAplicacion;
+        private System.Windows.Forms.Label label_CerrarSesion;
     }
 }

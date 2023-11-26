@@ -15,28 +15,12 @@ namespace Orus.Presentacion
 {
     public partial class MenuPrincipal : Form
     {
-        private int idUsuario;
-        private string loginV;
-        private Image iconoUsuario;
+        public Lusuario usuarioLogueado { get; set; }
         private string nombreBd;
         private string rutaArchivoCopiaBd;
         private const string _servidorSqlExpress = @".\SQLEXPRESS";
         private const string _servidorNoSqlExpress = ".";
         private const int _edicionSqlExpress = -1592396055;
-
-        public void set_idUsuario(int id)
-        {
-            idUsuario = id;
-        }
-        public void set_loginV(string log)
-        {
-            loginV = log;
-        }
-
-        public void set_iconoUsuario(Image icono)
-        {
-            iconoUsuario = icono;
-        }
 
         public MenuPrincipal()
         {
@@ -47,6 +31,7 @@ namespace Orus.Presentacion
         {
             panel_Bienvenida.Dock = DockStyle.Fill;
             validarPermisos();
+            mostrarUsuarioLogueado();
         }
 
         private void validarPermisos()
@@ -55,7 +40,7 @@ namespace Orus.Presentacion
             Dpermiso funcion = new Dpermiso();
             DataTable dtPermisos = new DataTable();
 
-            parametros.Id_Usuario = idUsuario;
+            parametros.Id_Usuario = usuarioLogueado.Id_usuario;
             funcion.MostrarPermiso(ref dtPermisos, parametros);
 
             // Inhabilito todos los botones del Menu Principal.
@@ -102,6 +87,13 @@ namespace Orus.Presentacion
             }
         }
 
+        private void mostrarUsuarioLogueado()
+        {
+            lbl_Login.Text = usuarioLogueado.Login;
+            MemoryStream ms = new MemoryStream(usuarioLogueado.Icono);
+            pictureBox_IconoUsuario.Image = Image.FromStream(ms);
+        }
+
         private void btn_Consultas_Click(object sender, EventArgs e)
         {
             panel_Padre.Controls.Clear();
@@ -120,8 +112,9 @@ namespace Orus.Presentacion
 
         private void btn_Registro_Click(object sender, EventArgs e)
         {
-            //Dispose();
+            Dispose();
             Asistencia frmAsistencia = new Asistencia();
+            frmAsistencia.set_hayUsuarioLogueado(true, usuarioLogueado);
             frmAsistencia.ShowDialog();
         }
 
@@ -194,6 +187,46 @@ namespace Orus.Presentacion
         {
             DcopiaBd funcion = new DcopiaBd();
             funcion.MostrarNombreBd(ref nombreBd);
+        }
+
+        private void pictureBox_MenuDesplegable_Click(object sender, EventArgs e)
+        {
+            if (panel_MenuDesplegable.Visible == false)
+            {
+                panel_MenuDesplegable.Visible = true;
+            }
+            else
+            {
+                panel_MenuDesplegable.Visible = false;
+            }
+        }
+
+        private void label_CerrarAplicacion_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmacion =  MessageBox.Show("¿Está seguro que quiere Salir de la aplicación?", "Cerrar Aplicacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmacion == DialogResult.Yes)
+            {
+                Dispose();
+            }
+            else
+            {
+                panel_MenuDesplegable.Visible = false;
+            }
+        }
+
+        private void label_CerrarSesion_Click(object sender, EventArgs e)
+        {
+            DialogResult confirmacion = MessageBox.Show("¿Está seguro que quiere cerrar sesión?", "Cerrar Sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirmacion == DialogResult.Yes)
+            {
+                Dispose();
+                Login frm = new Login();
+                frm.ShowDialog();
+            }
+            else
+            {
+                panel_MenuDesplegable.Visible = false;
+            }
         }
     }
 }
