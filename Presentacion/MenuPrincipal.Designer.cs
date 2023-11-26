@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Personal = new System.Windows.Forms.Button();
+            this.btn_Consultas = new System.Windows.Forms.Button();
+            this.panel_MenuDesplegable = new System.Windows.Forms.Panel();
+            this.label_CerrarAplicacion = new System.Windows.Forms.Label();
+            this.label_CerrarSesion = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox_Logo = new System.Windows.Forms.PictureBox();
@@ -54,21 +60,17 @@
             this.btn_Registro = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btn_Personal = new System.Windows.Forms.Button();
-            this.btn_Consultas = new System.Windows.Forms.Button();
             this.panel_OpcionesUsuario = new System.Windows.Forms.Panel();
             this.lbl_Login = new System.Windows.Forms.Label();
             this.pictureBox_IconoUsuario = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox_MenuDesplegable = new System.Windows.Forms.PictureBox();
             this.panel_Padre = new System.Windows.Forms.Panel();
             this.panel_Bienvenida = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog_SeleccionCopiaBd = new System.Windows.Forms.OpenFileDialog();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel_MenuDesplegable = new System.Windows.Forms.Panel();
-            this.label_CerrarSesion = new System.Windows.Forms.Label();
-            this.label_CerrarAplicacion = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel_MenuDesplegable.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).BeginInit();
             this.panel17.SuspendLayout();
@@ -81,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MenuDesplegable)).BeginInit();
             this.panel_Padre.SuspendLayout();
             this.panel_Bienvenida.SuspendLayout();
-            this.panel_MenuDesplegable.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -97,6 +98,81 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(286, 854);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_Personal
+            // 
+            this.btn_Personal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.btn_Personal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Personal.FlatAppearance.BorderSize = 0;
+            this.btn_Personal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Personal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Personal.ForeColor = System.Drawing.Color.White;
+            this.btn_Personal.Location = new System.Drawing.Point(0, 250);
+            this.btn_Personal.Name = "btn_Personal";
+            this.btn_Personal.Size = new System.Drawing.Size(286, 73);
+            this.btn_Personal.TabIndex = 2;
+            this.btn_Personal.Text = "Personal";
+            this.btn_Personal.UseVisualStyleBackColor = false;
+            this.btn_Personal.Click += new System.EventHandler(this.btn_Personal_Click);
+            // 
+            // btn_Consultas
+            // 
+            this.btn_Consultas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.btn_Consultas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Consultas.FlatAppearance.BorderSize = 0;
+            this.btn_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Consultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Consultas.ForeColor = System.Drawing.Color.White;
+            this.btn_Consultas.Location = new System.Drawing.Point(0, 177);
+            this.btn_Consultas.Name = "btn_Consultas";
+            this.btn_Consultas.Size = new System.Drawing.Size(286, 73);
+            this.btn_Consultas.TabIndex = 1;
+            this.btn_Consultas.Text = "Pre Planilla";
+            this.btn_Consultas.UseVisualStyleBackColor = false;
+            this.btn_Consultas.Click += new System.EventHandler(this.btn_Consultas_Click);
+            // 
+            // panel_MenuDesplegable
+            // 
+            this.panel_MenuDesplegable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.panel_MenuDesplegable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_MenuDesplegable.Controls.Add(this.label_CerrarAplicacion);
+            this.panel_MenuDesplegable.Controls.Add(this.label_CerrarSesion);
+            this.panel_MenuDesplegable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_MenuDesplegable.Location = new System.Drawing.Point(0, 79);
+            this.panel_MenuDesplegable.Name = "panel_MenuDesplegable";
+            this.panel_MenuDesplegable.Size = new System.Drawing.Size(286, 98);
+            this.panel_MenuDesplegable.TabIndex = 4;
+            this.panel_MenuDesplegable.Visible = false;
+            // 
+            // label_CerrarAplicacion
+            // 
+            this.label_CerrarAplicacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_CerrarAplicacion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label_CerrarAplicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CerrarAplicacion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label_CerrarAplicacion.Location = new System.Drawing.Point(0, 46);
+            this.label_CerrarAplicacion.Name = "label_CerrarAplicacion";
+            this.label_CerrarAplicacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label_CerrarAplicacion.Size = new System.Drawing.Size(284, 46);
+            this.label_CerrarAplicacion.TabIndex = 1;
+            this.label_CerrarAplicacion.Text = "Cerrar Aplicación";
+            this.label_CerrarAplicacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_CerrarAplicacion.Click += new System.EventHandler(this.label_CerrarAplicacion_Click);
+            // 
+            // label_CerrarSesion
+            // 
+            this.label_CerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_CerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label_CerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_CerrarSesion.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label_CerrarSesion.Location = new System.Drawing.Point(0, 0);
+            this.label_CerrarSesion.Name = "label_CerrarSesion";
+            this.label_CerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label_CerrarSesion.Size = new System.Drawing.Size(284, 46);
+            this.label_CerrarSesion.TabIndex = 0;
+            this.label_CerrarSesion.Text = "Cerrar Sesión";
+            this.label_CerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_CerrarSesion.Click += new System.EventHandler(this.label_CerrarSesion_Click);
             // 
             // panel4
             // 
@@ -385,38 +461,6 @@
             this.panel6.Size = new System.Drawing.Size(286, 15);
             this.panel6.TabIndex = 0;
             // 
-            // btn_Personal
-            // 
-            this.btn_Personal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.btn_Personal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Personal.FlatAppearance.BorderSize = 0;
-            this.btn_Personal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Personal.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Personal.ForeColor = System.Drawing.Color.White;
-            this.btn_Personal.Location = new System.Drawing.Point(0, 250);
-            this.btn_Personal.Name = "btn_Personal";
-            this.btn_Personal.Size = new System.Drawing.Size(286, 73);
-            this.btn_Personal.TabIndex = 2;
-            this.btn_Personal.Text = "Personal";
-            this.btn_Personal.UseVisualStyleBackColor = false;
-            this.btn_Personal.Click += new System.EventHandler(this.btn_Personal_Click);
-            // 
-            // btn_Consultas
-            // 
-            this.btn_Consultas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.btn_Consultas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Consultas.FlatAppearance.BorderSize = 0;
-            this.btn_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Consultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Consultas.ForeColor = System.Drawing.Color.White;
-            this.btn_Consultas.Location = new System.Drawing.Point(0, 177);
-            this.btn_Consultas.Name = "btn_Consultas";
-            this.btn_Consultas.Size = new System.Drawing.Size(286, 73);
-            this.btn_Consultas.TabIndex = 1;
-            this.btn_Consultas.Text = "Pre Planilla";
-            this.btn_Consultas.UseVisualStyleBackColor = false;
-            this.btn_Consultas.Click += new System.EventHandler(this.btn_Consultas_Click);
-            // 
             // panel_OpcionesUsuario
             // 
             this.panel_OpcionesUsuario.Controls.Add(this.lbl_Login);
@@ -450,6 +494,15 @@
             this.pictureBox_IconoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_IconoUsuario.TabIndex = 0;
             this.pictureBox_IconoUsuario.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(52, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 79);
+            this.panel2.TabIndex = 10;
             // 
             // pictureBox_MenuDesplegable
             // 
@@ -497,58 +550,6 @@
             // 
             this.openFileDialog_SeleccionCopiaBd.FileName = "openFileDialog1";
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(52, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 79);
-            this.panel2.TabIndex = 10;
-            // 
-            // panel_MenuDesplegable
-            // 
-            this.panel_MenuDesplegable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.panel_MenuDesplegable.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_MenuDesplegable.Controls.Add(this.label_CerrarAplicacion);
-            this.panel_MenuDesplegable.Controls.Add(this.label_CerrarSesion);
-            this.panel_MenuDesplegable.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_MenuDesplegable.Location = new System.Drawing.Point(0, 79);
-            this.panel_MenuDesplegable.Name = "panel_MenuDesplegable";
-            this.panel_MenuDesplegable.Size = new System.Drawing.Size(286, 98);
-            this.panel_MenuDesplegable.TabIndex = 4;
-            this.panel_MenuDesplegable.Visible = false;
-            // 
-            // label_CerrarSesion
-            // 
-            this.label_CerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_CerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label_CerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_CerrarSesion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label_CerrarSesion.Location = new System.Drawing.Point(0, 0);
-            this.label_CerrarSesion.Name = "label_CerrarSesion";
-            this.label_CerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label_CerrarSesion.Size = new System.Drawing.Size(284, 46);
-            this.label_CerrarSesion.TabIndex = 0;
-            this.label_CerrarSesion.Text = "Cerrar Sesión";
-            this.label_CerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label_CerrarSesion.Click += new System.EventHandler(this.label_CerrarSesion_Click);
-            // 
-            // label_CerrarAplicacion
-            // 
-            this.label_CerrarAplicacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label_CerrarAplicacion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label_CerrarAplicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_CerrarAplicacion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label_CerrarAplicacion.Location = new System.Drawing.Point(0, 46);
-            this.label_CerrarAplicacion.Name = "label_CerrarAplicacion";
-            this.label_CerrarAplicacion.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.label_CerrarAplicacion.Size = new System.Drawing.Size(284, 46);
-            this.label_CerrarAplicacion.TabIndex = 1;
-            this.label_CerrarAplicacion.Text = "Cerrar Aplicación";
-            this.label_CerrarAplicacion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label_CerrarAplicacion.Click += new System.EventHandler(this.label_CerrarAplicacion_Click);
-            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -556,12 +557,13 @@
             this.ClientSize = new System.Drawing.Size(1117, 854);
             this.Controls.Add(this.panel_Padre);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MenuPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             this.panel1.ResumeLayout(false);
+            this.panel_MenuDesplegable.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_Logo)).EndInit();
             this.panel17.ResumeLayout(false);
@@ -574,7 +576,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_MenuDesplegable)).EndInit();
             this.panel_Padre.ResumeLayout(false);
             this.panel_Bienvenida.ResumeLayout(false);
-            this.panel_MenuDesplegable.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

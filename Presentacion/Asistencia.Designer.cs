@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asistencia));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_IniciarSeccion = new System.Windows.Forms.Button();
+            this.btn_Volver = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,7 +54,6 @@
             this.txt_Observacion = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.timer_Hora = new System.Windows.Forms.Timer(this.components);
-            this.btn_Volver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_RegistroAsistencia.SuspendLayout();
@@ -97,6 +98,25 @@
             this.btn_IniciarSeccion.Text = "Iniciar Seccion";
             this.btn_IniciarSeccion.UseVisualStyleBackColor = false;
             this.btn_IniciarSeccion.Click += new System.EventHandler(this.btn_IniciarSeccion_Click);
+            // 
+            // btn_Volver
+            // 
+            this.btn_Volver.BackgroundImage = global::Orus.Properties.Resources.atras;
+            this.btn_Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Volver.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Volver.FlatAppearance.BorderSize = 0;
+            this.btn_Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Volver.ForeColor = System.Drawing.Color.Black;
+            this.btn_Volver.Location = new System.Drawing.Point(277, 10);
+            this.btn_Volver.Name = "btn_Volver";
+            this.btn_Volver.Size = new System.Drawing.Size(77, 69);
+            this.btn_Volver.TabIndex = 19;
+            this.btn_Volver.UseVisualStyleBackColor = true;
+            this.btn_Volver.Visible = false;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
             // panel4
             // 
@@ -321,25 +341,6 @@
             this.timer_Hora.Enabled = true;
             this.timer_Hora.Tick += new System.EventHandler(this.timer_Hora_Tick);
             // 
-            // btn_Volver
-            // 
-            this.btn_Volver.BackgroundImage = global::Orus.Properties.Resources.atras;
-            this.btn_Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Volver.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_Volver.FlatAppearance.BorderSize = 0;
-            this.btn_Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Volver.ForeColor = System.Drawing.Color.Black;
-            this.btn_Volver.Location = new System.Drawing.Point(277, 10);
-            this.btn_Volver.Name = "btn_Volver";
-            this.btn_Volver.Size = new System.Drawing.Size(77, 69);
-            this.btn_Volver.TabIndex = 19;
-            this.btn_Volver.UseVisualStyleBackColor = true;
-            this.btn_Volver.Visible = false;
-            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
-            // 
             // Asistencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -349,9 +350,9 @@
             this.Controls.Add(this.panel_Observacion);
             this.Controls.Add(this.panel_RegistroAsistencia);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Asistencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Asistencia";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Asistencia_Load);
             this.panel1.ResumeLayout(false);
