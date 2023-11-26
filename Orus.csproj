@@ -331,6 +331,9 @@
     <None Include="Resources\flecha-correcta %281%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\menu 16px.png" />
+    <None Include="Resources\Menu fondo blanco 23px.png" />
+    <None Include="Resources\Menu fondo blanco 18 px.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

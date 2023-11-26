@@ -21,6 +21,7 @@ namespace Orus.Presentacion
         private int idUsuario;
         private Image iconoUsuario;
         private int contador;
+        private int resultadoConexion;
         private string indicador;
         
         public Login()
@@ -43,15 +44,21 @@ namespace Orus.Presentacion
                 // Hay conexion => Existe la base de datos
                 MostrarUsuario();
 
-                if (contador == 0)
+                if (contador == 0 && resultadoConexion == 1)
                 {
+                    // No hay ningun usuario registrado -> Creo el Usuario Principal.
                     Dispose();
                     UsuarioPrincipal frm = new UsuarioPrincipal();
                     frm.ShowDialog();
                 }
-                else
+                else if (contador > 0 && resultadoConexion == 1)
                 {
                     DibujarUsuarios();
+                }
+                else if (resultadoConexion == -1)
+                {
+                    MessageBox.Show("Hubo un error de conexión con el servidor. Verifique su conexión e intentelo nuevamente.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Dispose();
                 }
             }
             else
@@ -74,8 +81,8 @@ namespace Orus.Presentacion
         {
             DataTable dt = new DataTable();
             Dusuario funcion = new Dusuario();
-
-            funcion.MostrarUsuario(ref dt);
+            
+            resultadoConexion = funcion.MostrarUsuario(ref dt);
             contador = dt.Rows.Count;
         }
 
@@ -126,13 +133,12 @@ namespace Orus.Presentacion
                         pan1.Controls.Add(img1);
                         pan1.Controls.Add(lbl);
                         lbl.BringToFront();
+                        pan1.BringToFront();
 
                         flowLayoutPanel_Usuarios.Controls.Add(pan1);
 
                         lbl.Click += eventoLabelUsuario_Click;
                         img1.Click += eventoImagenUsuario_Click;
-
-                        pan1.Click += eventoPanelUsuario_Click;
                     }
                     
                 }
@@ -143,23 +149,18 @@ namespace Orus.Presentacion
             }
         }
 
-        private void eventoPanelUsuario_Click(object sender, EventArgs e)
-        {
-            List<PictureBox> listaPictureBox = (List<PictureBox>)((Panel)sender).Controls.OfType<PictureBox>();
-            usuario = (listaPictureBox[0]).Tag.ToString();
-            iconoUsuario = (listaPictureBox[0]).Image;
-            mostrarPanelPass();
-        }
-
         private void eventoLabelUsuario_Click(object sender, EventArgs e)
         {
             usuario = ((Label)sender).Text;
+            PictureBox iconU = ((Panel)((Label)sender).Parent).Controls.OfType<PictureBox>().FirstOrDefault();
+            iconoUsuario = iconU.Image;
             mostrarPanelPass();
         }
 
         private void eventoImagenUsuario_Click(object sender, EventArgs e)
         {
             usuario = ((PictureBox)sender).Tag.ToString();
+            iconoUsuario = ((PictureBox)sender).Image;
             mostrarPanelPass();
         }
 
@@ -191,9 +192,15 @@ namespace Orus.Presentacion
             {
                 Dispose();
                 MenuPrincipal frm = new MenuPrincipal();
-                frm.set_idUsuario(idUsuario);
-                frm.set_loginV(usuario);
-                frm.set_iconoUsuario(iconoUsuario);
+
+                Lusuario usuarioLogueado = new Lusuario();
+                usuarioLogueado.Id_usuario = idUsuario;
+                usuarioLogueado.Login = usuario;
+                MemoryStream ms = new MemoryStream();
+                iconoUsuario.Save(ms, iconoUsuario.RawFormat);
+                usuarioLogueado.Icono = ms.GetBuffer();
+                frm.usuarioLogueado = usuarioLogueado;
+
                 frm.ShowDialog(); 
             }
         }
@@ -268,6 +275,12 @@ namespace Orus.Presentacion
             txt_Pass.Clear();
         }
 
-
+        private void btn_Volver_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Asistencia frm = new Asistencia();
+            frm.set_hayUsuarioLogueado(false);
+            frm.ShowDialog();
+        }
     }
 }
