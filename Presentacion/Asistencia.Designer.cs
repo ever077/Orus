@@ -87,6 +87,7 @@
             // 
             this.btn_IniciarSeccion.BackgroundImage = global::Orus.Properties.Resources.Rectangulo_naranja_2;
             this.btn_IniciarSeccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_IniciarSeccion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_IniciarSeccion.Dock = System.Windows.Forms.DockStyle.Right;
             this.btn_IniciarSeccion.FlatAppearance.BorderSize = 0;
             this.btn_IniciarSeccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

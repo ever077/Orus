@@ -98,12 +98,15 @@ namespace Orus.Datos
                 ConexionMaestra.abrir();
                 SqlCommand da = new SqlCommand("Select Id_usuario From Usuario", ConexionMaestra.conectar);
                 idUser = Convert.ToInt32(da.ExecuteScalar());
-                ConexionMaestra.cerrar();
                 indicador = "Correcto";
             }
             catch (Exception)
             {
                 indicador = "Incorrecto";
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
             }
         }
 

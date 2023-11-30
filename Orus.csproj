@@ -189,6 +189,8 @@
     <EmbeddedResource Include="Presentacion\PrePlanilla.resx">
       <DependentUpon>PrePlanilla.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\Reportes\ReporteAsistenciaPersonal.rdlc" />
+    <EmbeddedResource Include="Presentacion\Reportes\ReporteAsistenciaPersonalTodos.rdlc" />
     <EmbeddedResource Include="Presentacion\Reportes\ReporteAsistencias.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
