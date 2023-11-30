@@ -65,6 +65,8 @@
               <Mapping SourceColumn="SueldoPorHora" DataSetColumn="SueldoPorHora" />
               <Mapping SourceColumn="Estado" DataSetColumn="Estado" />
               <Mapping SourceColumn="Observacion" DataSetColumn="Observacion" />
+              <Mapping SourceColumn="Fecha_y_Hora_Entrada" DataSetColumn="Fecha_y_Hora_Entrada" />
+              <Mapping SourceColumn="Fecha_y_Hora_Salida" DataSetColumn="Fecha_y_Hora_Salida" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -153,6 +155,8 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Fecha_y_Hora_Entrada" msprop:Generator_ColumnPropNameInRow="Fecha_y_Hora_Entrada" msprop:Generator_ColumnPropNameInTable="Fecha_y_Hora_EntradaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha_y_Hora_Entrada" msprop:Generator_UserColumnName="Fecha_y_Hora_Entrada" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Fecha_y_Hora_Salida" msprop:Generator_ColumnPropNameInRow="Fecha_y_Hora_Salida" msprop:Generator_ColumnPropNameInTable="Fecha_y_Hora_SalidaColumn" msprop:Generator_ColumnVarNameInTable="columnFecha_y_Hora_Salida" msprop:Generator_UserColumnName="Fecha_y_Hora_Salida" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
