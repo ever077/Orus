@@ -20,6 +20,7 @@ namespace Orus.Presentacion
         // Cantidad de columnas agreagadas por defecto en dataGridView_Modulos.
         private const int _ColumnasFijasDgvModulos = 1;
         int idUsuario;
+        private Lusuario usuarioLogueado;
 
         public ControlUsuarios()
         {
@@ -31,6 +32,11 @@ namespace Orus.Presentacion
             CrearColumnaCheckBox();
 
             MostrarUsuario();
+        }
+
+        public void set_usuarioLogueado(Lusuario usr)
+        {
+            usuarioLogueado = usr;
         }
 
         private void CrearColumnaCheckBox()
@@ -378,10 +384,7 @@ namespace Orus.Presentacion
                             //}
                         }
                     }
-                    
                 }
-
-                
             }
         }
 
@@ -433,6 +436,10 @@ namespace Orus.Presentacion
                 dataGridView_Modulos.Enabled = false;
                 pictureBox_Icono.Enabled = false;
             }
+            else if (esUsuarioLogueado())
+            {
+                dataGridView_Modulos.Enabled = false;
+            }
             else
             {
                 txt_Usuario.Enabled = true;
@@ -446,6 +453,19 @@ namespace Orus.Presentacion
 
             MostrarModulos();
             mostrarPermisos();
+        }
+
+        private bool esUsuarioLogueado()
+        {
+            int idUsuarioSeleccionado = Convert.ToInt32(dataGridView_Usuarios.SelectedCells[_ColumnasFijasDgvUsuarios + 0].Value);
+            if (usuarioLogueado.Id_usuario == idUsuarioSeleccionado)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private void mostrarPermisos()
