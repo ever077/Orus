@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.mostrar_asistencias_diariasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSetReporte = new Orus.Presentacion.Reportes.DataSetReporte();
-            this.mostrarasistenciasdiariasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTimePickerHasta = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerDesde = new System.Windows.Forms.DateTimePicker();
@@ -47,35 +44,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.reportViewer_Todos = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.reportViewer_PersonalId = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.mostrar_asistencias_diarias_idBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetReporte = new Orus.Presentacion.Reportes.DataSetReporte();
+            this.mostrar_asistencias_diariasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mostrarasistenciasdiariasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mostrarasistenciasdiariasidBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mostrar_asistencias_diarias_idTableAdapter = new Orus.Presentacion.Reportes.DataSetReporteTableAdapters.mostrar_asistencias_diarias_idTableAdapter();
+            this.mostrarasistenciasdiariasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mostrar_asistencias_diariasTableAdapter = new Orus.Presentacion.Reportes.DataSetReporteTableAdapters.mostrar_asistencias_diariasTableAdapter();
-            this.mostrar_asistencias_diarias_idBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportViewer_PersonalId = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.mostrar_asistencias_diariasBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporte)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel_DataGridView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_PersonalDisponible)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasidBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mostrar_asistencias_diarias_idBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporte)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrar_asistencias_diariasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasidBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mostrar_asistencias_diariasBindingSource
-            // 
-            this.mostrar_asistencias_diariasBindingSource.DataMember = "mostrar_asistencias_diarias";
-            this.mostrar_asistencias_diariasBindingSource.DataSource = this.dataSetReporte;
-            // 
-            // dataSetReporte
-            // 
-            this.dataSetReporte.DataSetName = "DataSetReporte";
-            this.dataSetReporte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // mostrarasistenciasdiariasBindingSource
-            // 
-            this.mostrarasistenciasdiariasBindingSource.DataMember = "mostrar_asistencias_diarias";
-            this.mostrarasistenciasdiariasBindingSource.DataSource = this.dataSetReporte;
             // 
             // panel1
             // 
@@ -187,6 +174,8 @@
             this.txt_Buscador.Size = new System.Drawing.Size(373, 27);
             this.txt_Buscador.TabIndex = 6;
             this.txt_Buscador.TextChanged += new System.EventHandler(this.txt_Buscador_TextChanged);
+            this.txt_Buscador.MouseEnter += new System.EventHandler(this.txt_Buscador_MouseEnter);
+            this.txt_Buscador.MouseLeave += new System.EventHandler(this.txt_Buscador_MouseLeave);
             // 
             // lbl_NumeroSemana
             // 
@@ -234,9 +223,9 @@
             // 
             // reportViewer_Todos
             // 
-            reportDataSource1.Name = "DataSetAsistenciaPersonalTodos";
-            reportDataSource1.Value = this.mostrar_asistencias_diariasBindingSource;
-            this.reportViewer_Todos.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource5.Name = "DataSetAsistenciaPersonalTodos";
+            reportDataSource5.Value = this.mostrarasistenciasdiariasBindingSource1;
+            this.reportViewer_Todos.LocalReport.DataSources.Add(reportDataSource5);
             this.reportViewer_Todos.LocalReport.ReportEmbeddedResource = "Orus.Presentacion.Reportes.ReporteAsistenciaPersonalTodos.rdlc";
             this.reportViewer_Todos.Location = new System.Drawing.Point(23, 264);
             this.reportViewer_Todos.Name = "reportViewer_Todos";
@@ -244,6 +233,39 @@
             this.reportViewer_Todos.Size = new System.Drawing.Size(443, 359);
             this.reportViewer_Todos.TabIndex = 1;
             this.reportViewer_Todos.Visible = false;
+            // 
+            // reportViewer_PersonalId
+            // 
+            reportDataSource6.Name = "DataSetAsistenciaPersonal";
+            reportDataSource6.Value = this.mostrar_asistencias_diarias_idBindingSource;
+            this.reportViewer_PersonalId.LocalReport.DataSources.Add(reportDataSource6);
+            this.reportViewer_PersonalId.LocalReport.ReportEmbeddedResource = "Orus.Presentacion.Reportes.ReporteAsistenciaPersonal.rdlc";
+            this.reportViewer_PersonalId.Location = new System.Drawing.Point(592, 264);
+            this.reportViewer_PersonalId.Name = "reportViewer_PersonalId";
+            this.reportViewer_PersonalId.ServerReport.BearerToken = null;
+            this.reportViewer_PersonalId.Size = new System.Drawing.Size(447, 362);
+            this.reportViewer_PersonalId.TabIndex = 2;
+            this.reportViewer_PersonalId.Visible = false;
+            // 
+            // mostrar_asistencias_diarias_idBindingSource
+            // 
+            this.mostrar_asistencias_diarias_idBindingSource.DataMember = "mostrar_asistencias_diarias_id";
+            this.mostrar_asistencias_diarias_idBindingSource.DataSource = this.dataSetReporte;
+            // 
+            // dataSetReporte
+            // 
+            this.dataSetReporte.DataSetName = "DataSetReporte";
+            this.dataSetReporte.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mostrar_asistencias_diariasBindingSource
+            // 
+            this.mostrar_asistencias_diariasBindingSource.DataMember = "mostrar_asistencias_diarias";
+            this.mostrar_asistencias_diariasBindingSource.DataSource = this.dataSetReporte;
+            // 
+            // mostrarasistenciasdiariasBindingSource
+            // 
+            this.mostrarasistenciasdiariasBindingSource.DataMember = "mostrar_asistencias_diarias";
+            this.mostrarasistenciasdiariasBindingSource.DataSource = this.dataSetReporte;
             // 
             // mostrarasistenciasdiariasidBindingSource
             // 
@@ -254,27 +276,14 @@
             // 
             this.mostrar_asistencias_diarias_idTableAdapter.ClearBeforeFill = true;
             // 
+            // mostrarasistenciasdiariasBindingSource1
+            // 
+            this.mostrarasistenciasdiariasBindingSource1.DataMember = "mostrar_asistencias_diarias";
+            this.mostrarasistenciasdiariasBindingSource1.DataSource = this.dataSetReporte;
+            // 
             // mostrar_asistencias_diariasTableAdapter
             // 
             this.mostrar_asistencias_diariasTableAdapter.ClearBeforeFill = true;
-            // 
-            // mostrar_asistencias_diarias_idBindingSource
-            // 
-            this.mostrar_asistencias_diarias_idBindingSource.DataMember = "mostrar_asistencias_diarias_id";
-            this.mostrar_asistencias_diarias_idBindingSource.DataSource = this.dataSetReporte;
-            // 
-            // reportViewer_PersonalId
-            // 
-            reportDataSource2.Name = "DataSetAsistenciaPersonal";
-            reportDataSource2.Value = this.mostrar_asistencias_diarias_idBindingSource;
-            this.reportViewer_PersonalId.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer_PersonalId.LocalReport.ReportEmbeddedResource = "Orus.Presentacion.Reportes.ReporteAsistenciaPersonal.rdlc";
-            this.reportViewer_PersonalId.Location = new System.Drawing.Point(592, 264);
-            this.reportViewer_PersonalId.Name = "reportViewer_PersonalId";
-            this.reportViewer_PersonalId.ServerReport.BearerToken = null;
-            this.reportViewer_PersonalId.Size = new System.Drawing.Size(447, 362);
-            this.reportViewer_PersonalId.TabIndex = 2;
-            this.reportViewer_PersonalId.Visible = false;
             // 
             // PrePlanilla
             // 
@@ -286,15 +295,16 @@
             this.Name = "PrePlanilla";
             this.Size = new System.Drawing.Size(1152, 650);
             this.Load += new System.EventHandler(this.PrePlanilla_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.mostrar_asistencias_diariasBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporte)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel_DataGridView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_PersonalDisponible)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasidBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mostrar_asistencias_diarias_idBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetReporte)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrar_asistencias_diariasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasidBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mostrarasistenciasdiariasBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -318,9 +328,10 @@
         private System.Windows.Forms.BindingSource mostrarasistenciasdiariasidBindingSource;
         private Reportes.DataSetReporteTableAdapters.mostrar_asistencias_diarias_idTableAdapter mostrar_asistencias_diarias_idTableAdapter;
         private System.Windows.Forms.BindingSource mostrarasistenciasdiariasBindingSource;
-        private Reportes.DataSetReporteTableAdapters.mostrar_asistencias_diariasTableAdapter mostrar_asistencias_diariasTableAdapter;
         private System.Windows.Forms.BindingSource mostrar_asistencias_diariasBindingSource;
         private System.Windows.Forms.BindingSource mostrar_asistencias_diarias_idBindingSource;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer_PersonalId;
+        private System.Windows.Forms.BindingSource mostrarasistenciasdiariasBindingSource1;
+        private Reportes.DataSetReporteTableAdapters.mostrar_asistencias_diariasTableAdapter mostrar_asistencias_diariasTableAdapter;
     }
 }

@@ -6,21 +6,24 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.41017cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.27139cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.95094cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.6905cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.74817cm</Height>
+              <Height>1.06567cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -43,6 +46,53 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox23</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <TopBorder>
+                          <Color>Black</Color>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Color>Black</Color>
+                          <Width>2pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Black</Color>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Black</Color>
+                        </RightBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Desde - Hasta</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -219,6 +269,38 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Textbox2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=FormatDateTime(Fields!Fecha_y_Hora_Entrada.Value, DateFormat.ShortTime)&amp;" - "&amp;FormatDateTime(Fields!Fecha_y_Hora_Salida.Value, DateFormat.ShortTime)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="Horas">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -325,6 +407,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -394,7 +477,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=FormatDateTime(Fields!Fecha.Value, DateFormat.ShortDate)&amp;Chr(10)&amp;(Fields!Dia.Value)</Value>
+                            <Value>=Day(Fields!Fecha.Value)&amp;"/"&amp;Month(Fields!Fecha.Value)&amp;"/"&amp;Year(Fields!Fecha.Value)&amp;Chr(10)&amp;(Fields!Dia.Value)</Value>
                             <Style>
                               <Format>dd/MM/yyyy</Format>
                               <Language>es-AR</Language>
@@ -432,9 +515,9 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>DataSetAsistenciaPersonalTodos</DataSetName>
         <Top>0.61948cm</Top>
-        <Left>0.95839cm</Left>
-        <Height>1.34817cm</Height>
-        <Width>13.27139cm</Width>
+        <Left>0.46683cm</Left>
+        <Height>1.66567cm</Height>
+        <Width>15.55161cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -777,11 +860,13 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Now()</Value>
+                  <Value>=Day(Now())&amp;"/"&amp;Month(Now())&amp;"/"&amp;Year(Now())&amp;" "&amp;TimeString()</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -807,11 +892,13 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=(Globals!PageNumber)&amp;" de "&amp;(Globals!TotalPages)</Value>
+                  <Value>="Página "&amp;(Globals!PageNumber)&amp;" de "&amp;(Globals!TotalPages)</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox16</rd:DefaultName>
@@ -898,6 +985,14 @@
         <Field Name="SueldoPorHora">
           <DataField>SueldoPorHora</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Fecha_y_Hora_Entrada">
+          <DataField>Fecha_y_Hora_Entrada</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Fecha_y_Hora_Salida">
+          <DataField>Fecha_y_Hora_Salida</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

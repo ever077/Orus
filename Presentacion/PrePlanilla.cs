@@ -32,6 +32,9 @@ namespace Orus.Presentacion
             configurarDgvPersonalDisponible();
             calcularNumeroSemana();
             generarReporte();
+            txt_Buscador.Text = "Buscar personal..";
+            txt_Buscador.ForeColor = Color.LightGray;
+            txt_Buscador.Focus();
         }
 
         private void configurarDgvPersonalDisponible()
@@ -84,6 +87,12 @@ namespace Orus.Presentacion
 
         private void txt_Buscador_TextChanged(object sender, EventArgs e)
         {
+            if (txt_Buscador.Text.Length == 18 && txt_Buscador.Text.Contains("Buscar personal.."))
+            {
+                txt_Buscador.Text = txt_Buscador.Text[0].ToString();
+                txt_Buscador.Select(txt_Buscador.Text.Length, 0);
+            }
+
             Dpersonal funcion = new Dpersonal();
             DataTable dt = new DataTable();
 
@@ -127,18 +136,28 @@ namespace Orus.Presentacion
             }
         }
 
-        private void dateTimePickerHasta_ValueChanged(object sender, EventArgs e)
-        {
-
-            //DateTime fechaHasta = ((DateTimePicker)sender).Value;
-            //string s = CultureInfo.CurrentUICulture.Calendar.GetWeekOfYear(fechaHasta, CalendarWeekRule.FirstDay, fechaHasta.DayOfWeek).ToString();
-            //MessageBox.Show(s);
-            //calcularNumeroSemana();
-        }
-
         private void dateTimePickerHasta_CloseUp(object sender, EventArgs e)
         {
             calcularNumeroSemana();
+        }
+
+        private void txt_Buscador_MouseEnter(object sender, EventArgs e)
+        {
+            if (txt_Buscador.Text == "Buscar personal..")
+            {
+                txt_Buscador.Text = "";
+                txt_Buscador.ForeColor = Color.WhiteSmoke;
+            }
+        }
+
+        private void txt_Buscador_MouseLeave(object sender, EventArgs e)
+        {
+            if (txt_Buscador.Text == "")
+            {
+                txt_Buscador.Text = "Buscar personal..";
+                txt_Buscador.ForeColor = Color.LightGray;
+                //txt_Buscador.Focus();
+            }
         }
     }
 }
