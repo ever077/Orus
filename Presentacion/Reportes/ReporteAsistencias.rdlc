@@ -388,6 +388,8 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
+        <RepeatColumnHeaders>true</RepeatColumnHeaders>
+        <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>DataSet_Asistencias</DataSetName>
         <Top>0.7112cm</Top>
         <Left>0.75353cm</Left>
@@ -572,7 +574,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox11</rd:DefaultName>
           <Top>1.64253cm</Top>
-          <Left>1.80009cm</Left>
+          <Left>2.01176cm</Left>
           <Height>0.6cm</Height>
           <Width>2.44266cm</Width>
           <ZIndex>4</ZIndex>

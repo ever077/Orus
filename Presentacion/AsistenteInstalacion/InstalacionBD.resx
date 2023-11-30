@@ -117,6 +117,154 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox_ArgumentosIni.Text" xml:space="preserve">
+    <value>;SQL Server 2014 Configuration File
+[OPTIONS]
+
+
+
+; Especifica un flujo de trabajo de instalación, como INSTALL, UNINSTALL o UPGRADE. Es un parámetro necesario. 
+
+ACTION="Install"
+
+; No se ha definido aún ayuda detallada para el argumento de la línea de comandos ROLE. 
+
+ROLE="AllFeatures_WithDefaults"
+
+; Use el parámetro /ENU para instalar la versión en inglés de SQL Server en el sistema operativo Windows traducido. 
+
+ENU="False"
+
+; Parámetro que controla el comportamiento de la interfaz de usuario. Los valores válidos son Normal para la interfaz de usuario completa, AutoAdvance para una interfaz de usuario simplificada y EnableUIOnServerCore para omitir la parte gráfica de la instalación de Server Core. 
+
+
+; La instalación no mostrará ninguna interfaz de usuario. 
+
+QUIET="False"
+
+; El programa de instalación sólo mostrará el progreso, sin la interacción del usuario. 
+
+QUIETSIMPLE="True"
+
+; Especifique si el programa de instalación de SQL Server debe detectar e incluir actualizaciones del producto. Los valores válidos son True y False o 1 y 0. De forma predeterminada, el programa de instalación de SQL Server incluirá las actualizaciones que encuentre. 
+
+UpdateEnabled="False"
+
+; Especifique si se puede informar de los errores a Microsoft para mejorar las futuras versiones de SQL Server. Elija 1 o True para habilitar esta característica, o bien 0 o False para deshabilitarla. 
+
+ERRORREPORTING="False"
+
+; Si se proporciona este parámetro, el equipo usará Microsoft Update para comprobar las actualizaciones. 
+
+USEMICROSOFTUPDATE="False"
+
+; Especifica las características que se van a instalar, desinstalar o actualizar. La lista de las características de nivel superior incluye SQL, AS, RS, IS, MDS y Herramientas. La característica SQL instalará el motor de base de datos, la replicación, el texto completo y el servidor Data Quality Services (DQS). La característica Herramientas instalará las herramientas de administración, los componentes de Libros en pantalla, SQL Server Data Tools y el resto de los componentes compartidos. 
+
+FEATURES=SQLENGINE,REPLICATION
+
+; Especifique la ubicación en la que el programa de instalación de SQL Server obtendrá actualizaciones del producto. Los valores válidos son "MU" para buscar en Microsoft Update, una ruta de acceso de carpeta válida, una ruta de acceso relativa, como .\MisActualizaciones, o un recurso compartido UNC. De forma predeterminada, el programa de instalación de SQL Server buscará en Microsoft Update o en el servicio Windows Update mediante Windows Server Update Services. 
+
+UpdateSource="MU"
+
+; Muestra el uso de los parámetros de la línea de comandos 
+
+HELP="False"
+
+; Especifica que el registro de instalación detallado debe redireccionarse a la consola. 
+
+INDICATEPROGRESS="False"
+
+; Especifica que el programa de instalación debe realizar la instalación en WOW64. Este argumento de la línea de comandos no se admite en sistemas IA64 ni de 32 bits. 
+
+X86="False"
+
+; Especifique el directorio de instalación raíz de los componentes compartidos. Este directorio no cambia después de instalar los componentes compartidos. 
+
+INSTALLSHAREDDIR="C:\Program Files\Microsoft SQL Server"
+
+; Especifique una instancia predeterminada o con nombre. MSSQLSERVER y SQLExpress son las instancias predeterminadas de las ediciones que no son Express y de las Express, respectivamente. Se requiere este parámetro al instalar el motor de base de datos de SQL Server (SQL), Analysis Services (AS) o Reporting Services (RS). 
+
+INSTANCENAME="PRUEBAFINAL22"
+
+; Especifique si los datos de uso de las características de SQL Server se pueden recopilar y enviar a Microsoft. Elija 1 o True para habilitar esta característica, o bien 0 o False para deshabilitarla. 
+
+SQMREPORTING="False"
+
+; Especifique el identificador de instancia de las características de SQL Server que ha indicado. Las estructuras de directorios y del Registro, así como los nombres de los servicios SQL Server incorporarán el identificador de instancia de SQL Server. 
+
+INSTANCEID="PRUEBAFINAL22"
+
+; Especifique el directorio de instalación. 
+
+INSTANCEDIR="C:\Program Files (x86)\Microsoft SQL Server"
+
+; Nombre de cuenta del Agente 
+
+AGTSVCACCOUNT="NT AUTHORITY\Servicio de red"
+
+; Iniciar servicio automáticamente después de la instalación.  
+
+AGTSVCSTARTUPTYPE="Disabled"
+
+; Puerto de comunicación TCP del brick de CM 
+
+COMMFABRICPORT="0"
+
+; Cómo usará la matriz las redes privadas 
+
+COMMFABRICNETWORKLEVEL="0"
+
+; Cómo se protegerá la comunicación entre bricks 
+
+COMMFABRICENCRYPTION="0"
+
+; Puerto TCP usado por el brick de CM 
+
+MATRIXCMBRICKCOMMPORT="0"
+
+; Tipo de inicio para el servicio SQL Server. 
+
+SQLSVCSTARTUPTYPE="Automatic"
+
+; Nivel para habilitar la característica FILESTREAM en (0, 1, 2 o 3). 
+
+FILESTREAMLEVEL="0"
+
+; Establézcalo en "1" para habilitar RANU para SQL Server Express. 
+
+ENABLERANU="True"
+
+; Especifica una intercalación de Windows o SQL que se va a utilizar para el motor de base de datos. 
+
+SQLCOLLATION="Modern_Spanish_CI_AS"
+
+; Cuenta para el servicio de SQL Server: Dominio\Usuario o cuenta de sistema. 
+
+SQLSVCACCOUNT="NT Service\MSSQL$PRUEBAFINAL22"
+
+; Cuentas de Windows que se suministran como administradores del sistema de SQL Server. 
+
+
+; Autenticación de Windows predeterminada. Use "SQL" para el modo mixto de autenticación de Windows. 
+
+
+; Aprovisione el usuario actual como administrador del sistema del motor de base de datos para %SQL_PRODUCT_SHORT_NAME% Express. 
+
+ADDCURRENTUSERASSQLADMIN="False"
+
+; Especifique 0 para deshabilitar el protocolo TCP/IP, o 1 para habilitarlo. 
+
+TCPENABLED="1"
+
+; Especifique 0 para deshabilitar el protocolo Named Pipes, o 1 para habilitarlo. 
+
+NPENABLED="0"
+
+; Tipo de inicio para el servicio SQL Server Browser. 
+
+BROWSERSVCSTARTUPTYPE="Disabled"
+</value>
+  </data>
   <data name="textBox_CrearUsuarioDB.Text" xml:space="preserve">
     <value>CREATE LOGIN ada369 WITH PASSWORD='softwarereal'
 GO
@@ -817,17 +965,20 @@ GO</value>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="TimerCRARINI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>214, 17</value>
+  <metadata name="timer_CrearArchivoConfigIni.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>692, 20</value>
   </metadata>
   <metadata name="timer2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>367, 17</value>
+    <value>211, 18</value>
   </metadata>
   <metadata name="timer3.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>468, 17</value>
+    <value>323, 19</value>
   </metadata>
-  <metadata name="timer4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>569, 17</value>
+  <metadata name="timer_EliminarScriptCreacionBd.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>427, 19</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>109</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

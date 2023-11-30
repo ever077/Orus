@@ -1,8 +1,11 @@
-﻿using Orus.Logica;
+﻿using Orus.Datos;
+using Orus.Logica;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
@@ -20,19 +23,71 @@ namespace Orus.Presentacion.AsistenteInstalacion
         private string nombreDelEquipo_Usuario;
         private AES aes = new AES();
         private string ruta;
-        public static int milisegundos;
         public static int segundos;
+        public static int minutos;
+        private const int _edicionSqlExpress = -1592396055;
 
         public InstalacionBD()
         {
             InitializeComponent();
+            segundos = 0;
+            minutos = 0;
         }
 
         private void InstalacionBD_Load(object sender, EventArgs e)
         {
             CentrarPaneles();
             Reemplazar();
-            comprobar_si_ya_hay_servidor_instalado_SQL_EXPRESS();
+            bool estaInstalado = comprobarSiSqlEstaInstalado();
+            if (estaInstalado == true)
+            {
+                instalarServidorYBd();
+            }
+            else
+            {
+                // La instalacion de SQL EXPRESS se ejecutara una vez que el usuario presione el boton de Instalar.
+                txtServidor.Text = @".\" + textBox_NombreInstancia.Text;
+
+                btn_InstalarServidor.Visible = true;
+                panel_Instalando.Visible = true;
+                panel_Cargando.Visible = false;
+                panel_Temporizador.Visible = true;
+                label_InfoInstalacion.Text = "Haga click en el botón \"INSTALAR SERVIDOR\", luego presione que \"SI\" cuando se lo pida, y por ultimo, haga click en \"ACEPTAR\" y espere por favor";
+            }
+        }
+
+        private void resetContadores(int seg, int min)
+        {
+            segundos = seg;
+            minutos = min;
+        }
+
+        private bool comprobarSiSqlEstaInstalado()
+        {
+            /* 
+             * Primera forma:
+             * 
+             * RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\MICROSOFT\Microsoft SQL Server");
+             * if (registryKey == null)
+             * {
+             *      return false;
+             * }
+             * else
+             * {
+             *      return true;
+             * }
+            */
+
+            SqlDataSourceEnumerator sqlDataSourceEnumerator = SqlDataSourceEnumerator.Instance;
+            DataTable dt = sqlDataSourceEnumerator.GetDataSources();
+            if (dt.Rows.Count == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void CentrarPaneles()
@@ -57,11 +112,40 @@ namespace Orus.Presentacion.AsistenteInstalacion
             textBox_CrearProcedimientos.Text = textBox_CrearProcedimientos.Text + Environment.NewLine + textBox_CrearUsuarioDB.Text;
         }
 
-        private void comprobar_si_ya_hay_servidor_instalado_SQL_EXPRESS()
+        private void instalarServidorYBd()
         {
-            txtServidor.Text = @".\" + textBox_NombreInstancia.Text;
+            // Instalo segun la version de SQL instalada.
+            int edicionSql = obtenerEdicionDeSql();
+            if (edicionSql == _edicionSqlExpress)
+            {
+                txtServidor.Text = @".\" + textBox_NombreInstancia.Text;
+            }
+            else
+            {
+                txtServidor.Text = ".";
+            }
+            // Ejecuto la instalacion directamente sin que el usuario presione el boton.
             ejecutar_script_EliminarBase_comprobacion_de_inicio();
             ejecutar_script_CrearBase_comprobacion_de_inicio();
+        }
+
+        public int obtenerEdicionDeSql()
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                SqlCommand cmd = new SqlCommand("select serverproperty('EditionID')", ConexionMaestra.conectar);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                return 0;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
         }
 
         private void ejecutar_script_EliminarBase_comprobacion_de_inicio()
@@ -106,18 +190,23 @@ namespace Orus.Presentacion.AsistenteInstalacion
 
                 ejecutarScript();
 
- //               btn_InstalarServidor.Visible = false;
                 panel_Instalando.Visible = true;
                 panel_Instalando.Dock = DockStyle.Fill;
-                label_InfoInstalacion.Text = @"Instancia Encontrada...
-No cierre ésta ventana, se cerrará automáticamente cuando todo este listo.";
+                label_InfoInstalacion.Text = @"Instancia Encontrada... No cierre ésta ventana, se cerrará automáticamente cuando todo este listo.";
                 panel_Temporizador.Visible = false;
 
-                timer4.Start();
+                resetContadores(0,0);
+                timer_EliminarScriptCreacionBd.Start();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.StackTrace);
+                /*
+                 * No muestro la excepcion para que no detenga el programa y se vuelva a ejecutar en los timers 2 y 3.
+                 * Esto significaria que no puede crear la base de datos con sus tablas porque todavia no ha
+                 * terminado de insralarse el SQL EXPRESS.
+                */
+
+                // MessageBox.Show(ex.StackTrace);
             }
             finally
             {
@@ -144,34 +233,25 @@ No cierre ésta ventana, se cerrará automáticamente cuando todo este listo.";
         {
             // Creo un archivo encriptado que tenga el script de las tablas y procedimientos de la BD
             ruta = Path.Combine(Directory.GetCurrentDirectory(), textBox_NombreScript.Text + ".txt");
-          /* 
-           * Crear archivo
-           * FileInfo fi = new FileInfo(ruta);
-          */
+            
             StreamWriter sw;
             try
             {
-                if (File.Exists(ruta) == false)
-                {
-                    sw = File.CreateText(ruta);
-                    sw.WriteLine(textBox_CrearProcedimientos.Text);
-                    sw.Flush();
-                    sw.Close();
-                }
-                else if (File.Exists(ruta) == true)
+                if (File.Exists(ruta) == true)
                 {
                     File.Delete(ruta);
-                    sw = File.CreateText(ruta);
-                    sw.WriteLine(textBox_CrearProcedimientos.Text);
-                    sw.Flush();
-                    sw.Close();
                 }
+                sw = File.CreateText(ruta);
+                sw.WriteLine(textBox_CrearProcedimientos.Text);
+                sw.Flush();
+                sw.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
             }
 
+            // Ejecuto el script que crea la base de datos.
             try
             {
                 Process proc = new Process();
@@ -185,21 +265,17 @@ No cierre ésta ventana, se cerrará automáticamente cuando todo este listo.";
             }
         }
 
-        private void timer4_Tick(object sender, EventArgs e)
+        private void timer_EliminarScriptCreacionBd_Tick(object sender, EventArgs e)
         {
-            timer2.Stop();
+            // Este Timer se encarga de contar 15 segundos y luego Elimina el script que se creo para instalar la base de datos.
+
             timer3.Stop();
-            milisegundos += 1;
-            label_miliseg.Text = milisegundos.ToString();
-            if (milisegundos == 60)
-            {
-                segundos += 1;
-                label_seg.Text = segundos.ToString();
-                milisegundos = 0;
-            }
+
+            segundos += 1;
+            label_seg.Text = segundos.ToString();
             if (segundos == 15)
             {
-                timer4.Stop();
+                timer_EliminarScriptCreacionBd.Stop();
                 try
                 {
                     File.Delete(ruta);
@@ -208,8 +284,125 @@ No cierre ésta ventana, se cerrará automáticamente cuando todo este listo.";
                 {
                     MessageBox.Show(ex.StackTrace);
                 }
+                MessageBox.Show("La Base de Datos se ha instalado correctamente", "Fin de instalacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Dispose();
             }
+        }
+
+        private void btn_InstalarServidor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBox_ArgumentosIni.Text = textBox_ArgumentosIni.Text.Replace("PRUEBAFINAL22", textBox_NombreInstancia.Text);
+                timer_CrearArchivoConfigIni.Start();
+                ejecutarArchivoExe();
+                resetContadores(0, 0);
+                timer2.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void timer_CrearArchivoConfigIni_Tick(object sender, EventArgs e)
+        {
+            /*
+             * Este Timer se encarga de crear el archivo ConfigurationFile.ini
+             * Siempre intentara crearlo hasta que se logre hacerlo.
+            */
+
+            string rutaConfig;
+            StreamWriter sw;
+            rutaConfig = Path.Combine(Directory.GetCurrentDirectory(), "ConfigurationFile.ini");
+            rutaConfig = rutaConfig.Replace("ConfigurationFile.ini", @"SQLEXPR_x86_ESN\ConfigurationFile.ini");
+            if (File.Exists(rutaConfig) == true)
+            {
+                timer_CrearArchivoConfigIni.Stop();
+            }
+
+            try
+            {
+                sw = File.CreateText(rutaConfig);
+                sw.WriteLine(textBox_ArgumentosIni.Text);
+                sw.Flush();
+                sw.Close();
+                timer_CrearArchivoConfigIni.Stop();
+            }
+            catch (Exception)
+            {
+                // No se creo el archivo. Intentara nuevamente.
+            }
+        }
+
+        private void ejecutarArchivoExe()
+        {
+            try
+            {
+                Process pross = new Process();
+                //pross.StartInfo.FileName = "SQLEXPR_x86_ENU.exe"; -> Asi lo puso en el curso, creo que esta mal y lo corrijo en la linea siguiente.
+                pross.StartInfo.FileName = "SQLEXPR_x86_ESN.exe";
+                pross.StartInfo.Arguments = "/ConfigurationFile=ConfigurationFile.ini /ACTION=Install /IACCEPTSQLSERVERLICENSETERMS /SECURITYMODE=SQL /SAPWD=" + textBox_Pass.Text + " /SQLSYSADMINACCOUNTS=" + nombreDelEquipo_Usuario;
+                pross.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
+                pross.Start();
+
+                btn_InstalarServidor.Visible = false;
+                panel_Instalando.Visible = true;
+                panel_Cargando.Visible = true;
+                panel_Temporizador.Visible = true;
+                label_InfoInstalacion.Text = "Instalando Servidor...\n\nNo cierre esta Ventana, se cerrará automáticamente cuando todo este listo.";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            // Tiempo estipulado para instalar el motor: 6 min.
+            
+            segundos += 1;
+            label_seg.Text = Convert.ToString(segundos);
+            if (segundos == 60)
+            {
+                minutos += 1;
+                label_min.Text = Convert.ToString(minutos);
+                segundos = 0;
+            }
+            if (minutos == 6)
+            {
+                timer2.Stop();
+                ejecutar_script_EliminarBase_comprobacion_de_inicio();
+                ejecutar_script_CrearBase_comprobacion_de_inicio();
+                resetContadores(0, 6);
+                timer3.Start();
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            // Pasados los 6 minutos voy verificando cada 1 minuto si ya se termino de ejecutar
+            
+            segundos += 1;
+            label_seg.Text = Convert.ToString(segundos);
+            if (segundos == 60)
+            {
+                minutos += 1;
+                label_min.Text = Convert.ToString(minutos);
+                segundos = 0;
+                ejecutar_script_EliminarBase_comprobacion_de_inicio();
+                ejecutar_script_CrearBase_comprobacion_de_inicio();
+            }
+        }
+
+        private void InstalacionBD_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer2.Stop();
+            timer3.Stop();
+            timer_CrearArchivoConfigIni.Stop();
+            timer_EliminarScriptCreacionBd.Stop();
         }
     }
 }

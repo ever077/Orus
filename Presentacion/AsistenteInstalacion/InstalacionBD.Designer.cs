@@ -53,17 +53,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.TimerCRARINI = new System.Windows.Forms.Timer(this.components);
+            this.timer_CrearArchivoConfigIni = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer_EliminarScriptCreacionBd = new System.Windows.Forms.Timer(this.components);
             this.panel_Instalacion = new System.Windows.Forms.Panel();
             this.panel_Instalando = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel_Cargando = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel_Temporizador = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label_miliseg = new System.Windows.Forms.Label();
+            this.label_min = new System.Windows.Forms.Label();
             this.label_seg = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.groupBox1.SuspendLayout();
             this.panel_Instalacion.SuspendLayout();
             this.panel_Instalando.SuspendLayout();
-            this.panel8.SuspendLayout();
+            this.panel_Cargando.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel_Temporizador.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -157,7 +157,7 @@
             this.textBox_ArgumentosIni.Name = "textBox_ArgumentosIni";
             this.textBox_ArgumentosIni.Size = new System.Drawing.Size(523, 288);
             this.textBox_ArgumentosIni.TabIndex = 13;
-            this.textBox_ArgumentosIni.Text = "";
+            this.textBox_ArgumentosIni.Text = resources.GetString("textBox_ArgumentosIni.Text");
             // 
             // groupBox3
             // 
@@ -323,22 +323,25 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Nombre de instancia:";
             // 
-            // TimerCRARINI
+            // timer_CrearArchivoConfigIni
             // 
-            this.TimerCRARINI.Interval = 10;
+            this.timer_CrearArchivoConfigIni.Interval = 10;
+            this.timer_CrearArchivoConfigIni.Tick += new System.EventHandler(this.timer_CrearArchivoConfigIni_Tick);
             // 
             // timer2
             // 
-            this.timer2.Interval = 10;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // timer3
             // 
-            this.timer3.Interval = 10;
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // timer4
+            // timer_EliminarScriptCreacionBd
             // 
-            this.timer4.Interval = 10;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            this.timer_EliminarScriptCreacionBd.Interval = 1000;
+            this.timer_EliminarScriptCreacionBd.Tick += new System.EventHandler(this.timer_EliminarScriptCreacionBd_Tick);
             // 
             // panel_Instalacion
             // 
@@ -352,7 +355,7 @@
             // 
             // panel_Instalando
             // 
-            this.panel_Instalando.Controls.Add(this.panel8);
+            this.panel_Instalando.Controls.Add(this.panel_Cargando);
             this.panel_Instalando.Controls.Add(this.panel_Temporizador);
             this.panel_Instalando.Controls.Add(this.label_InfoInstalacion);
             this.panel_Instalando.Controls.Add(this.pictureBox4);
@@ -362,15 +365,15 @@
             this.panel_Instalando.Size = new System.Drawing.Size(594, 588);
             this.panel_Instalando.TabIndex = 2;
             // 
-            // panel8
+            // panel_Cargando
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.panel8.Controls.Add(this.pictureBox5);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 399);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(594, 189);
-            this.panel8.TabIndex = 5;
+            this.panel_Cargando.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.panel_Cargando.Controls.Add(this.pictureBox5);
+            this.panel_Cargando.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Cargando.Location = new System.Drawing.Point(0, 399);
+            this.panel_Cargando.Name = "panel_Cargando";
+            this.panel_Cargando.Size = new System.Drawing.Size(594, 189);
+            this.panel_Cargando.TabIndex = 5;
             // 
             // pictureBox5
             // 
@@ -397,7 +400,7 @@
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.label_miliseg);
+            this.panel7.Controls.Add(this.label_min);
             this.panel7.Controls.Add(this.label_seg);
             this.panel7.Controls.Add(this.label16);
             this.panel7.Controls.Add(this.label17);
@@ -407,23 +410,23 @@
             this.panel7.Size = new System.Drawing.Size(297, 103);
             this.panel7.TabIndex = 1;
             // 
-            // label_miliseg
+            // label_min
             // 
-            this.label_miliseg.AutoSize = true;
-            this.label_miliseg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_miliseg.ForeColor = System.Drawing.Color.White;
-            this.label_miliseg.Location = new System.Drawing.Point(185, 61);
-            this.label_miliseg.Name = "label_miliseg";
-            this.label_miliseg.Size = new System.Drawing.Size(34, 25);
-            this.label_miliseg.TabIndex = 3;
-            this.label_miliseg.Text = "00";
+            this.label_min.AutoSize = true;
+            this.label_min.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_min.ForeColor = System.Drawing.Color.White;
+            this.label_min.Location = new System.Drawing.Point(88, 57);
+            this.label_min.Name = "label_min";
+            this.label_min.Size = new System.Drawing.Size(34, 25);
+            this.label_min.TabIndex = 4;
+            this.label_min.Text = "00";
             // 
             // label_seg
             // 
             this.label_seg.AutoSize = true;
             this.label_seg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_seg.ForeColor = System.Drawing.Color.White;
-            this.label_seg.Location = new System.Drawing.Point(77, 61);
+            this.label_seg.Location = new System.Drawing.Point(164, 57);
             this.label_seg.Name = "label_seg";
             this.label_seg.Size = new System.Drawing.Size(34, 25);
             this.label_seg.TabIndex = 2;
@@ -434,7 +437,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(183, 16);
+            this.label16.Location = new System.Drawing.Point(163, 26);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(36, 20);
             this.label16.TabIndex = 1;
@@ -445,7 +448,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(77, 16);
+            this.label17.Location = new System.Drawing.Point(87, 26);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(36, 20);
             this.label17.TabIndex = 0;
@@ -502,6 +505,7 @@
             this.btn_InstalarServidor.Text = "Instalar Servidor";
             this.btn_InstalarServidor.UseVisualStyleBackColor = false;
             this.btn_InstalarServidor.Visible = false;
+            this.btn_InstalarServidor.Click += new System.EventHandler(this.btn_InstalarServidor_Click);
             // 
             // InstalacionBD
             // 
@@ -516,6 +520,7 @@
             this.Name = "InstalacionBD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InstalacionBD_FormClosing);
             this.Load += new System.EventHandler(this.InstalacionBD_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -527,7 +532,7 @@
             this.groupBox1.ResumeLayout(false);
             this.panel_Instalacion.ResumeLayout(false);
             this.panel_Instalando.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
+            this.panel_Cargando.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel_Temporizador.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -561,18 +566,17 @@
         private System.Windows.Forms.RichTextBox textBox_EliminarBaseDeDatos;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.RichTextBox textBox_ArgumentosIni;
-        private System.Windows.Forms.Timer TimerCRARINI;
+        private System.Windows.Forms.Timer timer_CrearArchivoConfigIni;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Timer timer_EliminarScriptCreacionBd;
         private System.Windows.Forms.Label txtServidor;
         private System.Windows.Forms.Panel panel_Instalacion;
         private System.Windows.Forms.Panel panel_Instalando;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel_Cargando;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel_Temporizador;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label_miliseg;
         private System.Windows.Forms.Label label_seg;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
@@ -580,5 +584,6 @@
         private System.Windows.Forms.Label label_InfoInstalacion;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button btn_InstalarServidor;
+        private System.Windows.Forms.Label label_min;
     }
 }
