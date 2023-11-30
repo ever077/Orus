@@ -6,27 +6,27 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.75702cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.75702cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.27078cm</Width>
+              <Width>1.34327cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.92333cm</Width>
+              <Width>1.99502cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.01387cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.65108cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.74817cm</Height>
+              <Height>1.06567cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -328,7 +328,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Nombres</rd:DefaultName>
@@ -358,7 +360,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -373,6 +377,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -388,7 +393,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Horas</rd:DefaultName>
@@ -418,7 +425,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>SueldoPorHora</rd:DefaultName>
@@ -450,7 +459,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox14</rd:DefaultName>
@@ -480,7 +491,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Observacion</rd:DefaultName>
@@ -515,7 +528,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.33135cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox11">
                     <CanGrow>true</CanGrow>
@@ -578,7 +591,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.5cm</Size>
+                <Size>2.33135cm</Size>
                 <CellContents>
                   <Textbox Name="Fecha">
                     <CanGrow>true</CanGrow>
@@ -587,11 +600,13 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=FormatDateTime(Fields!Fecha.Value, DateFormat.ShortDate)&amp;Chr(10)&amp;(Fields!Dia.Value)</Value>
+                            <Value>=Day(Fields!Fecha.Value)&amp;"/"&amp;Month(Fields!Fecha.Value)&amp;"/"&amp;Year(Fields!Fecha.Value)&amp;Chr(10)&amp;(Fields!Dia.Value)</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Fecha</rd:DefaultName>
@@ -620,9 +635,9 @@
         <RepeatRowHeaders>true</RepeatRowHeaders>
         <DataSetName>DataSetAsistenciaPersonal</DataSetName>
         <Top>0.81703cm</Top>
-        <Left>0.2512cm</Left>
-        <Height>1.34817cm</Height>
-        <Width>17.69411cm</Width>
+        <Left>0.3937cm</Left>
+        <Height>1.66567cm</Height>
+        <Width>15.84864cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -644,7 +659,7 @@
     <Height>3.825in</Height>
     <Style />
   </Body>
-  <Width>7.25434in</Width>
+  <Width>6.5in</Width>
   <Page>
     <PageHeader>
       <Height>2.54cm</Height>
@@ -956,11 +971,13 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Now()</Value>
+                  <Value>=Day(Now())&amp;"/"&amp;Month(Now())&amp;"/"&amp;Year(Now())&amp;" "&amp;TimeString()</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -986,11 +1003,13 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=(Globals!PageNumber)&amp;" de "&amp;(Globals!TotalPages)</Value>
+                  <Value>="Página "&amp;(Globals!PageNumber)&amp;" de "&amp;(Globals!TotalPages)</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox22</rd:DefaultName>
