@@ -704,6 +704,10 @@ namespace Orus.Presentacion.Reportes {
             
             private global::System.Data.DataColumn columnObservacion;
             
+            private global::System.Data.DataColumn columnFecha_y_Hora_Entrada;
+            
+            private global::System.Data.DataColumn columnFecha_y_Hora_Salida;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public mostrar_asistencias_diarias_idDataTable() {
@@ -827,6 +831,22 @@ namespace Orus.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Fecha_y_Hora_EntradaColumn {
+                get {
+                    return this.columnFecha_y_Hora_Entrada;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Fecha_y_Hora_SalidaColumn {
+                get {
+                    return this.columnFecha_y_Hora_Salida;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -862,7 +882,7 @@ namespace Orus.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public mostrar_asistencias_diarias_idRow Addmostrar_asistencias_diarias_idRow(string Nombres, string Identificacion, System.DateTime Fecha, decimal Horas, System.DateTime Desde, System.DateTime Hasta, string Dia, int Semana, decimal SueldoPorHora, string Estado, string Observacion) {
+            public mostrar_asistencias_diarias_idRow Addmostrar_asistencias_diarias_idRow(string Nombres, string Identificacion, System.DateTime Fecha, decimal Horas, System.DateTime Desde, System.DateTime Hasta, string Dia, int Semana, decimal SueldoPorHora, string Estado, string Observacion, System.DateTime Fecha_y_Hora_Entrada, System.DateTime Fecha_y_Hora_Salida) {
                 mostrar_asistencias_diarias_idRow rowmostrar_asistencias_diarias_idRow = ((mostrar_asistencias_diarias_idRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Nombres,
@@ -875,7 +895,9 @@ namespace Orus.Presentacion.Reportes {
                         Semana,
                         SueldoPorHora,
                         Estado,
-                        Observacion};
+                        Observacion,
+                        Fecha_y_Hora_Entrada,
+                        Fecha_y_Hora_Salida};
                 rowmostrar_asistencias_diarias_idRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowmostrar_asistencias_diarias_idRow);
                 return rowmostrar_asistencias_diarias_idRow;
@@ -909,6 +931,8 @@ namespace Orus.Presentacion.Reportes {
                 this.columnSueldoPorHora = base.Columns["SueldoPorHora"];
                 this.columnEstado = base.Columns["Estado"];
                 this.columnObservacion = base.Columns["Observacion"];
+                this.columnFecha_y_Hora_Entrada = base.Columns["Fecha_y_Hora_Entrada"];
+                this.columnFecha_y_Hora_Salida = base.Columns["Fecha_y_Hora_Salida"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -936,6 +960,10 @@ namespace Orus.Presentacion.Reportes {
                 base.Columns.Add(this.columnEstado);
                 this.columnObservacion = new global::System.Data.DataColumn("Observacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnObservacion);
+                this.columnFecha_y_Hora_Entrada = new global::System.Data.DataColumn("Fecha_y_Hora_Entrada", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_y_Hora_Entrada);
+                this.columnFecha_y_Hora_Salida = new global::System.Data.DataColumn("Fecha_y_Hora_Salida", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_y_Hora_Salida);
                 this.columnNombres.MaxLength = 2147483647;
                 this.columnIdentificacion.MaxLength = 2147483647;
                 this.columnFecha.ReadOnly = true;
@@ -1552,6 +1580,40 @@ namespace Orus.Presentacion.Reportes {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Fecha_y_Hora_Entrada {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_EntradaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha_y_Hora_Entrada\' de la tabla \'mostrar_asistencias_di" +
+                                "arias_id\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_EntradaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Fecha_y_Hora_Salida {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_SalidaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha_y_Hora_Salida\' de la tabla \'mostrar_asistencias_dia" +
+                                "rias_id\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_SalidaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNombresNull() {
                 return this.IsNull(this.tablemostrar_asistencias_diarias_id.NombresColumn);
             }
@@ -1680,6 +1742,30 @@ namespace Orus.Presentacion.Reportes {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetObservacionNull() {
                 this[this.tablemostrar_asistencias_diarias_id.ObservacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFecha_y_Hora_EntradaNull() {
+                return this.IsNull(this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_EntradaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFecha_y_Hora_EntradaNull() {
+                this[this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_EntradaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFecha_y_Hora_SalidaNull() {
+                return this.IsNull(this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_SalidaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFecha_y_Hora_SalidaNull() {
+                this[this.tablemostrar_asistencias_diarias_id.Fecha_y_Hora_SalidaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2102,6 +2188,8 @@ namespace Orus.Presentacion.Reportes.DataSetReporteTableAdapters {
             tableMapping.ColumnMappings.Add("SueldoPorHora", "SueldoPorHora");
             tableMapping.ColumnMappings.Add("Estado", "Estado");
             tableMapping.ColumnMappings.Add("Observacion", "Observacion");
+            tableMapping.ColumnMappings.Add("Fecha_y_Hora_Entrada", "Fecha_y_Hora_Entrada");
+            tableMapping.ColumnMappings.Add("Fecha_y_Hora_Salida", "Fecha_y_Hora_Salida");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
