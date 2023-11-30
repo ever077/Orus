@@ -122,6 +122,7 @@ namespace Orus.Presentacion
         {
             panel_Padre.Controls.Clear();
             ControlUsuarios controlUsuario = new ControlUsuarios();
+            controlUsuario.set_usuarioLogueado(usuarioLogueado);
             controlUsuario.Dock = DockStyle.Fill;
             panel_Padre.Controls.Add(controlUsuario);
         }
