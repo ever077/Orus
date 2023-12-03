@@ -649,6 +649,7 @@
                               <Value>=Str(Sum(Fields!Horas.Value, "DataSetAsistenciaPersonal"))&amp;" Hrs"</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>0.00;(0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -828,6 +829,7 @@
                               <Value>=Sum(Fields!SueldoPorHora.Value * Fields!Horas.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>'$'0.00;('$'0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -861,9 +863,11 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>es-AR</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
                     <ColSpan>2</ColSpan>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
