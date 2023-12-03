@@ -1,4 +1,5 @@
 ﻿using Orus.Logica;
+using Orus.Presentacion;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,28 +41,40 @@ namespace Orus.Datos
             }
         }
 
-        public int MostrarUsuario(ref DataTable dt)
+        public void MostrarUsuario(ref DataTable dt)
         {
-            /*
-             * Retorna 1 si se ejecuto correctamente.
-             * Retorna -1 si hubo error de conexion o de TimeOut.
-             * Retorna 0 si hubo algun otro error.
-            */
             try
             {
                 ConexionMaestra.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("SELECT * from Usuario", ConexionMaestra.conectar);
+                da.SelectCommand.CommandTimeout = 120;
                 da.Fill(dt);
-                return 1;
             }
             catch (TimeoutException ex)
             {
-                MessageBox.Show(ex.StackTrace);
-                return -1;
+                MessageBox.Show(ex.StackTrace + "\n\n" + ex.Message);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
+
+        public int contarUsuarios()
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                cmd = new SqlCommand("SELECT COUNT(Id_usuario) FROM Usuario", ConexionMaestra.conectar);
+                return Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace + "\n\n" + ex.Message);
                 return 0;
             }
             finally
@@ -210,6 +223,31 @@ namespace Orus.Datos
                 // Muestra el mensaje que figura en el procedimiento SQL
                 MessageBox.Show(ex.Message);
                 return false;
+            }
+            finally
+            {
+                ConexionMaestra.cerrar();
+            }
+        }
+
+        public void buscarUsuarios(ref DataTable dt, string buscador)
+        {
+            try
+            {
+                ConexionMaestra.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("buscar_usuario_nombre", ConexionMaestra.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Buscador", buscador);
+                da.SelectCommand.CommandTimeout = 100;
+                da.Fill(dt);
+            }
+            catch (TimeoutException ex)
+            {
+                MessageBox.Show(ex.StackTrace + "\n\n" + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace + "\n\n" + ex.Message);
             }
             finally
             {

@@ -102,7 +102,7 @@
             // 
             // pictureBox_Icono
             // 
-            this.pictureBox_Icono.Image = global::Orus.Properties.Resources._4e;
+            this.pictureBox_Icono.Image = global::Orus.Properties.Resources._4E___Fondo_Negro___Final;
             this.pictureBox_Icono.Location = new System.Drawing.Point(212, 337);
             this.pictureBox_Icono.Name = "pictureBox_Icono";
             this.pictureBox_Icono.Size = new System.Drawing.Size(200, 200);

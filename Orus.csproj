@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>orus.4e.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1586.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
@@ -194,7 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\Reportes\ReporteAsistenciaPersonal.rdlc" />
     <EmbeddedResource Include="Presentacion\Reportes\ReporteAsistenciaPersonalTodos.rdlc" />
-    <EmbeddedResource Include="Presentacion\Reportes\ReporteAsistencias.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -205,6 +207,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="orus.4e.manifest" />
     <None Include="packages.config" />
     <None Include="Presentacion\Reportes\DataSetReporte.xsc">
       <DependentUpon>DataSetReporte.xsd</DependentUpon>
@@ -339,6 +342,8 @@
     <None Include="Resources\menu 16px.png" />
     <None Include="Resources\Menu fondo blanco 23px.png" />
     <None Include="Resources\Menu fondo blanco 18 px.png" />
+    <None Include="Resources\Logo 4E propio 3.png" />
+    <None Include="Resources\4E - Fondo Negro - Final.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -62,7 +62,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Orus.Properties.Resources._4e;
+            this.pictureBox1.Image = global::Orus.Properties.Resources._4E___Fondo_Negro___Final;
             this.pictureBox1.Location = new System.Drawing.Point(153, 14);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(91, 97);

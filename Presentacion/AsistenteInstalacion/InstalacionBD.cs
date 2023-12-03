@@ -316,7 +316,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
             string rutaConfig;
             StreamWriter sw;
             rutaConfig = Path.Combine(Directory.GetCurrentDirectory(), "ConfigurationFile.ini");
-            rutaConfig = rutaConfig.Replace("ConfigurationFile.ini", @"SQLEXPR_x86_ESN\ConfigurationFile.ini");
+            rutaConfig = rutaConfig.Replace("ConfigurationFile.ini", @"SQLEXPR_x64_ESN\ConfigurationFile.ini");
             if (File.Exists(rutaConfig) == true)
             {
                 timer_CrearArchivoConfigIni.Stop();
@@ -342,7 +342,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
             {
                 Process pross = new Process();
                 //pross.StartInfo.FileName = "SQLEXPR_x86_ENU.exe"; -> Asi lo puso en el curso, creo que esta mal y lo corrijo en la linea siguiente.
-                pross.StartInfo.FileName = "SQLEXPR_x86_ESN.exe";
+                pross.StartInfo.FileName = "SQLEXPR_x64_ESN.exe";
                 pross.StartInfo.Arguments = "/ConfigurationFile=ConfigurationFile.ini /ACTION=Install /IACCEPTSQLSERVERLICENSETERMS /SECURITYMODE=SQL /SAPWD=" + textBox_Pass.Text + " /SQLSYSADMINACCOUNTS=" + nombreDelEquipo_Usuario;
                 pross.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
                 pross.Start();

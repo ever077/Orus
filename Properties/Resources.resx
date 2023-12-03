@@ -142,6 +142,9 @@
   <data name="Auriculares" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Auriculares.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="grupo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grupo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="menu 16px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu 16px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -171,6 +174,9 @@
   </data>
   <data name="restaurar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\restaurar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo 4E propio 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo 4E propio 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cohete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cohete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,13 +223,13 @@
   <data name="Avangers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Avangers.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="grupo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grupo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Menu fondo blanco 18 px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Menu fondo blanco 18 px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Boton 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Boton 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Menu fondo blanco 18 px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Menu fondo blanco 18 px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="4E - Fondo Negro - Final" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4E - Fondo Negro - Final.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
