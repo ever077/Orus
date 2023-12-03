@@ -42,20 +42,20 @@ namespace Orus.Presentacion
             if (indicador == "Correcto")
             {
                 // Hay conexion => Existe la base de datos
-                MostrarUsuario();
-
-                if (contador == 0 && resultadoConexion == 1)
+                
+                contador = contarUsuarios();
+                if (contador == 0)
                 {
                     // No hay ningun usuario registrado -> Creo el Usuario Principal.
                     Dispose();
                     UsuarioPrincipal frm = new UsuarioPrincipal();
                     frm.ShowDialog();
                 }
-                else if (contador > 0 && resultadoConexion == 1)
+                else if (contador > 0)
                 {
                     DibujarUsuarios();
                 }
-                else if (resultadoConexion == -1)
+                else
                 {
                     MessageBox.Show("Hubo un error de conexión con el servidor. Verifique su conexión e intentelo nuevamente.", "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Dispose();
@@ -77,13 +77,12 @@ namespace Orus.Presentacion
             funcion.VerificarUsuario(ref indicador);
         }
 
-        private void MostrarUsuario()
+        private int contarUsuarios()
         {
             DataTable dt = new DataTable();
             Dusuario funcion = new Dusuario();
-            
-            resultadoConexion = funcion.MostrarUsuario(ref dt);
-            contador = dt.Rows.Count;
+
+            return funcion.contarUsuarios();
         }
 
         private void DibujarUsuarios()
@@ -140,7 +139,6 @@ namespace Orus.Presentacion
                         lbl.Click += eventoLabelUsuario_Click;
                         img1.Click += eventoImagenUsuario_Click;
                     }
-                    
                 }
             }
             catch (Exception ex)

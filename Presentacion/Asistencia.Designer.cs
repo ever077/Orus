@@ -32,14 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Asistencia));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_IniciarSeccion = new System.Windows.Forms.Button();
-            this.btn_Volver = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_RegistroAsistencia = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lbl_NombreUsuario = new System.Windows.Forms.Label();
             this.lbl_Aviso = new System.Windows.Forms.Label();
             this.lbl_Hora = new System.Windows.Forms.Label();
@@ -50,15 +47,18 @@
             this.txt_Identificacion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel_Observacion = new System.Windows.Forms.Panel();
-            this.btn_Confirmar = new System.Windows.Forms.Button();
             this.txt_Observacion = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.timer_Hora = new System.Windows.Forms.Timer(this.components);
+            this.btn_Confirmar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_IniciarSeccion = new System.Windows.Forms.Button();
+            this.btn_Volver = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_RegistroAsistencia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_Observacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,42 +82,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(364, 79);
             this.panel2.TabIndex = 2;
-            // 
-            // btn_IniciarSeccion
-            // 
-            this.btn_IniciarSeccion.BackgroundImage = global::Orus.Properties.Resources.Rectangulo_naranja_2;
-            this.btn_IniciarSeccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_IniciarSeccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_IniciarSeccion.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_IniciarSeccion.FlatAppearance.BorderSize = 0;
-            this.btn_IniciarSeccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_IniciarSeccion.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_IniciarSeccion.Location = new System.Drawing.Point(0, 10);
-            this.btn_IniciarSeccion.Name = "btn_IniciarSeccion";
-            this.btn_IniciarSeccion.Size = new System.Drawing.Size(277, 69);
-            this.btn_IniciarSeccion.TabIndex = 1;
-            this.btn_IniciarSeccion.Text = "Iniciar Seccion";
-            this.btn_IniciarSeccion.UseVisualStyleBackColor = false;
-            this.btn_IniciarSeccion.Click += new System.EventHandler(this.btn_IniciarSeccion_Click);
-            // 
-            // btn_Volver
-            // 
-            this.btn_Volver.BackgroundImage = global::Orus.Properties.Resources.atras;
-            this.btn_Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Volver.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_Volver.FlatAppearance.BorderSize = 0;
-            this.btn_Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Volver.ForeColor = System.Drawing.Color.Black;
-            this.btn_Volver.Location = new System.Drawing.Point(277, 10);
-            this.btn_Volver.Name = "btn_Volver";
-            this.btn_Volver.Size = new System.Drawing.Size(77, 69);
-            this.btn_Volver.TabIndex = 19;
-            this.btn_Volver.UseVisualStyleBackColor = true;
-            this.btn_Volver.Visible = false;
-            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
             // panel4
             // 
@@ -176,17 +140,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "REGISTRO DE ASISTENCIA";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::Orus.Properties.Resources._4e;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(855, 193);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // lbl_NombreUsuario
             // 
@@ -275,6 +228,7 @@
             this.txt_Identificacion.Size = new System.Drawing.Size(469, 31);
             this.txt_Identificacion.TabIndex = 2;
             this.txt_Identificacion.TextChanged += new System.EventHandler(this.txt_Identificacion_TextChanged);
+            this.txt_Identificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Identificacion_KeyPress);
             // 
             // label3
             // 
@@ -294,24 +248,8 @@
             this.panel_Observacion.Controls.Add(this.label6);
             this.panel_Observacion.Location = new System.Drawing.Point(50, 120);
             this.panel_Observacion.Name = "panel_Observacion";
-            this.panel_Observacion.Size = new System.Drawing.Size(377, 455);
+            this.panel_Observacion.Size = new System.Drawing.Size(377, 459);
             this.panel_Observacion.TabIndex = 2;
-            // 
-            // btn_Confirmar
-            // 
-            this.btn_Confirmar.BackgroundImage = global::Orus.Properties.Resources.boton_Azul_1;
-            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
-            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Confirmar.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirmar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btn_Confirmar.Location = new System.Drawing.Point(0, 308);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(252, 69);
-            this.btn_Confirmar.TabIndex = 4;
-            this.btn_Confirmar.Text = "Confirmar";
-            this.btn_Confirmar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
             // txt_Observacion
             // 
@@ -319,7 +257,7 @@
             this.txt_Observacion.Dock = System.Windows.Forms.DockStyle.Top;
             this.txt_Observacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Observacion.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.txt_Observacion.Location = new System.Drawing.Point(0, 39);
+            this.txt_Observacion.Location = new System.Drawing.Point(0, 78);
             this.txt_Observacion.Name = "txt_Observacion";
             this.txt_Observacion.Size = new System.Drawing.Size(377, 269);
             this.txt_Observacion.TabIndex = 3;
@@ -332,7 +270,7 @@
             this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(377, 39);
+            this.label6.Size = new System.Drawing.Size(377, 78);
             this.label6.TabIndex = 2;
             this.label6.Text = "Observacion";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -341,6 +279,69 @@
             // 
             this.timer_Hora.Enabled = true;
             this.timer_Hora.Tick += new System.EventHandler(this.timer_Hora_Tick);
+            // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.BackgroundImage = global::Orus.Properties.Resources.boton_Azul_1;
+            this.btn_Confirmar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Confirmar.FlatAppearance.BorderSize = 0;
+            this.btn_Confirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Confirmar.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Confirmar.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btn_Confirmar.Location = new System.Drawing.Point(0, 353);
+            this.btn_Confirmar.Name = "btn_Confirmar";
+            this.btn_Confirmar.Size = new System.Drawing.Size(252, 69);
+            this.btn_Confirmar.TabIndex = 4;
+            this.btn_Confirmar.Text = "Confirmar";
+            this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::Orus.Properties.Resources._4E___Fondo_Negro___Final;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(855, 193);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_IniciarSeccion
+            // 
+            this.btn_IniciarSeccion.BackgroundImage = global::Orus.Properties.Resources.Rectangulo_naranja_2;
+            this.btn_IniciarSeccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_IniciarSeccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_IniciarSeccion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_IniciarSeccion.FlatAppearance.BorderSize = 0;
+            this.btn_IniciarSeccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_IniciarSeccion.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_IniciarSeccion.Location = new System.Drawing.Point(0, 10);
+            this.btn_IniciarSeccion.Name = "btn_IniciarSeccion";
+            this.btn_IniciarSeccion.Size = new System.Drawing.Size(277, 69);
+            this.btn_IniciarSeccion.TabIndex = 1;
+            this.btn_IniciarSeccion.Text = "Iniciar Seccion";
+            this.btn_IniciarSeccion.UseVisualStyleBackColor = false;
+            this.btn_IniciarSeccion.Click += new System.EventHandler(this.btn_IniciarSeccion_Click);
+            // 
+            // btn_Volver
+            // 
+            this.btn_Volver.BackgroundImage = global::Orus.Properties.Resources.atras;
+            this.btn_Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Volver.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_Volver.FlatAppearance.BorderSize = 0;
+            this.btn_Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Volver.ForeColor = System.Drawing.Color.Black;
+            this.btn_Volver.Location = new System.Drawing.Point(277, 10);
+            this.btn_Volver.Name = "btn_Volver";
+            this.btn_Volver.Size = new System.Drawing.Size(77, 69);
+            this.btn_Volver.TabIndex = 19;
+            this.btn_Volver.UseVisualStyleBackColor = true;
+            this.btn_Volver.Visible = false;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
             // 
             // Asistencia
             // 
@@ -360,8 +361,8 @@
             this.panel2.ResumeLayout(false);
             this.panel_RegistroAsistencia.ResumeLayout(false);
             this.panel_RegistroAsistencia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_Observacion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

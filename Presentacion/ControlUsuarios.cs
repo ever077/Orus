@@ -588,5 +588,19 @@ namespace Orus.Presentacion
 
             return funcion.EliminarUsuario(parametros);
         }
+
+        private void txt_Buscador_TextChanged(object sender, EventArgs e)
+        {
+            buscarUsuarios();
+        }
+
+        private void buscarUsuarios()
+        {
+            Dusuario funcion = new Dusuario();
+            DataTable dt = new DataTable();
+
+            funcion.buscarUsuarios(ref dt, txt_Buscador.Text);
+            dataGridView_Usuarios.DataSource = dt;
+        }
     }
 }

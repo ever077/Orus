@@ -73,6 +73,16 @@ namespace Orus.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _4E___Fondo_Negro___Final {
+            get {
+                object obj = ResourceManager.GetObject("4E - Fondo Negro - Final", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Add_Image {
             get {
                 object obj = ResourceManager.GetObject("Add Image", resourceCulture);
@@ -286,6 +296,16 @@ namespace Orus.Properties {
         internal static System.Drawing.Bitmap loading_12 {
             get {
                 object obj = ResourceManager.GetObject("loading-12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_4E_propio_3 {
+            get {
+                object obj = ResourceManager.GetObject("Logo 4E propio 3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

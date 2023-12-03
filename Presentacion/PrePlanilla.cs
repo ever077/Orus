@@ -25,6 +25,8 @@ namespace Orus.Presentacion
             InitializeComponent();
             idPersonalSeleccionado = 0;
             hayPersonalEspecificado = false;
+            dateTimePickerDesde.Value = DateTime.Now;
+            dateTimePickerHasta.Value = DateTime.Now;
         }
 
         private void PrePlanilla_Load(object sender, EventArgs e)

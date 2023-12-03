@@ -87,6 +87,7 @@ namespace Orus.Presentacion
                         panel_Observacion.Visible = true;
                         panel_Observacion.Location = new Point(panel_RegistroAsistencia.Location.X, panel_RegistroAsistencia.Location.Y);
                         panel_Observacion.Size = new Size(panel_RegistroAsistencia.Width, panel_RegistroAsistencia.Height);
+                        btn_Confirmar.Location = new Point((panel_Observacion.Width - btn_Confirmar.Width) / 2, (Height - txt_Observacion.Height) / 2);
                         panel_Observacion.BringToFront();
                         txt_Observacion.Clear();
                         txt_Observacion.Focus();
@@ -102,6 +103,24 @@ namespace Orus.Presentacion
                     // Hay una entrasa registrada --> Registro una SALIDA.
                     ConfirmarSalidaAsistencia();
                 }
+            }
+        }
+
+        private void txt_Identificacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Valido que la entrada sean solo digitos.
+
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
             }
         }
 
@@ -163,12 +182,22 @@ namespace Orus.Presentacion
 
         private void ConfirmarSalidaAsistencia()
         {
+            /*
+             * Las horas trabajadas se cuentan por minuto.
+            */ 
+
             Lasistencia parametros = new Lasistencia();
             Dasistencia funcion = new Dasistencia();
 
             parametros.Id_personal = idPersonal;
             parametros.Fecha_salida = DateTime.Now;
-            parametros.Horas = Configuraciones.DateDiff(Configuraciones.DateInterval.Hour, fechaRegistro, DateTime.Now);
+            // -> Esto lo hacia para calcular solamenta las horas trabajadas, sin incluir los minutos.
+            //parametros.Horas = Configuraciones.DateDiff(Configuraciones.DateInterval.Hour, fechaRegistro, DateTime.Now);
+            DateTime timeNow = DateTime.Now;
+            parametros.Horas = (timeNow - fechaRegistro).TotalHours;
+
+            // -> Esto es para saber las horas y minutos trabajados en formato hh:mm
+            //TimeSpan span1 = TimeSpan.FromHours(parametros.Horas);
 
             if (funcion.ConfirmarSalidaAsistencia(parametros) == true)
             {
