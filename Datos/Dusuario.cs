@@ -74,7 +74,7 @@ namespace Orus.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace + "\n\n" + ex.Message);
+                MessageBox.Show(ex.Message);
                 return 0;
             }
             finally
@@ -119,7 +119,10 @@ namespace Orus.Datos
             }
             finally
             {
-                ConexionMaestra.cerrar();
+                if (indicador == "Correcto")
+                {
+                    ConexionMaestra.cerrar();
+                }
             }
         }
 
