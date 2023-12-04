@@ -31,7 +31,15 @@ namespace Orus.Presentacion
 
         private void Login_Load(object sender, EventArgs e)
         {
-            ValidarConexion();
+            /*
+             * Esto hago para verificar si hay Base de Datos instalada
+             * y Usuario Principal creado.
+             * Lo comento porque ahora la aplicacion comienza en Asistencia, entonces
+             * lo valido alli.
+            */
+            //ValidarConexion();
+
+            DibujarUsuarios();
         }
 
         private void ValidarConexion()

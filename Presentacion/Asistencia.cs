@@ -1,5 +1,6 @@
 ﻿using Orus.Datos;
 using Orus.Logica;
+using Orus.Presentacion.AsistenteInstalacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,9 @@ namespace Orus.Presentacion
         private int idPersonal;
         private int contador;
         DateTime fechaRegistro;
-        private bool hayUsuarioLogueado = false;
+        private bool hayUsuarioLogueado;
         private Lusuario usuarioLogueado;
+        private string indicadorDeConexion;
 
         public void set_hayUsuarioLogueado(bool hayusrLogueado)
         {
@@ -35,6 +37,8 @@ namespace Orus.Presentacion
         public Asistencia()
         {
             InitializeComponent();
+            hayUsuarioLogueado = false;
+            indicadorDeConexion = "";
         }
 
         private void Asistencia_Load(object sender, EventArgs e)
@@ -44,9 +48,56 @@ namespace Orus.Presentacion
                 btn_IniciarSeccion.Visible = false;
                 btn_Volver.Visible = true;
             }
+            else
+            {
+                // Es cuando inicia la aplicacion.
+                validarConexion();
+            }
             LocalizarEnCentroDePantalla(panel_RegistroAsistencia);
             panel_Observacion.Visible = false;
             txt_Identificacion.Focus();
+        }
+
+        private void validarConexion()
+        {
+            // Verifico si hay conexion con la base de datos
+            verificarConexion();
+            if (indicadorDeConexion == "Correcto")
+            {
+                // Hay conexion => Existe la base de datos
+
+                if (contarUsuarios() == 0)
+                {
+                    // No hay ningun usuario registrado -> Creo el Usuario Principal.
+                    Dispose();
+                    UsuarioPrincipal frm = new UsuarioPrincipal();
+                    frm.ShowDialog();
+                }
+            }
+            else
+            {
+                /*
+                 * No hay conexion => No existe la base de datos => La creo
+                 * O puede ser que el archivo ConnectionString se haya modificado.
+                */
+                Dispose();
+                EleccionServidor frm = new EleccionServidor();
+                frm.ShowDialog();
+            }
+        }
+
+        private void verificarConexion()
+        {
+            Dusuario funcion = new Dusuario();
+            funcion.VerificarUsuario(ref indicadorDeConexion);
+        }
+
+        private int contarUsuarios()
+        {
+            DataTable dt = new DataTable();
+            Dusuario funcion = new Dusuario();
+
+            return funcion.contarUsuarios();
         }
 
         private void LocalizarEnCentroDePantalla(Panel panel)
