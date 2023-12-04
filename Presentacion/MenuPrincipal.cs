@@ -30,8 +30,20 @@ namespace Orus.Presentacion
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             panel_Bienvenida.Dock = DockStyle.Fill;
+            inicializarTooltip();
             validarPermisos();
             mostrarUsuarioLogueado();
+        }
+
+        private void inicializarTooltip()
+        {
+            ToolTip toolT = new ToolTip();
+            toolT.SetToolTip(btn_Consultas, "Muestra una planilla de las horas trabajadas de los empleados.");
+            toolT.SetToolTip(btn_Personal, "Muestra el listado del personal.");
+            toolT.SetToolTip(btn_Registro, "Muestra la pantalla para registrar una entrada/salida.");
+            toolT.SetToolTip(btn_Usuarios, "Muestra el listado de los usuarios.");
+            toolT.SetToolTip(btn_RestaurarBd, "Permite restaurar una Copia de Seguridad de los datos.\nTen en cuenta que se pueden perder datos si se restaura\nuna Copia de Seguridad que no esté actualizada.");
+            toolT.SetToolTip(btn_Respaldos, "Permite generar una Copia de Seguridad de los datos.");
         }
 
         private void validarPermisos()
