@@ -31,21 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_Volver = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_IngresoDePass = new System.Windows.Forms.Panel();
             this.btn_CambiarDeUsuario = new System.Windows.Forms.Button();
             this.btn_IniciarSeccion = new System.Windows.Forms.Button();
             this.flowLayoutPanel_NumerosBotones = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txt_Pass = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel_Usuarios = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel_Usuarios = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.btn_1 = new System.Windows.Forms.Button();
             this.btn_2 = new System.Windows.Forms.Button();
             this.btn_3 = new System.Windows.Forms.Button();
@@ -58,15 +53,20 @@
             this.btn_borrar = new System.Windows.Forms.Button();
             this.btn_0 = new System.Windows.Forms.Button();
             this.btn_BorrarCaracter = new System.Windows.Forms.Button();
-            this.btn_Volver = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txt_Pass = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel_Usuarios = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel_Usuarios = new System.Windows.Forms.FlowLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_IngresoDePass.SuspendLayout();
             this.flowLayoutPanel_NumerosBotones.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_Usuarios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,6 +92,24 @@
             this.panel4.Size = new System.Drawing.Size(111, 125);
             this.panel4.TabIndex = 2;
             // 
+            // btn_Volver
+            // 
+            this.btn_Volver.BackgroundImage = global::Orus.Properties.Resources.atras;
+            this.btn_Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Volver.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Volver.FlatAppearance.BorderSize = 0;
+            this.btn_Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Volver.ForeColor = System.Drawing.Color.Black;
+            this.btn_Volver.Location = new System.Drawing.Point(0, 25);
+            this.btn_Volver.Name = "btn_Volver";
+            this.btn_Volver.Size = new System.Drawing.Size(90, 75);
+            this.btn_Volver.TabIndex = 20;
+            this.btn_Volver.UseVisualStyleBackColor = true;
+            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
+            // 
             // panel7
             // 
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
@@ -115,6 +133,16 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(111, 25);
             this.panel5.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Orus.Properties.Resources._4E___Fondo_Negro___Final;
+            this.pictureBox1.Location = new System.Drawing.Point(153, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(91, 97);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -191,79 +219,6 @@
             this.flowLayoutPanel_NumerosBotones.Name = "flowLayoutPanel_NumerosBotones";
             this.flowLayoutPanel_NumerosBotones.Size = new System.Drawing.Size(301, 396);
             this.flowLayoutPanel_NumerosBotones.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.txt_Pass);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 47);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(587, 78);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(70, 57);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(441, 1);
-            this.panel3.TabIndex = 1;
-            // 
-            // txt_Pass
-            // 
-            this.txt_Pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.txt_Pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_Pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Pass.ForeColor = System.Drawing.Color.White;
-            this.txt_Pass.Location = new System.Drawing.Point(70, 21);
-            this.txt_Pass.Name = "txt_Pass";
-            this.txt_Pass.PasswordChar = '*';
-            this.txt_Pass.Size = new System.Drawing.Size(441, 31);
-            this.txt_Pass.TabIndex = 0;
-            this.txt_Pass.TextChanged += new System.EventHandler(this.txt_Pass_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(587, 47);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Inicio de Sesion";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel_Usuarios
-            // 
-            this.panel_Usuarios.Controls.Add(this.flowLayoutPanel_Usuarios);
-            this.panel_Usuarios.Controls.Add(this.label3);
-            this.panel_Usuarios.Location = new System.Drawing.Point(979, 205);
-            this.panel_Usuarios.Name = "panel_Usuarios";
-            this.panel_Usuarios.Size = new System.Drawing.Size(531, 546);
-            this.panel_Usuarios.TabIndex = 2;
-            this.panel_Usuarios.Visible = false;
-            // 
-            // flowLayoutPanel_Usuarios
-            // 
-            this.flowLayoutPanel_Usuarios.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel_Usuarios.Location = new System.Drawing.Point(0, 113);
-            this.flowLayoutPanel_Usuarios.Name = "flowLayoutPanel_Usuarios";
-            this.flowLayoutPanel_Usuarios.Size = new System.Drawing.Size(531, 433);
-            this.flowLayoutPanel_Usuarios.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(531, 113);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "¿Quién está iniciando Sesión?";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_1
             // 
@@ -467,33 +422,79 @@
             this.btn_BorrarCaracter.UseVisualStyleBackColor = false;
             this.btn_BorrarCaracter.Click += new System.EventHandler(this.btn_BorrarCaracter_Click);
             // 
-            // btn_Volver
+            // panel2
             // 
-            this.btn_Volver.BackgroundImage = global::Orus.Properties.Resources.atras;
-            this.btn_Volver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Volver.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Volver.FlatAppearance.BorderSize = 0;
-            this.btn_Volver.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_Volver.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_Volver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Volver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Volver.ForeColor = System.Drawing.Color.Black;
-            this.btn_Volver.Location = new System.Drawing.Point(0, 25);
-            this.btn_Volver.Name = "btn_Volver";
-            this.btn_Volver.Size = new System.Drawing.Size(90, 75);
-            this.btn_Volver.TabIndex = 20;
-            this.btn_Volver.UseVisualStyleBackColor = true;
-            this.btn_Volver.Click += new System.EventHandler(this.btn_Volver_Click);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.txt_Pass);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 47);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(587, 78);
+            this.panel2.TabIndex = 1;
             // 
-            // pictureBox1
+            // panel3
             // 
-            this.pictureBox1.Image = global::Orus.Properties.Resources._4E___Fondo_Negro___Final;
-            this.pictureBox1.Location = new System.Drawing.Point(153, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(91, 97);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(70, 57);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(441, 1);
+            this.panel3.TabIndex = 1;
+            // 
+            // txt_Pass
+            // 
+            this.txt_Pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_Pass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Pass.ForeColor = System.Drawing.Color.White;
+            this.txt_Pass.Location = new System.Drawing.Point(70, 21);
+            this.txt_Pass.Name = "txt_Pass";
+            this.txt_Pass.PasswordChar = '*';
+            this.txt_Pass.Size = new System.Drawing.Size(441, 31);
+            this.txt_Pass.TabIndex = 0;
+            this.txt_Pass.TextChanged += new System.EventHandler(this.txt_Pass_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(587, 47);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Inicio de Sesion";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel_Usuarios
+            // 
+            this.panel_Usuarios.Controls.Add(this.flowLayoutPanel_Usuarios);
+            this.panel_Usuarios.Controls.Add(this.label3);
+            this.panel_Usuarios.Location = new System.Drawing.Point(979, 205);
+            this.panel_Usuarios.Name = "panel_Usuarios";
+            this.panel_Usuarios.Size = new System.Drawing.Size(531, 546);
+            this.panel_Usuarios.TabIndex = 2;
+            this.panel_Usuarios.Visible = false;
+            // 
+            // flowLayoutPanel_Usuarios
+            // 
+            this.flowLayoutPanel_Usuarios.AutoScroll = true;
+            this.flowLayoutPanel_Usuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel_Usuarios.Location = new System.Drawing.Point(0, 113);
+            this.flowLayoutPanel_Usuarios.Name = "flowLayoutPanel_Usuarios";
+            this.flowLayoutPanel_Usuarios.Size = new System.Drawing.Size(531, 433);
+            this.flowLayoutPanel_Usuarios.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(531, 113);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "¿Quién está iniciando Sesión?";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
@@ -513,12 +514,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_IngresoDePass.ResumeLayout(false);
             this.flowLayoutPanel_NumerosBotones.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel_Usuarios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
