@@ -31,6 +31,8 @@ namespace Orus.Presentacion
 
         private void PrePlanilla_Load(object sender, EventArgs e)
         {
+            // Con esto intento de cambiar la conexion del DataSet para que se conecte al servidor del uusuario y no al del desarrollador
+            Orus.Properties.Settings.Default["ORUSConnectionString"] = ConexionMaestra.conexion;
             configurarDgvPersonalDisponible();
             calcularNumeroSemana();
             generarReporte();
