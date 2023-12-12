@@ -138,7 +138,7 @@ namespace Orus.Presentacion
                         panel_Observacion.Visible = true;
                         panel_Observacion.Location = new Point(panel_RegistroAsistencia.Location.X, panel_RegistroAsistencia.Location.Y);
                         panel_Observacion.Size = new Size(panel_RegistroAsistencia.Width, panel_RegistroAsistencia.Height);
-                        btn_Confirmar.Location = new Point((panel_Observacion.Width - btn_Confirmar.Width) / 2, (Height - txt_Observacion.Height) / 2);
+                        btn_Confirmar.Location = new Point((panel_BtnConfirmar.Width - btn_Confirmar.Width) / 2, (panel_BtnConfirmar.Height - btn_Confirmar.Height) / 2);
                         panel_Observacion.BringToFront();
                         txt_Observacion.Clear();
                         txt_Observacion.Focus();

@@ -1,4 +1,5 @@
-﻿using Orus.Datos;
+﻿using Microsoft.Win32;
+using Orus.Datos;
 using Orus.Logica;
 using System;
 using System.Collections;
@@ -41,6 +42,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
             bool estaInstalado = comprobarSiSqlEstaInstalado();
             if (estaInstalado == true)
             {
+                Cursor = Cursors.WaitCursor;
                 instalarServidorYBd();
             }
             else
@@ -49,6 +51,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
                 txtServidor.Text = @".\" + textBox_NombreInstancia.Text;
 
                 btn_InstalarServidor.Visible = true;
+                btn_InstalarServidor.BringToFront();
                 panel_Instalando.Visible = true;
                 panel_Cargando.Visible = false;
                 panel_Temporizador.Visible = true;
@@ -66,27 +69,54 @@ namespace Orus.Presentacion.AsistenteInstalacion
         {
             /* 
              * Primera forma:
-             * 
-             * RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\MICROSOFT\Microsoft SQL Server");
-             * if (registryKey == null)
-             * {
-             *      return false;
-             * }
-             * else
-             * {
-             *      return true;
-             * }
             */
 
-            SqlDataSourceEnumerator sqlDataSourceEnumerator = SqlDataSourceEnumerator.Instance;
-            DataTable dt = sqlDataSourceEnumerator.GetDataSources();
-            if (dt.Rows.Count == 0)
+            /*
+                 RegistryKey registryKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\MICROSOFT\Microsoft SQL Server");
+                 if (registryKey == null)
+                 {
+                      return false;
+                 }
+                 else
+                 {
+                      return true;
+                 }
+            */
+
+            /* 
+             * Segunda forma:
+            */
+            /*  SqlDataSourceEnumerator sqlDataSourceEnumerator = SqlDataSourceEnumerator.Instance;
+                DataTable dt = sqlDataSourceEnumerator.GetDataSources();
+                if (dt.Rows.Count == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            */
+
+            /* 
+             * Tercera forma:
+            */
+            RegistryView registryView = Environment.Is64BitOperatingSystem ? RegistryView.Registry64 : RegistryView.Registry32;
+            using (RegistryKey hklm = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, registryView))
             {
-                return false;
-            }
-            else
-            {
-                return true;
+                RegistryKey instanceKey = hklm.OpenSubKey(@"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL", false);
+                if (instanceKey != null)
+                {
+                    //foreach (var instanceName in instanceKey.GetValueNames())
+                    //{
+                    //    Console.WriteLine(Environment.MachineName + @"\" + instanceName);
+                    //}
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
@@ -94,7 +124,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
         {
             panel_Instalacion.Location = new Point((Width - panel_Instalacion.Width) / 2, (Height - panel_Instalacion.Height) / 2);
             nombreDelEquipo_Usuario = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            Cursor = Cursors.WaitCursor;
+            //Cursor = Cursors.WaitCursor;
             panel_Instalando.Visible = false;
             panel_Instalando.Dock = DockStyle.None;
         }
@@ -115,36 +145,58 @@ namespace Orus.Presentacion.AsistenteInstalacion
         private void instalarServidorYBd()
         {
             // Instalo segun la version de SQL instalada.
-            int edicionSql = obtenerEdicionDeSql();
+            string servidor = @".\SQLEXPRESS";
+            int edicionSql = obtenerEdicionDeSql(servidor);
+            if (edicionSql == 0)
+            {
+                servidor = ".";
+                edicionSql = obtenerEdicionDeSql(servidor);
+            }
+
             if (edicionSql == _edicionSqlExpress)
             {
                 txtServidor.Text = @".\" + textBox_NombreInstancia.Text;
             }
-            else
+            else if (edicionSql != 0)
             {
                 txtServidor.Text = ".";
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido obtener la edicion de SQL instalada.");
+                Dispose();
             }
             // Ejecuto la instalacion directamente sin que el usuario presione el boton.
             ejecutar_script_EliminarBase_comprobacion_de_inicio();
             ejecutar_script_CrearBase_comprobacion_de_inicio();
         }
 
-        public int obtenerEdicionDeSql()
+        public int obtenerEdicionDeSql(string servidor)
         {
+            string str;
+            SqlConnection myConn = new SqlConnection("Data source=" + servidor + ";Initial Catalog=master;Integrated Security=True");
+            str = "select serverproperty('EditionID')";
+            SqlCommand myCommand = new SqlCommand(str, myConn);
             try
             {
-                ConexionMaestra.abrir();
-                SqlCommand cmd = new SqlCommand("select serverproperty('EditionID')", ConexionMaestra.conectar);
-                return Convert.ToInt32(cmd.ExecuteScalar());
+                //ConexionMaestra.abrir();
+                //SqlCommand cmd = new SqlCommand("select serverproperty('EditionID')", ConexionMaestra.conectar);
+                
+                //return Convert.ToInt32(cmd.ExecuteScalar());
+
+                myConn.Open();
+                return Convert.ToInt32(myCommand.ExecuteScalar());
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.StackTrace);
+                //MessageBox.Show(ex.StackTrace);
+                //MessageBox.Show(ex.Message);
                 return 0;
             }
             finally
             {
-                ConexionMaestra.cerrar();
+                //ConexionMaestra.cerrar();
+                myConn.Close();
             }
         }
 
@@ -160,9 +212,9 @@ namespace Orus.Presentacion.AsistenteInstalacion
                 myConn.Open();
                 myCommand.ExecuteNonQuery();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.StackTrace);
+                
             }
             finally
             {
@@ -267,13 +319,13 @@ namespace Orus.Presentacion.AsistenteInstalacion
 
         private void timer_EliminarScriptCreacionBd_Tick(object sender, EventArgs e)
         {
-            // Este Timer se encarga de contar 15 segundos y luego Elimina el script que se creo para instalar la base de datos.
+            // Este Timer se encarga de contar 60 segundos y luego Elimina el script que se creo para instalar la base de datos.
 
             timer3.Stop();
 
             segundos += 1;
             label_seg.Text = segundos.ToString();
-            if (segundos == 15)
+            if (segundos == 60)
             {
                 timer_EliminarScriptCreacionBd.Stop();
                 try
@@ -282,7 +334,9 @@ namespace Orus.Presentacion.AsistenteInstalacion
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.StackTrace);
+                    resetContadores(0, 0);
+                    MessageBox.Show(ex.StackTrace + ex.Message);
+                    timer_EliminarScriptCreacionBd.Start();
                 }
                 MessageBox.Show("La Base de Datos se ha instalado correctamente", "Fin de instalacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Dispose();
@@ -291,6 +345,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
 
         private void btn_InstalarServidor_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor;
             try
             {
                 textBox_ArgumentosIni.Text = textBox_ArgumentosIni.Text.Replace("PRUEBAFINAL22", textBox_NombreInstancia.Text);
@@ -316,7 +371,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
             string rutaConfig;
             StreamWriter sw;
             rutaConfig = Path.Combine(Directory.GetCurrentDirectory(), "ConfigurationFile.ini");
-            rutaConfig = rutaConfig.Replace("ConfigurationFile.ini", @"SQLEXPR_x64_ESN\ConfigurationFile.ini");
+            rutaConfig = rutaConfig.Replace("ConfigurationFile.ini", @"SQLEXPR_x64_ENU\ConfigurationFile.ini");
             if (File.Exists(rutaConfig) == true)
             {
                 timer_CrearArchivoConfigIni.Stop();
@@ -342,7 +397,8 @@ namespace Orus.Presentacion.AsistenteInstalacion
             {
                 Process pross = new Process();
                 //pross.StartInfo.FileName = "SQLEXPR_x86_ENU.exe"; -> Asi lo puso en el curso, creo que esta mal y lo corrijo en la linea siguiente.
-                pross.StartInfo.FileName = "SQLEXPR_x64_ESN.exe";
+                //pross.StartInfo.FileName = "SQLEXPR_x64_ESN.exe";
+                pross.StartInfo.FileName = "SQLEXPR_x64_ENU.exe";
                 pross.StartInfo.Arguments = "/ConfigurationFile=ConfigurationFile.ini /ACTION=Install /IACCEPTSQLSERVERLICENSETERMS /SECURITYMODE=SQL /SAPWD=" + textBox_Pass.Text + " /SQLSYSADMINACCOUNTS=" + nombreDelEquipo_Usuario;
                 pross.StartInfo.WindowStyle = ProcessWindowStyle.Normal;
                 pross.Start();

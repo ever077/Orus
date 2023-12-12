@@ -359,7 +359,6 @@
             this.panel_Instalando.Controls.Add(this.panel_Temporizador);
             this.panel_Instalando.Controls.Add(this.label_InfoInstalacion);
             this.panel_Instalando.Controls.Add(this.pictureBox4);
-            this.panel_Instalando.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Instalando.Location = new System.Drawing.Point(0, 78);
             this.panel_Instalando.Name = "panel_Instalando";
             this.panel_Instalando.Size = new System.Drawing.Size(594, 588);
