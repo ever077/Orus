@@ -1,16 +1,9 @@
 ﻿using Orus.Datos;
 using Orus.Logica;
-using Orus.Presentacion.Reportes;
-using Orus.Presentacion.Reportes.DataSetReporteTableAdapters;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Orus.Presentacion
@@ -160,7 +153,6 @@ namespace Orus.Presentacion
             {
                 txt_Buscador.Text = "Buscar personal..";
                 txt_Buscador.ForeColor = Color.LightGray;
-                //txt_Buscador.Focus();
             }
         }
     }

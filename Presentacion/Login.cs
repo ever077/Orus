@@ -2,14 +2,10 @@
 using Orus.Logica;
 using Orus.Presentacion.AsistenteInstalacion;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Orus.Presentacion
@@ -21,7 +17,6 @@ namespace Orus.Presentacion
         private int idUsuario;
         private Image iconoUsuario;
         private int contador;
-        private int resultadoConexion;
         private string indicador;
         
         public Login()
