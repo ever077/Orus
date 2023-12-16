@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Orus.Logica;
 using Orus.Datos;
@@ -22,7 +17,7 @@ namespace Orus.Presentacion
         private int hasta = 10;
         private int contadorPersonal;
         private int idPersonal;
-        private int itemsPorPagina = 10;
+        private readonly int itemsPorPagina = 10;
         private string estado;
         private int totalPaginas;
 
@@ -48,9 +43,7 @@ namespace Orus.Presentacion
             btn_GuardarCambiosPersonal.Visible = false;
             txt_Nombres.Focus();
             LimpiarCampos();
-            //LocalizarDgvCargos();
             MostrarCargos();
-            //panel_AgregarCargo.SendToBack();
         }
 
         private void LocalizarDgvCargos()

@@ -1,19 +1,11 @@
 ﻿using Microsoft.Win32;
-using Orus.Datos;
 using Orus.Logica;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -86,6 +78,7 @@ namespace Orus.Presentacion.AsistenteInstalacion
             /* 
              * Segunda forma:
             */
+
             /*  SqlDataSourceEnumerator sqlDataSourceEnumerator = SqlDataSourceEnumerator.Instance;
                 DataTable dt = sqlDataSourceEnumerator.GetDataSources();
                 if (dt.Rows.Count == 0)
@@ -124,7 +117,6 @@ namespace Orus.Presentacion.AsistenteInstalacion
         {
             panel_Instalacion.Location = new Point((Width - panel_Instalacion.Width) / 2, (Height - panel_Instalacion.Height) / 2);
             nombreDelEquipo_Usuario = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            //Cursor = Cursors.WaitCursor;
             panel_Instalando.Visible = false;
             panel_Instalando.Dock = DockStyle.None;
         }
@@ -179,11 +171,6 @@ namespace Orus.Presentacion.AsistenteInstalacion
             SqlCommand myCommand = new SqlCommand(str, myConn);
             try
             {
-                //ConexionMaestra.abrir();
-                //SqlCommand cmd = new SqlCommand("select serverproperty('EditionID')", ConexionMaestra.conectar);
-                
-                //return Convert.ToInt32(cmd.ExecuteScalar());
-
                 myConn.Open();
                 return Convert.ToInt32(myCommand.ExecuteScalar());
             }
@@ -195,7 +182,6 @@ namespace Orus.Presentacion.AsistenteInstalacion
             }
             finally
             {
-                //ConexionMaestra.cerrar();
                 myConn.Close();
             }
         }
@@ -319,13 +305,13 @@ namespace Orus.Presentacion.AsistenteInstalacion
 
         private void timer_EliminarScriptCreacionBd_Tick(object sender, EventArgs e)
         {
-            // Este Timer se encarga de contar 60 segundos y luego Elimina el script que se creo para instalar la base de datos.
+            // Este Timer se encarga de contar 90 segundos y luego Elimina el script que se creo para instalar la base de datos.
 
             timer3.Stop();
 
             segundos += 1;
             label_seg.Text = segundos.ToString();
-            if (segundos == 60)
+            if (segundos == 90)
             {
                 timer_EliminarScriptCreacionBd.Stop();
                 try
@@ -398,6 +384,8 @@ namespace Orus.Presentacion.AsistenteInstalacion
                 Process pross = new Process();
                 //pross.StartInfo.FileName = "SQLEXPR_x86_ENU.exe"; -> Asi lo puso en el curso, creo que esta mal y lo corrijo en la linea siguiente.
                 //pross.StartInfo.FileName = "SQLEXPR_x64_ESN.exe";
+
+                // Depende del archivo de instalacion que se coloque en la carpeta Debug
                 pross.StartInfo.FileName = "SQLEXPR_x64_ENU.exe";
                 pross.StartInfo.Arguments = "/ConfigurationFile=ConfigurationFile.ini /ACTION=Install /IACCEPTSQLSERVERLICENSETERMS /SECURITYMODE=SQL /SAPWD=" + textBox_Pass.Text + " /SQLSYSADMINACCOUNTS=" + nombreDelEquipo_Usuario;
                 pross.StartInfo.WindowStyle = ProcessWindowStyle.Normal;

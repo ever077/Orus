@@ -1,15 +1,16 @@
 ﻿using Orus.Presentacion;
-using Orus.Presentacion.AsistenteInstalacion;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Orus
 {
     internal static class Program
     {
+        /*
+         * Esta Aplicacion esta hecha por 4E Software - Ever Dario Godoy
+         * En el marco del curso de Codigo369 de Udemy
+        */
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -18,9 +19,7 @@ namespace Orus
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Presentacion.Login());
 
-            //Presentacion.Login frm = new Presentacion.Login();
             Asistencia frm = new Asistencia();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();
