@@ -66,7 +66,7 @@
 
 <h3>:open_file_folder:<b> Acceso e Instalación del Proyecto </b>:wrench:</h3>
 <p>
-  Para acceder a la instalación del Proyecto se debe descargar el instalador el cual se encuentra en la carpeta "INSTALACIÓN".<br/>
+  Para acceder a la instalación del Proyecto se debe descargar el instalador el cual se encuentra en este <a href="https://www.dropbox.com/scl/fi/zh40mcnltqultqyl03mah/Orus.4E.exe?rlkey=5r0d563dutywemqu7n7art6kv&dl=0">enlace</a>.<br/>
   <b>* Solo se ha probado para Windows 10 x64</b><br/>
   Luego de haberse instalado, se debe ejecutar el acceso directo y brindarle permiso de administrador.<br/>
   Una vez abierto, se deberá seleccionar la opción "Principal".<br/>
