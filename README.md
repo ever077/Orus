@@ -17,6 +17,8 @@
   &nbsp;&nbsp;&nbsp;- Generar o restaurar copias de seguridad de los datos del sistema<br>
 </p>
 
+---
+
 <h3>:hammer:<b> Funcionalidades del Proyecto</b></h3>
 
 - <b>`Menú Principal:`</b> Menú principal del Administrador general (con todos los permisos) y de un usuario (con permisos limitados).
@@ -64,6 +66,8 @@
   <img alt="Creacion de Respaldo de Seguridad" src="https://github.com/ever077/Orus/assets/38265332/324ac5be-05a9-42d3-9597-e2db829a95f0" width="380" height="280">
 </div>
 
+---
+
 <h3>:open_file_folder:<b> Acceso e Instalación del Proyecto </b>:wrench:</h3>
 <p>
   Para acceder a la instalación del Proyecto se debe descargar el instalador el cual se encuentra en este <a href="https://www.dropbox.com/scl/fi/zh40mcnltqultqyl03mah/Orus.4E.exe?rlkey=5r0d563dutywemqu7n7art6kv&dl=0">enlace</a>.<br/>
@@ -75,7 +79,7 @@
     <img alt="Pantalla instalacion de BD" src="https://github.com/ever077/Orus/assets/38265332/c8528667-551e-444a-8176-36b5324a8a46" width="380" height="280">
   </div>
   
-  Si la computadora no tiene instalado SQL Server o SQL Server Express, el programa instalará automáticamente la version "SQLEXPR_x64_ENU"<br/>
+  Si la computadora no tiene instalado SQL Server o SQL Server Express, el programa instalará automáticamente la version "SQLEXPR_x64_ENU"
   para que el programa pueda funcionar correctamente. Esto se hara de forma automática sin que el usuario requiera presionar botónes.<br/>
   Después de que se haya instalado SQL Server y la Base de Datos se deberá iniciar nuevamente la Aplicación y se requerirá registrar el <b>Usuario Principal</b>,
   el cuál será el <b>Administrador</b> y tendrá acceso a todos los módulos del sistema.
@@ -84,6 +88,8 @@
     <img alt="Creacion usuario principal" src="https://github.com/ever077/Orus/assets/38265332/00ff650a-308b-4789-bf4e-23d483ba85ad" width="380" height="280">
   </div>
 </p>
+
+---
 
 <h3>
   <img alt="gif_code" src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width ="25">
@@ -96,10 +102,25 @@
 - <img alt="Static Badge" src="https://img.shields.io/badge/Report_Viewer-E8504D">
 - <img alt="Static Badge" src="https://img.shields.io/badge/Visual_Studio_2022-592499">
 
+---
+
+<h3>
+  <img alt="concept" src="https://github.com/ever077/Orus/assets/38265332/7b2e5f86-9917-46e7-af7a-13b465d56357" width ="25">
+  <b> Conceptos utilizados</b>
+</h3>
+
+<b>`POO`</b> - <b>`SQL Procedimientos Almacenados`</b> - <b>`Encriptación`</b> - <b>`Instalación Automática de BD`</b> - <b>`Creación de Instalador`</b>
+
+<b>`Instalación Automática de SQL Express`</b> - <b>`Backup`</b> - <b>`Paginado`</b> - <b>`Generación de Reportes`</b> - <b>`Login`</b> - <b>`Permisos`</b>
+
+---
+
 <h3>:mortar_board:<b> Creditos</b></h3>
 <p>
   Este programa fue hecho en el marco del curso "Sistema de asistencias en C# y SQLserver" de Udemy creado por Codigo 369.
 </p>
+
+---
 
 <h3>
   <img alt="gif_coding" src="https://github.com/0xAbdulKhalid/0xAbdulKhalid/raw/main/assets/mdImages/about_me.gif" width = 50px>
